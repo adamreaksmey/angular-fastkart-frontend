@@ -1,44 +1,58 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Store, Select  } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { ThemeState } from '../../shared/state/theme.state';
-import { GetHomePage } from '../../shared/action/theme.action';
-import { ThemeOptionService } from '../../shared/services/theme-option.service';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Store, Select } from "@ngxs/store";
+import { Observable, combineLatest } from "rxjs";
+import { map, switchMap, takeUntil } from "rxjs/operators";
+import { ThemeState } from "../../shared/state/theme.state";
+import { GetHomePage } from "../../shared/action/theme.action";
+import { ThemeOptionService } from "../../shared/services/theme-option.service";
+import { Subject } from "rxjs";
 
 @Component({
-  selector: 'app-themes',
-  templateUrl: './themes.component.html',
-  styleUrls: ['./themes.component.scss']
+  selector: "app-themes",
+  templateUrl: "./themes.component.html",
+  styleUrls: ["./themes.component.scss"],
 })
-export class ThemesComponent {
-
+export class ThemesComponent implements OnInit, OnDestroy {
   @Select(ThemeState.homePage) homePage$: Observable<string>;
   @Select(ThemeState.activeTheme) activeTheme$: Observable<string>;
 
   public theme: string;
   public homePage: any;
 
-  constructor(private store: Store,
+  private destroy$ = new Subject<void>();
+
+  constructor(
+    private store: Store,
     private route: ActivatedRoute,
-    private themeOptionService: ThemeOptionService) {
-      this.route.queryParams.subscribe(params => {
-        this.themeOptionService.preloader = true;
-        this.activeTheme$.subscribe(theme => {
-          this.theme = params['theme'] ? params['theme'] : theme;
-          this.store.dispatch(new GetHomePage(params['theme'] ? params['theme'] : theme)).subscribe(data => {
-            this.homePage = data.theme.homePage;
-            this.themeOptionService.preloader = false;
-          });
-        })
-    });
+    private themeOptionService: ThemeOptionService
+  ) {}
 
-    document.body.classList.add('home');
+  ngOnInit() {
+    document.body.classList.add("home");
+
+    combineLatest([
+      this.route.queryParams.pipe(map((params) => params["theme"])),
+      this.activeTheme$,
+    ])
+      .pipe(
+        map(([queryParamTheme, activeTheme]) => queryParamTheme || activeTheme),
+        switchMap((themeSetting) => {
+          this.themeOptionService.preloader = true;
+          this.theme = themeSetting;
+          return this.store.dispatch(new GetHomePage(themeSetting));
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe((data) => {
+        this.homePage = data.theme.homePage;
+        this.themeOptionService.preloader = false;
+      });
   }
-  
 
-  ngOnDestroy(){
-    document.body.classList.remove('home');
-    
+  ngOnDestroy() {
+    document.body.classList.remove("home");
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
