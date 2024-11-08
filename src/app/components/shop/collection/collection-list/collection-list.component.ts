@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Option } from '../../../../shared/interface/theme-option.interface';
 import { ThemeOptionState } from '../../../../shared/state/theme-option.state';
 import { AttributeService } from '../../../../shared/services/attribute.service';
-import { environment } from '../../../../../environments/environment';
+import { environment } from '../../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-collection-list',

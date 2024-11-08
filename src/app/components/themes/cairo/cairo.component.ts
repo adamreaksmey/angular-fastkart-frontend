@@ -11,7 +11,7 @@ import { ThemeOptionState } from '../../../shared/state/theme-option.state';
 import { Option } from '../../../shared/interface/theme-option.interface';
 import { ActivatedRoute } from '@angular/router';
 import { GetBlogs } from '../../../shared/action/blog.action';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-cairo',

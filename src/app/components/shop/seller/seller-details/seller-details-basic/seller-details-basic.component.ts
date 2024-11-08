@@ -5,7 +5,7 @@ import { Params } from '../../../../../shared/interface/core.interface';
 import { Stores } from '../../../../../shared/interface/store.interface';
 import { Option } from '../../../../../shared/interface/theme-option.interface';
 import { ThemeOptionState } from '../../../../../shared/state/theme-option.state';
-import { environment } from '../../../../../../environments/environment';
+import { environment } from '../../../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-seller-details-basic',

@@ -8,7 +8,7 @@ import { NewsletterService } from '../../../../../shared/services/newsletter.ser
 import { ThemeOptionState } from '../../../../../shared/state/theme-option.state';
 import { Subscription } from '../../../../action/subscription.action';
 import { Option } from '../../../../interface/theme-option.interface';
-import { environment } from '../../../../../../environments/environment';
+import { environment } from '../../../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-newsletter-modal',

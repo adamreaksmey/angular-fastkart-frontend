@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Services } from '../../../../shared/interface/theme.interface';
-import { environment } from '../../../../../environments/environment';
+import { environment } from '../../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-service',

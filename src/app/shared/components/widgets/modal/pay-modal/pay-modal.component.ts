@@ -6,7 +6,7 @@ import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { SettingState } from '../../../../../shared/state/setting.state';
 import { Values } from '../../../../../shared/interface/setting.interface';
-import { environment } from '../../../../../../environments/environment';
+import { environment } from '../../../../../../environments/environment.prod';
 import { RePayment } from '../../../../../shared/action/order.action';
 
 @Component({
