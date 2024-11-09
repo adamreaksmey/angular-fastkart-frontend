@@ -62,16 +62,31 @@
         </div>
       </div>
       <div
-        class="row row-cols-xxl-6 row-cols-xl-5 row-cols-lg-4 row-cols-sm-3 row-cols-2 g-sm-4 g-3 no-arrow"
+        class="row row-cols-lg-4 row-cols-sm-3 row-cols-2 g-sm-4 no-arrow"
+        style="
+          margin-top: 0px;
+          padding-top: 0px;
+          display: flex;
+          justify-content: center;
+        "
       >
-        <ng-container *ngFor="let product of filteredProducts?.data">
-          <div>
-            <app-product-box
-              [product]="product"
-              [style]="'horizontal'"
-            ></app-product-box>
-          </div>
-        </ng-container>
+        <div
+          *ngIf="filteredProducts?.data?.length === 0; else productList"
+          class="fs-4"
+        >
+          No products to be displayed!
+        </div>
+
+        <ng-template #productList>
+          <ng-container *ngFor="let product of filteredProducts?.data">
+            <div>
+              <app-product-box
+                [product]="product"
+                [style]="'horizontal'"
+              ></app-product-box>
+            </div>
+          </ng-container>
+        </ng-template>
       </div>
 
       <div
