@@ -8,7 +8,7 @@ import { Deal, DealOfDays } from '../../../../shared/interface/theme.interface';
 import { AddToWishlist, DeleteWishlist } from '../../../../shared/action/wishlist.action';
 import { AddToCompare } from '../../../../shared/action/compare.action';
 import * as data from '../../../../shared/data/owl-carousel'
-import { environment } from '../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 
 @Component({

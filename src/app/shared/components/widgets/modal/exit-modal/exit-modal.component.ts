@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { UpdateSession } from '../../../../../shared/action/theme-option.action';
 import { ThemeOptionState } from '../../../../../shared/state/theme-option.state';
 import { Option } from '../../../../interface/theme-option.interface';
-import { environment } from '../../../../../../environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-exit-modal',

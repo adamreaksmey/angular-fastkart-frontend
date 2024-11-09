@@ -9,7 +9,7 @@ import { CartState } from '../../../../../shared/state/cart.state';
 import { Observable } from 'rxjs';
 import { AddToCart } from '../../../../../shared/action/cart.action';
 import { Router } from '@angular/router';
-import { environment } from '../../../../../../environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 import { VideoPlayModalComponent } from '../widgets/video-play-modal/video-play-modal.component';
 
 @Component({

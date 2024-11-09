@@ -4,7 +4,7 @@ import { Footer } from '../../../../shared/interface/theme.interface';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Subscription } from '../../../action/subscription.action';
-import { environment } from '../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-subscribe-footer',

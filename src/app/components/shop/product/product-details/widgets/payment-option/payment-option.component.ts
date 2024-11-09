@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../../../../shared/interface/product.interface';
 import { Option } from '../../../../../../shared/interface/theme-option.interface';
-import { environment } from '../../../../../../../environments/environment.prod';
+import { environment } from '../../../../../../../environments/environment';
 
 @Component({
   selector: 'app-payment-option',

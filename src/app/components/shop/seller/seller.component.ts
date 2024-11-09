@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Breadcrumb } from '../../../shared/interface/breadcrumb';
 import { Option } from '../../../shared/interface/theme-option.interface';
 import { ThemeOptionState } from '../../../shared/state/theme-option.state';
-import { environment } from '../../../../environments/environment.prod';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-seller',

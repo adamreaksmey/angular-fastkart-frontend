@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import * as data from '../../../../shared/data/owl-carousel';
 import { Offer } from '../../../../shared/interface/theme.interface';
-import { environment } from '../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-wallet-offer',

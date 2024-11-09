@@ -3,7 +3,7 @@ import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Product, ProductModel } from '../../../../shared/interface/product.interface';
 import { ProductState } from '../../../../shared/state/product.state';
-import { environment } from '../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-image-link',

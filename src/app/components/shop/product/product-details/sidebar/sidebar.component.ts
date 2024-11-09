@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ThemeOptionState } from '../../../../../shared/state/theme-option.state';
 import { Option } from '../../../../../shared/interface/theme-option.interface';
 import { Product } from '../../../../../shared/interface/product.interface';
-import { environment } from '../../../../../../environments/environment.prod';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-product-details-sidebar',

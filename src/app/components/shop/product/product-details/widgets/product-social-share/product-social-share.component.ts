@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { environment } from '../../../../../../../environments/environment.prod';
+import { environment } from '../../../../../../../environments/environment';
 import { Product } from '../../../../../../shared/interface/product.interface';
 import { Option } from '../../../../../../shared/interface/theme-option.interface';
 

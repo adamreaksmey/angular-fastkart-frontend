@@ -5,7 +5,7 @@ import { Params } from '../../../../shared/interface/core.interface';
 import { ThemeOptionState } from '../../../../shared/state/theme-option.state';
 import { Option } from '../../../../shared/interface/theme-option.interface';
 import { AttributeService } from '../../../../shared/services/attribute.service';
-import { environment } from '../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-collection-right-sidebar',
