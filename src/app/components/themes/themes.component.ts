@@ -21,6 +21,21 @@ export class ThemesComponent implements OnInit, OnDestroy {
   public homePage: any;
 
   private destroy$ = new Subject<void>();
+  public fixedCategoriesNames = [
+    "Photography",
+    "Accessories",
+    "Videos",
+    "More In Photography",
+    "Lenses",
+    "Drones",
+  ];
+
+  public categories = this.fixedCategoriesNames.map((data, index) => ({
+    id: index + 1,
+    name: data,
+  }));
+
+  public selectedCategory: any;
 
   constructor(
     private store: Store,
@@ -46,6 +61,8 @@ export class ThemesComponent implements OnInit, OnDestroy {
       )
       .subscribe((data) => {
         this.homePage = data.theme.homePage;
+        this.categories = data.category.category.data;
+        console.log("data", this.categories)
         this.themeOptionService.preloader = false;
       });
   }
@@ -54,5 +71,10 @@ export class ThemesComponent implements OnInit, OnDestroy {
     document.body.classList.remove("home");
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  highlightItem(item: any) {
+    console.log("item clicked", item);
+    this.selectedCategory = item;
   }
 }
