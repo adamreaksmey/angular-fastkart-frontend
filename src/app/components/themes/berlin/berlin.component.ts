@@ -19,9 +19,10 @@ import { ActivatedRoute } from "@angular/router";
 export class BerlinComponent {
   @Input() data?: Berlin;
   @Input() slug?: string;
-  @Input() fixedCategories?: any[];
+  @Input() categories?: any[];
   @Input() selectedCategory?: any;
-  @Input() highlightItem?: Function
+  @Input() highlightItem?: Function;
+  @Input() filteredProducts?: any;
 
   @Select(ThemeOptionState.themeOptions) themeOption$: Observable<Option>;
 

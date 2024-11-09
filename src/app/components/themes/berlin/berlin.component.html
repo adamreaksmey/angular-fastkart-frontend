@@ -29,29 +29,51 @@
           >
           </app-title>
         </div>
-        <div class="d-flex gap-2" style="width: 100%">
+        <!-- here -->
+        <div class="category-container">
           <div
-            *ngFor="let category of fixedCategories"
-            class="category-border"
-            (click)="highlightItem && highlightItem(category?.id)"
-            [ngClass]="{ highlighted: category?.id === selectedCategory }"
+            class="d-flex gap-2"
+            style="width: 100%"
+            *ngIf="categories && categories.length > 0"
           >
-            <div>
+            <div
+              *ngFor="let category of categories | slice : 0 : 6"
+              class="category-border"
+              (click)="highlightItem && highlightItem(category && category)"
+              [ngClass]="{ highlighted: category?.id === selectedCategory }"
+            >
               <div>
-                <img
-                  src="assets/images/sample_camera.svg"
-                  alt="appstore"
-                  width="30"
-                  height="30"
-                />
-              </div>
-              <div>
-                {{ category.name }}
+                <div>
+                  <img
+                    [src]="
+                      category?.category_image?.original_url ||
+                      'assets/images/sample_camera.svg'
+                    "
+                    width="50"
+                    height="50"
+                  />
+                </div>
+                <div>
+                  {{ category && category?.name }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div
+        class="row row-cols-xxl-6 row-cols-xl-5 row-cols-lg-4 row-cols-sm-3 row-cols-2 g-sm-4 g-3 no-arrow"
+      >
+        <ng-container *ngFor="let product of filteredProducts?.data">
+          <div>
+            <app-product-box
+              [product]="product"
+              [style]="'horizontal'"
+            ></app-product-box>
+          </div>
+        </ng-container>
+      </div>
+
       <div
         class="col-xxl-9 col-xl-8"
         [class]="
@@ -65,7 +87,6 @@
           class="section-b-space"
           *ngIf="data?.content?.main_content?.section1_products?.status"
         >
-          <!-- here -->
           <app-title
             [title]="data?.content?.main_content?.section1_products?.title"
             [description]="

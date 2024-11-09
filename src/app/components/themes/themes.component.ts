@@ -1,12 +1,14 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Store, Select } from "@ngxs/store";
-import { Observable, combineLatest } from "rxjs";
+import { Observable, Subject, combineLatest } from "rxjs";
 import { map, switchMap, takeUntil } from "rxjs/operators";
 import { ThemeState } from "../../shared/state/theme.state";
 import { GetHomePage } from "../../shared/action/theme.action";
 import { ThemeOptionService } from "../../shared/services/theme-option.service";
-import { Subject } from "rxjs";
+import { GetProducts } from "../../shared/action/product.action";
+import { ProductState } from "../../shared/state/product.state";
+import { ProductModel } from "../../shared/interface/product.interface";
 
 @Component({
   selector: "app-themes",
@@ -16,26 +18,15 @@ import { Subject } from "rxjs";
 export class ThemesComponent implements OnInit, OnDestroy {
   @Select(ThemeState.homePage) homePage$: Observable<string>;
   @Select(ThemeState.activeTheme) activeTheme$: Observable<string>;
+  @Select(ProductState.product) product$: Observable<ProductModel>;
 
   public theme: string;
   public homePage: any;
+  public categories: { id: number; name: string }[] = [];
+  public selectedCategory: number | null = null;
+  public filteredProducts: ProductModel | null = null;
 
   private destroy$ = new Subject<void>();
-  public fixedCategoriesNames = [
-    "Photography",
-    "Accessories",
-    "Videos",
-    "More In Photography",
-    "Lenses",
-    "Drones",
-  ];
-
-  public categories = this.fixedCategoriesNames.map((data, index) => ({
-    id: index + 1,
-    name: data,
-  }));
-
-  public selectedCategory: any;
 
   constructor(
     private store: Store,
@@ -43,9 +34,18 @@ export class ThemesComponent implements OnInit, OnDestroy {
     private themeOptionService: ThemeOptionService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     document.body.classList.add("home");
+    this.loadHomePage();
+  }
 
+  ngOnDestroy(): void {
+    document.body.classList.remove("home");
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private loadHomePage(): void {
     combineLatest([
       this.route.queryParams.pipe(map((params) => params["theme"])),
       this.activeTheme$,
@@ -60,21 +60,27 @@ export class ThemesComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe((data) => {
-        this.homePage = data.theme.homePage;
-        this.categories = data.category.category.data;
-        console.log("data", this.categories)
+        this.homePage = data.theme?.homePage;
+        this.categories = data.category?.category?.data || [];
         this.themeOptionService.preloader = false;
       });
   }
 
-  ngOnDestroy() {
-    document.body.classList.remove("home");
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+  highlightItem = (item: { id: number; slug: string }): void => {
+    console.log("Category selected :", item);
+    this.selectedCategory = item.id;
+    this.fetchProductsByCategory(item.slug);
+  };
 
-  highlightItem(item: any) {
-    console.log("item clicked", item);
-    this.selectedCategory = item;
+  private fetchProductsByCategory(category: string): void {
+    this.store
+      .dispatch(new GetProducts({ category }))
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.product$.subscribe((product) => {
+          console.log("Product data:", product);
+          this.filteredProducts = product;
+        });
+      });
   }
 }
