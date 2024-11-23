@@ -23,3 +23,32 @@
 .category-border {
   min-width: 130px;
 }
+
+/* Dot style for individual dots */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Active dot style */
+.dot.active {
+  background-color: #007bff; /* Active dot color */
+}
+
+/* Flex container for the dots */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between the dots */
+  margin-top: 10px; /* Optional: space between product scroller and dots */
+}
+
+/* Flex item style for each dot */
+.dots-container .dot {
+  display: inline-block;
+}
+

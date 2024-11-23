@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Store, Select } from "@ngxs/store";
 import { Observable, Subject, combineLatest } from "rxjs";
@@ -31,12 +37,14 @@ export class ThemesComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store,
     private route: ActivatedRoute,
-    private themeOptionService: ThemeOptionService,
+    private themeOptionService: ThemeOptionService
   ) {}
 
   ngOnInit(): void {
     document.body.classList.add("home");
     this.loadHomePage();
+    this.fetchProductsByCategory("accessories");
+    this.selectedCategory = 62;
   }
 
   ngOnDestroy(): void {
@@ -57,7 +65,7 @@ export class ThemesComponent implements OnInit, OnDestroy {
           this.theme = themeSetting;
           return this.store.dispatch(new GetHomePage(themeSetting));
         }),
-        takeUntil(this.destroy$),
+        takeUntil(this.destroy$)
       )
       .subscribe((data) => {
         this.homePage = data.theme?.homePage;

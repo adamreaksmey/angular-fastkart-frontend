@@ -3,12 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  baseURL: "http://localhost:4200",
-  URL: "http://localhost:8000/api", // Change only the domain part, keeping "/api" intact
-  storageURL: "http://localhost:4200", // Change only the laravel primary domain
-  payment_return_rul: "http://localhost:4200/account/order/details", // Change only the laravel primary domain
-  payment_cancel_url: "http://localhost:4200",
+  // production: false,
+  // baseURL: "http://localhost:4200",
+  // URL: "http://localhost:8000/api", // Change only the domain part, keeping "/api" intact
+  // storageURL: "http://localhost:4200", // Change only the laravel primary domain
+  // payment_return_rul: "http://localhost:4200/account/order/details", // Change only the laravel primary domain
+  // payment_cancel_url: "http://localhost:4200",
+
+  production: true,
+  baseURL: "https://camera04.nokorweb.com", // This represents the base URL for running our frontend project.
+  URL: "https://camera04.nokorweb.com/api/public/api", // Change only the domain part, keeping "/api" intact
+  storageURL: "https://camera04.nokorweb.com/api/public", // Change only the laravel primary domain
+  payment_return_url: "https://camera04.nokorweb.com/account/order/details",
+  payment_cancel_url: "https://camera04.nokorweb.com",
 };
 
 /*

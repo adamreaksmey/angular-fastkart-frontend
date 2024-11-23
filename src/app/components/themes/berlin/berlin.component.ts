@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, ElementRef, Input, ViewChild } from "@angular/core";
 import { Select, Store } from "@ngxs/store";
 import { Observable, forkJoin, switchMap } from "rxjs";
 import { GetProductByIds } from "../../../shared/action/product.action";
@@ -25,14 +25,16 @@ export class BerlinComponent {
   @Input() filteredProducts?: any;
 
   @Select(ThemeOptionState.themeOptions) themeOption$: Observable<Option>;
+  @ViewChild("scrollContainer", { static: false }) scrollContainer: ElementRef;
 
   public categorySlider = data.categorySlider;
   public productSliderMargin = data.productSliderMargin;
+  public currentIndex = 0;
 
   constructor(
     private store: Store,
     private route: ActivatedRoute,
-    private themeOptionService: ThemeOptionService,
+    private themeOptionService: ThemeOptionService
   ) {}
 
   ngOnInit() {
@@ -42,19 +44,19 @@ export class BerlinComponent {
           status: 1,
           paginate: this.data?.content?.products_ids.length,
           ids: this.data?.content?.products_ids?.join(","),
-        }),
+        })
       );
       const getBrand$ = this.store.dispatch(
         new GetBrands({
           status: 1,
           ids: this.data?.content?.brands?.brand_ids?.join(),
-        }),
+        })
       );
       const getStore$ = this.store.dispatch(
         new GetStores({
           status: 1,
           ids: this.data?.content?.main_content?.seller?.store_ids?.join(),
-        }),
+        })
       );
 
       // Skeleton Loader
@@ -76,7 +78,7 @@ export class BerlinComponent {
             const itemsCount = isDigitalProduct ? 3 : 5;
             this.updateProductSliderMargin(itemsCount);
             return [];
-          }),
+          })
         )
         .subscribe();
     }
@@ -93,5 +95,38 @@ export class BerlinComponent {
         },
       };
     }
+  }
+
+  // Handle scroll event to update the active dot
+  onScroll(event: Event): void {
+    const container = this.scrollContainer.nativeElement;
+    const scrollPosition = container.scrollLeft; // Current scroll position
+    const maxScrollLeft = container.scrollWidth - container.clientWidth; // Maximum scrollable position
+    const itemWidth = container.querySelector(".flex-shrink-0")?.clientWidth || 0; // Width of each product card
+    const groupWidth = itemWidth * 4;
+  
+    // Check if the user has scrolled to the end (or near the end)
+    if (scrollPosition >= maxScrollLeft - 1) {
+      this.currentIndex = Math.ceil(container.scrollWidth / groupWidth) - 1; // Highlight the last dot
+    } else {
+      this.currentIndex = Math.round(scrollPosition / groupWidth);
+    }
+  }
+
+  // Navigate to a specific section based on dot click
+  goToSection(index: number): void {
+    const container = this.scrollContainer?.nativeElement;
+    if (!container) return;
+  
+    const itemWidth = container.querySelector(".flex-shrink-0")?.clientWidth || 0; // Width of each product card
+    const groupWidth = itemWidth * 4; // Width of a group of 4 products
+  
+    // Scroll to the specific group
+    container.scrollTo({
+      left: index * groupWidth, // Scroll position for the target group
+      behavior: "smooth",
+    });
+  
+    this.currentIndex = index;
   }
 }

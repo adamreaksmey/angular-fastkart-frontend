@@ -37,7 +37,7 @@
             *ngIf="categories && categories.length > 0"
           >
             <div
-              *ngFor="let category of categories | slice: 0 : 6"
+              *ngFor="let category of categories | slice : 0 : 6"
               class="category-border"
               (click)="highlightItem && highlightItem(category && category)"
               [ngClass]="{ highlighted: category?.id === selectedCategory }"
@@ -62,24 +62,35 @@
         </div>
       </div>
       <div
-        class="row row-cols-lg-4 row-cols-sm-3 row-cols-2 g-sm-4 no-arrow"
-        style="
-          margin-top: 0px;
-          padding-top: 0px;
-          display: flex;
-          justify-content: center;
-        "
+        #scrollContainer
+        class="d-flex flex-row overflow-auto gap-3"
+        style="max-width: 100%"
+        (scroll)="onScroll($event)"
       >
         <div
           *ngIf="filteredProducts?.data?.length === 0; else productList"
-          class="fs-4"
+          class="fs-4 text-center w-100"
         >
           No products to be displayed!
         </div>
 
         <ng-template #productList>
-          <ng-container *ngFor="let product of filteredProducts?.data">
-            <div>
+          <ng-container
+            *ngFor="let product of filteredProducts?.data; let i = index"
+          >
+            <div class="flex-shrink-0 col-3">
+              <app-product-box
+                [product]="product"
+                [style]="'horizontal'"
+              ></app-product-box>
+            </div>
+            <div class="flex-shrink-0 col-3">
+              <app-product-box
+                [product]="product"
+                [style]="'horizontal'"
+              ></app-product-box>
+            </div>
+            <div class="flex-shrink-0 col-3">
               <app-product-box
                 [product]="product"
                 [style]="'horizontal'"
@@ -87,6 +98,18 @@
             </div>
           </ng-container>
         </ng-template>
+      </div>
+
+      <!-- Dot indicators -->
+      <div class="d-flex justify-content-center gap-2 mt-2">
+        <span
+          *ngFor="let _ of filteredProducts?.data; let i = index"
+          [ngClass]="{
+            dot: true,
+            active: currentIndex === i
+          }"
+          (click)="goToSection(i)"
+        ></span>
       </div>
 
       <div
