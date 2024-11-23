@@ -1,26 +1,26 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { ThemesComponent } from './themes.component';
-import { HomeResolver } from '../../shared/resolvers/home.resolver';
+import { ThemesComponent } from "./themes.component";
+import { HomeResolver } from "../../shared/resolvers/home.resolver";
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: ThemesComponent
+    path: "home",
+    component: ThemesComponent,
   },
   {
-    path: '',
+    path: "",
     component: ThemesComponent,
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+    runGuardsAndResolvers: "paramsOrQueryParamsChange",
     resolve: {
-      data: HomeResolver
-    }
-  }
+      data: HomeResolver,
+    },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ThemesRoutingModule { }
+export class ThemesRoutingModule {}

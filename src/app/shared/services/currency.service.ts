@@ -9,13 +9,13 @@ import { CurrencyModel } from "../interface/currency.interface";
   providedIn: "root",
 })
 export class CurrencyService {
-
   public selectedCurrency: any;
 
   constructor(private http: HttpClient) {}
 
   getCurrencies(payload?: Params): Observable<CurrencyModel> {
-    return this.http.get<CurrencyModel>(`${environment.URL}/currency`, { params: payload });
+    return this.http.get<CurrencyModel>(`${environment.URL}/currency`, {
+      params: payload,
+    });
   }
-
 }

@@ -10,9 +10,9 @@ export class PointStateModel {
     balance: 0 as number,
     transactions: {
       data: [] as TransactionsData[],
-      total: 0
-    }
-  }
+      total: 0,
+    },
+  };
 }
 
 @State<PointStateModel>({
@@ -22,14 +22,13 @@ export class PointStateModel {
       balance: 0 as number,
       transactions: {
         data: [],
-        total: 0
-      }
-    }
+        total: 0,
+      },
+    },
   },
 })
 @Injectable()
 export class PointState {
-  
   constructor(private pointService: PointService) {}
 
   @Selector()
@@ -38,34 +37,38 @@ export class PointState {
   }
 
   @Action(GetUserTransaction)
-  getUserTransaction(ctx: StateContext<PointStateModel>, { payload }: GetUserTransaction) {
+  getUserTransaction(
+    ctx: StateContext<PointStateModel>,
+    { payload }: GetUserTransaction,
+  ) {
     return this.pointService.getUserTransaction(payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             point: {
               balance: result?.balance,
               transactions: {
                 data: result?.transactions?.data,
-                total: result?.transactions?.total ? result?.transactions?.total : result?.transactions?.data?.length
-              }
-            }
+                total: result?.transactions?.total
+                  ? result?.transactions?.total
+                  : result?.transactions?.data?.length,
+              },
+            },
           });
         },
-        error: err => { 
+        error: (err) => {
           ctx.patchState({
             point: {
               balance: 0,
               transactions: {
                 data: [],
-                total: 0
-              }
-            }
+                total: 0,
+              },
+            },
           });
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
 }

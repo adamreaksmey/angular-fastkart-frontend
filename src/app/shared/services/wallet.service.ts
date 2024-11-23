@@ -9,11 +9,11 @@ import { Wallet } from "../interface/wallet.interface";
   providedIn: "root",
 })
 export class WalletService {
-
   constructor(private http: HttpClient) {}
 
   getUserTransaction(payload?: Params): Observable<Wallet> {
-    return this.http.get<Wallet>(`${environment.URL}/wallet/consumer`, { params: payload });
+    return this.http.get<Wallet>(`${environment.URL}/wallet/consumer`, {
+      params: payload,
+    });
   }
-
 }

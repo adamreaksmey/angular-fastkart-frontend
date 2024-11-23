@@ -1,8 +1,10 @@
-import { inject } from '@angular/core';
-import { ResolveFn } from '@angular/router';
-import { Store } from '@ngxs/store';
-import { GetProductBySlug } from '../action/product.action';
+import { inject } from "@angular/core";
+import { ResolveFn } from "@angular/router";
+import { Store } from "@ngxs/store";
+import { GetProductBySlug } from "../action/product.action";
 
 export const ProductResolver: ResolveFn<boolean> = (route, state) => {
-  return inject(Store).dispatch(new GetProductBySlug(route.paramMap.get('slug')!));
+  return inject(Store).dispatch(
+    new GetProductBySlug(route.paramMap.get("slug")!),
+  );
 };

@@ -5,13 +5,12 @@ import { GetMenu } from "../action/menu.action";
 import { tap } from "rxjs";
 import { Menu } from "../interface/menu.interface";
 import { ThemeOptionService } from "../services/theme-option.service";
- 
 
 export class MenuStateModel {
   menu = {
     data: [] as Menu[],
-    total: 0
-  }
+    total: 0,
+  };
 }
 
 @State<MenuStateModel>({
@@ -19,42 +18,39 @@ export class MenuStateModel {
   defaults: {
     menu: {
       data: [],
-      total: 0
+      total: 0,
     },
   },
 })
-
 @Injectable()
 export class MenuState {
-
   constructor(private menuService: MenuService) {}
 
   @Selector()
   static menu(state: MenuStateModel) {
     return state.menu;
   }
- 
+
   @Action(GetMenu)
   getMenu(ctx: StateContext<MenuStateModel>, action: GetMenu) {
     this.menuService.skeletonLoader = true;
     return this.menuService.getMenu(action.payload).pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           ctx.patchState({
             menu: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
         },
         complete: () => {
           this.menuService.skeletonLoader = false;
-        }
-      })
+        },
+      }),
     );
   }
-
 }

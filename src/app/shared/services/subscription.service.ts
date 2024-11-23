@@ -1,16 +1,15 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { environment } from "../../../environments/environment";
 
 export interface Subscription {
   email: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class SubscriptionService {
-
   constructor(private http: HttpClient) {}
 
   sendEmail(payload: Subscription) {

@@ -32,7 +32,7 @@ export class BerlinComponent {
   constructor(
     private store: Store,
     private route: ActivatedRoute,
-    private themeOptionService: ThemeOptionService
+    private themeOptionService: ThemeOptionService,
   ) {}
 
   ngOnInit() {
@@ -42,19 +42,19 @@ export class BerlinComponent {
           status: 1,
           paginate: this.data?.content?.products_ids.length,
           ids: this.data?.content?.products_ids?.join(","),
-        })
+        }),
       );
       const getBrand$ = this.store.dispatch(
         new GetBrands({
           status: 1,
           ids: this.data?.content?.brands?.brand_ids?.join(),
-        })
+        }),
       );
       const getStore$ = this.store.dispatch(
         new GetStores({
           status: 1,
           ids: this.data?.content?.main_content?.seller?.store_ids?.join(),
-        })
+        }),
       );
 
       // Skeleton Loader
@@ -76,7 +76,7 @@ export class BerlinComponent {
             const itemsCount = isDigitalProduct ? 3 : 5;
             this.updateProductSliderMargin(itemsCount);
             return [];
-          })
+          }),
         )
         .subscribe();
     }

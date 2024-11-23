@@ -1,5 +1,8 @@
 import { Params } from "../interface/core.interface";
-import { CheckoutPayload, RePaymentPayload } from "../interface/order.interface";
+import {
+  CheckoutPayload,
+  RePaymentPayload,
+} from "../interface/order.interface";
 
 export class GetOrders {
   static readonly type = "[Order] Get";
@@ -33,7 +36,9 @@ export class VerifyPayment {
 
 export class OrderTracking {
   static readonly type = "[Order] Tracking";
-  constructor(public payload: { order_number: string, email_or_phone: string }) {}
+  constructor(
+    public payload: { order_number: string; email_or_phone: string },
+  ) {}
 }
 
 export class DownloadInvoice {

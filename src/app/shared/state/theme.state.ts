@@ -13,12 +13,11 @@ export class ThemesStateModel {
   name: "theme",
   defaults: {
     homePage: null,
-    activeTheme: ''
+    activeTheme: "",
   },
 })
 @Injectable()
 export class ThemeState {
-
   constructor(private themeService: ThemeService) {}
 
   @Selector()
@@ -36,19 +35,21 @@ export class ThemeState {
     return this.themeService.getThemes().pipe(
       tap({
         next: (result) => {
-          var activeTheme: string = '';
-          result.data.map(theme => {
-            if(theme.status === 1) { activeTheme = theme.slug}
-          })
+          var activeTheme: string = "";
+          result.data.map((theme) => {
+            if (theme.status === 1) {
+              activeTheme = theme.slug;
+            }
+          });
           ctx.patchState({
             homePage: result,
-            activeTheme: activeTheme
+            activeTheme: activeTheme,
           });
         },
         error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -59,7 +60,7 @@ export class ThemeState {
       tap({
         next: (result) => {
           ctx.patchState({
-            homePage: result
+            homePage: result,
           });
         },
         error: (err) => {
@@ -68,8 +69,7 @@ export class ThemeState {
         // complete: () =>{
         //   this.themeOptionService.preloader = false;
         // }
-      })
+      }),
     );
   }
-
 }

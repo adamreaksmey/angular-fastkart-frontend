@@ -21,7 +21,7 @@
       (themeOption$ | async)?.product?.product_box_bg ? 'full_bg' : '',
       (themeOption$ | async)?.product?.product_box_border
         ? 'product_border'
-        : ''
+        : '',
     ]"
   >
     <div
@@ -33,7 +33,7 @@
           : '',
         grid === 6
           ? 'row-cols-xxl-6 row-cols-lg-4 row-cols-md-3 row-cols-2'
-          : ''
+          : '',
       ]"
     >
       <ng-container *ngFor="let product of products">

@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-skeleton-page',
-  templateUrl: './skeleton-page.component.html',
-  styleUrls: ['./skeleton-page.component.scss']
+  selector: "app-skeleton-page",
+  templateUrl: "./skeleton-page.component.html",
+  styleUrls: ["./skeleton-page.component.scss"],
 })
-export class SkeletonPageComponent {
-
-}
+export class SkeletonPageComponent {}

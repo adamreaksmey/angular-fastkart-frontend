@@ -63,12 +63,14 @@
 }
 
 .arrow-slider {
-
   .owl-prev,
   .owl-next {
-    @include pseudowh($width: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))), $height: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320)))
+    );
     background-color: $white;
-    box-shadow: 0px 1px 4px rgba($title-color, .14);
+    box-shadow: 0px 1px 4px rgba($title-color, 0.14);
     position: absolute;
     top: calc(-28px + (-43 - -28) * ((100vw - 320px) / (1920 - 320)));
     border-radius: 5px;
@@ -128,7 +130,6 @@
 }
 
 .arrow-slider-2 {
-
   .owl-prev,
   .owl-next {
     top: -42px;
@@ -208,11 +209,15 @@
 .product-arrow {
   .owl-theme {
     .owl-nav {
-
       .owl-prev,
       .owl-next {
         @include flex_common;
-        @include pseudowh($width: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320))) !important, $height: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320))) !important);
+        @include pseudowh(
+          $width: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320)))
+            !important,
+          $height: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320)))
+            !important
+        );
         background-color: $border-color;
         border-radius: 5px;
         z-index: 1;
@@ -279,16 +284,18 @@
 }
 
 .product-box-arrow {
-
   .owl-prev,
   .owl-next {
     @include flex_common;
-    @include pseudowh($width: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320))), $height: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320)))
+    );
     border-radius: 50%;
     z-index: 1;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     background-color: $white;
-    box-shadow: 0px 3px 4px rgba($black, .14);
+    box-shadow: 0px 3px 4px rgba($black, 0.14);
     color: $content-color;
 
     &::before {
@@ -331,4 +338,3 @@
     }
   }
 }
-

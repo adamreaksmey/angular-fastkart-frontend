@@ -4,24 +4,27 @@ import { tap } from "rxjs";
 import { PaymentDetails } from "../interface/payment-details.interface";
 import { NotificationService } from "../services/notification.service";
 import { PaymentDetailsService } from "../services/payment-details.service";
-import { GetPaymentDetails, UpdatePaymentDetails } from "../action/payment-details.action";
+import {
+  GetPaymentDetails,
+  UpdatePaymentDetails,
+} from "../action/payment-details.action";
 
 export class paymentDetailsStateModel {
-  paymentDetails: PaymentDetails | null
+  paymentDetails: PaymentDetails | null;
 }
 
 @State<paymentDetailsStateModel>({
-   name: "paymentDetails",
-   defaults: {
-    paymentDetails: null
-   },
- })
-
+  name: "paymentDetails",
+  defaults: {
+    paymentDetails: null,
+  },
+})
 @Injectable()
 export class PaymentDetailsState {
-  
-  constructor(private notificationService: NotificationService,
-    private PaymentDetailsService: PaymentDetailsService) {}
+  constructor(
+    private notificationService: NotificationService,
+    private PaymentDetailsService: PaymentDetailsService,
+  ) {}
 
   @Selector()
   static paymentDetails(state: paymentDetailsStateModel) {
@@ -32,40 +35,43 @@ export class PaymentDetailsState {
   getPaymentDetails(ctx: StateContext<paymentDetailsStateModel>) {
     return this.PaymentDetailsService.getPaymentAccount().pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           ctx.patchState({
-            paymentDetails: result
+            paymentDetails: result,
           });
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
-
   @Action(UpdatePaymentDetails)
-  updatePaymentDetails(ctx: StateContext<paymentDetailsStateModel>, action: UpdatePaymentDetails) {
+  updatePaymentDetails(
+    ctx: StateContext<paymentDetailsStateModel>,
+    action: UpdatePaymentDetails,
+  ) {
     return this.PaymentDetailsService.updatePaymentAccount(action.payload).pipe(
       tap({
-        next: result => { 
-          if(typeof result === 'object') {
+        next: (result) => {
+          if (typeof result === "object") {
             const state = ctx.getState();
             ctx.patchState({
               ...state,
-              paymentDetails: result
+              paymentDetails: result,
             });
           }
         },
-        complete:() => {
-          this.notificationService.showSuccess('Account Details Updated Successfully.');
+        complete: () => {
+          this.notificationService.showSuccess(
+            "Account Details Updated Successfully.",
+          );
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
 }

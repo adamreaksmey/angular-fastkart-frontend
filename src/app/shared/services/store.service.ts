@@ -9,17 +9,17 @@ import { Stores, StoresModel } from "../interface/store.interface";
   providedIn: "root",
 })
 export class StoreService {
-
   public skeletonLoader: boolean = false;
 
   constructor(private http: HttpClient) {}
 
   getStores(payload?: Params): Observable<StoresModel> {
-    return this.http.get<StoresModel>(`${environment.URL}/store`, { params: payload });
+    return this.http.get<StoresModel>(`${environment.URL}/store`, {
+      params: payload,
+    });
   }
 
   getStoreBySlug(slug: string): Observable<Stores> {
     return this.http.get<Stores>(`${environment.URL}/store/slug/${slug}`);
   }
-
 }

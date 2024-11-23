@@ -8,11 +8,9 @@ import { States } from "../interface/state.interface";
   providedIn: "root",
 })
 export class StateService {
-
   constructor(private http: HttpClient) {}
 
   getStates(): Observable<States[]> {
     return this.http.get<States[]>(`${environment.URL}/state`);
   }
-
 }

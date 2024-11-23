@@ -8,7 +8,10 @@
   .qty-left-minus,
   .qty-right-plus {
     @include flex_common;
-    @include pseudowh($width: calc(30px + (35 - 30) * ((100vw - 320px) / (1920 - 320))), $height: calc(30px + (35 - 30) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(30px + (35 - 30) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(30px + (35 - 30) * ((100vw - 320px) / (1920 - 320)))
+    );
     border: 1px solid $border-color;
     box-sizing: border-box;
     cursor: pointer;
@@ -58,13 +61,16 @@
   }
 
   input {
-    @include pseudowh($width: 45px, $height: calc(30px + (35 - 30) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: 45px,
+      $height: calc(30px + (35 - 30) * ((100vw - 320px) / (1920 - 320)))
+    );
     border: 1px solid $border-color;
     appearance: none;
     text-align: center;
     font-size: 14px;
     font-weight: 500;
-    background-color: rgba($black, .06);
+    background-color: rgba($black, 0.06);
     border-radius: 0;
 
     body.rtl & {

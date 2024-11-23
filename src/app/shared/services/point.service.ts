@@ -9,11 +9,11 @@ import { Params } from "../interface/core.interface";
   providedIn: "root",
 })
 export class PointService {
-
   constructor(private http: HttpClient) {}
 
   getUserTransaction(payload?: Params): Observable<Point> {
-    return this.http.get<Point>(`${environment.URL}/points/consumer`, { params: payload });
+    return this.http.get<Point>(`${environment.URL}/points/consumer`, {
+      params: payload,
+    });
   }
-
 }

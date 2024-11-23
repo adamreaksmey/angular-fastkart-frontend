@@ -58,7 +58,7 @@
     full_border: (themeOption$ | async)?.product?.full_border,
     product_img_bg: (themeOption$ | async)?.product?.image_bg,
     full_bg: (themeOption$ | async)?.product?.product_box_bg,
-    product_border: (themeOption$ | async)?.product?.product_box_border
+    product_border: (themeOption$ | async)?.product?.product_box_border,
   }"
   *ngIf="
     style == 'horizontal' && (productService.skeletonLoader || products?.length)
@@ -100,7 +100,7 @@
           showItem === 2 ? 'row g-sm-4 g-3 row-cols-sm-2 row-cols-2' : '',
           showItem === 4
             ? 'row g-sm-4 g-3 row-cols-xl-4 row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1'
-            : ''
+            : '',
         ]"
       >
         <!-- Horizontal Product Box Without Slider -->

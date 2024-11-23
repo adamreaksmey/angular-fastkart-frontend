@@ -8,7 +8,7 @@ export const content: Routes = [
     path: "",
     loadChildren: () =>
       import("../../components/themes/themes.module").then(
-        (m) => m.ThemesModule
+        (m) => m.ThemesModule,
       ),
   },
   {
@@ -21,7 +21,7 @@ export const content: Routes = [
     path: "account",
     loadChildren: () =>
       import("../../components/account/account.module").then(
-        (m) => m.AccountModule
+        (m) => m.AccountModule,
       ),
     canActivate: [AuthGuard],
   },

@@ -12,7 +12,10 @@
 
   .setting-button {
     @include flex_common;
-    @include pseudowh($width: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))), $height: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320)))
+    );
     padding: 0;
     color: $white;
     line-height: 1;
@@ -106,7 +109,9 @@
               width: 100%;
               background-color: var(--theme-color);
               color: white;
-              font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
 
               &.outline {
                 color: var(--theme-color);
@@ -147,7 +152,7 @@
 
               .form-control {
                 background-color: transparent;
-                @include flex_wrap ($dis: flex, $wrap: nowrap, $gap: 15px);
+                @include flex_wrap($dis: flex, $wrap: nowrap, $gap: 15px);
                 padding: 0;
                 border: none;
                 align-items: center;

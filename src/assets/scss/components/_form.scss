@@ -2,7 +2,6 @@
     Form scss
   ==========================**/
 input[type="number"] {
-
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     appearance: none;
@@ -85,7 +84,7 @@ input[type="number"] {
 }
 
 .form-floating {
-  >label {
+  > label {
     font-size: 16px;
   }
 }
@@ -98,13 +97,11 @@ input[type="number"] {
   }
 }
 
-
 .theme-form-floating-2 {
-
-  >.form-control:focus,
-  >.form-control:not(:placeholder-shown),
-  >.form-select {
-    ~label {
+  > .form-control:focus,
+  > .form-control:not(:placeholder-shown),
+  > .form-select {
+    ~ label {
       @include flex_common;
       font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
       opacity: 0.95;
@@ -123,8 +120,7 @@ input[type="number"] {
     }
   }
 
-  >.form-control {
-
+  > .form-control {
     &:focus,
     &:not(:placeholder-shown) {
       padding-top: 12px;
@@ -134,7 +130,7 @@ input[type="number"] {
     }
   }
 
-  >.form-select {
+  > .form-select {
     padding-top: 12px;
     padding-bottom: 10px;
     font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
@@ -154,12 +150,12 @@ input[type="number"] {
     }
   }
 
-  >.form-control,
-  >.form-select {
+  > .form-control,
+  > .form-select {
     height: 46px;
   }
 
-  >label {
+  > label {
     @include center(vertical);
     left: 9px;
     padding: 0;
@@ -173,7 +169,7 @@ input[type="number"] {
     }
   }
 
-  >.form-control {
+  > .form-control {
     padding: 14px 10px;
   }
 
@@ -240,8 +236,10 @@ input[type="number"] {
   }
 
   .form-check-input {
-    @include pseudowh($width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))),
-      $height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)))
+    );
     margin-top: 0;
 
     body.rtl & {
@@ -262,7 +260,8 @@ input[type="number"] {
 
 .form-control {
   font-size: 14px;
-  padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320))) calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
+  padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)))
+    calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
 
   &.subscribe-input {
     border: none;
@@ -310,7 +309,11 @@ input[type="number"] {
       padding-left: 15px;
       letter-spacing: 41px;
       border: 0;
-      background-image: linear-gradient(to left, rgb(189, 189, 189) 70%, rgba(255, 255, 255, 0) 0%);
+      background-image: linear-gradient(
+        to left,
+        rgb(189, 189, 189) 70%,
+        rgba(255, 255, 255, 0) 0%
+      );
       background-position: bottom;
       background-size: 50px 1px;
       background-repeat: repeat-x;

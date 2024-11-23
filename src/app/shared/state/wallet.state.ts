@@ -10,9 +10,9 @@ export class WalletStateModel {
     balance: 0 as number,
     transactions: {
       data: [] as TransactionsData[],
-      total: 0
-    }
-  }
+      total: 0,
+    },
+  };
 }
 
 @State<WalletStateModel>({
@@ -22,14 +22,13 @@ export class WalletStateModel {
       balance: 0 as number,
       transactions: {
         data: [],
-        total: 0
-      }
-    }
+        total: 0,
+      },
+    },
   },
 })
 @Injectable()
 export class WalletState {
-  
   constructor(private walletService: WalletService) {}
 
   @Selector()
@@ -38,34 +37,38 @@ export class WalletState {
   }
 
   @Action(GetUserTransaction)
-  getUserTransations(ctx: StateContext<WalletStateModel>, { payload }: GetUserTransaction) {
+  getUserTransations(
+    ctx: StateContext<WalletStateModel>,
+    { payload }: GetUserTransaction,
+  ) {
     return this.walletService.getUserTransaction(payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             wallet: {
               balance: result?.balance,
               transactions: {
                 data: result?.transactions?.data,
-                total: result?.transactions?.total ? result?.transactions?.total : result?.transactions?.data?.length
-              }
-            }
+                total: result?.transactions?.total
+                  ? result?.transactions?.total
+                  : result?.transactions?.data?.length,
+              },
+            },
           });
         },
-        error: err => { 
+        error: (err) => {
           ctx.patchState({
             wallet: {
               balance: 0,
               transactions: {
                 data: [],
-                total: 0
-              }
-            }
+                total: 0,
+              },
+            },
           });
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
 }

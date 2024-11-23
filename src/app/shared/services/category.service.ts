@@ -9,15 +9,16 @@ import { Category, CategoryModel } from "../interface/category.interface";
   providedIn: "root",
 })
 export class CategoryService {
-
   public searchSkeleton: boolean = false;
-  
+
   constructor(private http: HttpClient) {}
 
   getCategories(payload?: Params): Observable<CategoryModel> {
-    return this.http.get<CategoryModel>(`${environment.URL}/category`, { params: payload });
+    return this.http.get<CategoryModel>(`${environment.URL}/category`, {
+      params: payload,
+    });
   }
-  
+
   getCategoryBySlug(slug: string): Observable<Category> {
     return this.http.get<Category>(`${environment.URL}/category/slug/${slug}`);
   }

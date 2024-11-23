@@ -25,7 +25,7 @@
   }
 
   .delivery-info {
-    @include flex_common ($dis: flex, $align: center, $justify: space-between);
+    @include flex_common($dis: flex, $align: center, $justify: space-between);
     margin-top: 20px;
     background-color: #f7f7f7;
     padding: 15px;
@@ -66,7 +66,7 @@
       align-items: center;
       flex-wrap: wrap;
 
-      +li {
+      + li {
         padding-top: 15px;
       }
 
@@ -401,7 +401,7 @@
       z-index: 0;
       border-radius: 4px !important;
 
-      >div {
+      > div {
         line-height: 1;
       }
 
@@ -628,7 +628,7 @@
         }
 
         .stoke-box {
-          @include flex_common ($dis: flex, $align: center, $justify: flex-end);
+          @include flex_common($dis: flex, $align: center, $justify: flex-end);
           height: 100%;
           flex-wrap: wrap;
           gap: 6px;
@@ -715,7 +715,11 @@
     }
 
     &.select-package {
-      @include flex_wrap($dis: flex, $wrap: wrap, $gap: calc(5px + (13 - 5) * ((100vw - 320px) / (1920 - 320))));
+      @include flex_wrap(
+        $dis: flex,
+        $wrap: wrap,
+        $gap: calc(5px + (13 - 5) * ((100vw - 320px) / (1920 - 320)))
+      );
 
       @include mq-max(md) {
         justify-content: center;
@@ -828,7 +832,7 @@
         }
       }
 
-      +.form-check {
+      + .form-check {
         margin-left: 15px;
       }
 
@@ -869,7 +873,7 @@
             transform: scale(1);
           }
 
-          ~.form-check-label {
+          ~ .form-check-label {
             color: $title-color;
           }
         }
@@ -1000,7 +1004,6 @@
 
 footer {
   .footer-content {
-
     p,
     li {
       font-size: 20px;

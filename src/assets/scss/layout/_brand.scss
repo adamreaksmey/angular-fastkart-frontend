@@ -23,13 +23,14 @@
 
     h5 {
       color: $title-color;
-      margin-block: calc(7px + (10 - 7) * ((100vw - 320px) / (1920 - 320))) calc(4px + (10 - 4) * ((100vw - 320px) / (1920 - 320)));
+      margin-block: calc(7px + (10 - 7) * ((100vw - 320px) / (1920 - 320)))
+        calc(4px + (10 - 4) * ((100vw - 320px) / (1920 - 320)));
     }
 
     .product-rating {
       justify-content: center;
 
-      >span {
+      > span {
         font-size: 16px;
         color: #787878;
 
@@ -43,8 +44,8 @@
   .row {
     @media screen and (min-width: 1401px) {
       &.row-cols-xxl-6 {
-        >div {
-          &:nth-child(6n+6) {
+        > div {
+          &:nth-child(6n + 6) {
             border-right: unset;
 
             body.rtl & {
@@ -58,8 +59,8 @@
 
     @media (max-width: 1401px) and (min-width: 991px) {
       &.row-cols-lg-5 {
-        >div {
-          &:nth-child(6n+6) {
+        > div {
+          &:nth-child(6n + 6) {
             border-right: 1px dashed #ddd;
 
             body.rtl & {
@@ -72,7 +73,7 @@
             }
           }
 
-          &:nth-child(5n+5) {
+          &:nth-child(5n + 5) {
             border-right: unset;
 
             body.rtl & {
@@ -86,8 +87,8 @@
 
     @media (max-width: 992px) and (min-width: 767px) {
       &.row-cols-md-3 {
-        >div {
-          &:nth-child(5n+5) {
+        > div {
+          &:nth-child(5n + 5) {
             border-right: 1px dashed #ddd;
 
             body.rtl & {
@@ -100,7 +101,7 @@
             }
           }
 
-          &:nth-child(3n+3) {
+          &:nth-child(3n + 3) {
             border-right: unset;
 
             body.rtl & {
@@ -114,8 +115,8 @@
 
     @media (max-width: 768px) {
       &.row-cols-md-3 {
-        >div {
-          &:nth-child(3n+3) {
+        > div {
+          &:nth-child(3n + 3) {
             border-right: 1px dashed #ddd;
 
             body.rtl & {
@@ -128,7 +129,7 @@
             }
           }
 
-          &:nth-child(2n+2) {
+          &:nth-child(2n + 2) {
             border-right: unset;
 
             body.rtl & {
@@ -140,7 +141,7 @@
       }
     }
 
-    >div {
+    > div {
       border-right: 1px dashed #ddd;
 
       body.rtl & {

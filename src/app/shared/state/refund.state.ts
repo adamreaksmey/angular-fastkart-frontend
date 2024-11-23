@@ -9,8 +9,8 @@ import { ViewOrder } from "../action/order.action";
 export class RefundStateModel {
   refund = {
     data: [] as Refund[],
-    total: 0
-  }
+    total: 0,
+  };
 }
 
 @State<RefundStateModel>({
@@ -18,16 +18,16 @@ export class RefundStateModel {
   defaults: {
     refund: {
       data: [],
-      total: 0
+      total: 0,
     },
   },
 })
-
 @Injectable()
 export class RefundState {
-
-  constructor(private refundService: RefundService,
-    private store: Store) {}
+  constructor(
+    private refundService: RefundService,
+    private store: Store,
+  ) {}
 
   @Selector()
   static refund(state: RefundStateModel) {
@@ -38,44 +38,45 @@ export class RefundState {
   getRefund(ctx: StateContext<RefundStateModel>, action: GetRefund) {
     return this.refundService.getRefunds(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             refund: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
-
   @Action(SendRefundRequest)
-  sendRefundStatus(ctx: StateContext<RefundStateModel>, action: SendRefundRequest) {
+  sendRefundStatus(
+    ctx: StateContext<RefundStateModel>,
+    action: SendRefundRequest,
+  ) {
     return this.refundService.sendRefundRequest(action.payload).pipe(
       tap({
-        next: result => {
-          if(typeof result === 'object') {
+        next: (result) => {
+          if (typeof result === "object") {
             const state = ctx.getState();
             ctx.patchState({
               ...state,
               refund: {
-                data:  [...state.refund.data, result],
-                total: state.refund.total
-              }
+                data: [...state.refund.data, result],
+                total: state.refund.total,
+              },
             });
             this.store.dispatch(new ViewOrder(result.order_number));
           }
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
 }

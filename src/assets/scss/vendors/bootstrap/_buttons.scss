@@ -18,7 +18,7 @@
   --#{$prefix}btn-hover-border-color: transparent;
   --#{$prefix}btn-box-shadow: #{$btn-box-shadow};
   --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity};
-  --#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} rgba(var(--#{$prefix}btn-focus-shadow-rgb), .5);
+  --#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} rgba(var(--#{$prefix}btn-focus-shadow-rgb), 0.5);
   // scss-docs-end btn-css-vars
 
   display: inline-block;
@@ -34,7 +34,8 @@
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
-  border: var(--#{$prefix}btn-border-width) solid var(--#{$prefix}btn-border-color);
+  border: var(--#{$prefix}btn-border-width) solid
+    var(--#{$prefix}btn-border-color);
   @include border-radius(var(--#{$prefix}btn-border-radius));
   @include gradient-bg(var(--#{$prefix}btn-bg));
   @include box-shadow(var(--#{$prefix}btn-box-shadow));
@@ -47,7 +48,7 @@
     border-color: var(--#{$prefix}btn-hover-border-color);
   }
 
-  .btn-check+&:hover {
+  .btn-check + &:hover {
     // override for the checkbox/radio buttons
     color: var(--#{$prefix}btn-color);
     background-color: var(--#{$prefix}btn-bg);
@@ -63,25 +64,21 @@
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows {
       box-shadow: var(--#{$prefix}btn-box-shadow),
-      var(--#{$prefix}btn-focus-box-shadow);
-    }
-
-    @else {
+        var(--#{$prefix}btn-focus-box-shadow);
+    } @else {
       box-shadow: var(--#{$prefix}btn-focus-box-shadow);
     }
   }
 
-  .btn-check:focus-visible+& {
+  .btn-check:focus-visible + & {
     border-color: var(--#{$prefix}btn-hover-border-color);
     outline: 0;
 
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows {
       box-shadow: var(--#{$prefix}btn-box-shadow),
-      var(--#{$prefix}btn-focus-box-shadow);
-    }
-
-    @else {
+        var(--#{$prefix}btn-focus-box-shadow);
+    } @else {
       box-shadow: var(--#{$prefix}btn-focus-box-shadow);
     }
   }
@@ -121,48 +118,44 @@
   }
 }
 
-
 //
 // Alternate buttons
 //
 
 // scss-docs-start btn-variant-loops
-@each $color,
-$value in $theme-colors {
+@each $color, $value in $theme-colors {
   .btn-#{$color} {
-    @if $color=="light" {
-      @include button-variant($value,
+    @if $color== "light" {
+      @include button-variant(
+        $value,
         $value,
         $hover-background: shade-color($value, $btn-hover-bg-shade-amount),
         $hover-border: shade-color($value, $btn-hover-border-shade-amount),
         $active-background: shade-color($value, $btn-active-bg-shade-amount),
-        $active-border: shade-color($value, $btn-active-border-shade-amount));
-    }
-
-    @else if $color=="dark" {
-      @include button-variant($value,
+        $active-border: shade-color($value, $btn-active-border-shade-amount)
+      );
+    } @else if $color== "dark" {
+      @include button-variant(
+        $value,
         $value,
         $hover-background: tint-color($value, $btn-hover-bg-tint-amount),
         $hover-border: tint-color($value, $btn-hover-border-tint-amount),
         $active-background: tint-color($value, $btn-active-bg-tint-amount),
-        $active-border: tint-color($value, $btn-active-border-tint-amount));
-    }
-
-    @else {
+        $active-border: tint-color($value, $btn-active-border-tint-amount)
+      );
+    } @else {
       @include button-variant($value, $value);
     }
   }
 }
 
-@each $color,
-$value in $theme-colors {
+@each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
 
 // scss-docs-end btn-variant-loops
-
 
 //
 // Link buttons
@@ -181,7 +174,9 @@ $value in $theme-colors {
   --#{$prefix}btn-disabled-color: #{$btn-link-disabled-color};
   --#{$prefix}btn-disabled-border-color: transparent;
   --#{$prefix}btn-box-shadow: none;
-  --#{$prefix}btn-focus-shadow-rgb: #{to-rgb(mix(color-contrast($primary), $primary, 15%))};
+  --#{$prefix}btn-focus-shadow-rgb: #{to-rgb(
+      mix(color-contrast($primary), $primary, 15%)
+    )};
 
   text-decoration: $link-decoration;
 
@@ -205,15 +200,24 @@ $value in $theme-colors {
   // No need for an active state here
 }
 
-
 //
 // Button Sizes
 //
 
 .btn-lg {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $btn-border-radius-lg
+  );
 }
 
 .btn-sm {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $btn-border-radius-sm
+  );
 }

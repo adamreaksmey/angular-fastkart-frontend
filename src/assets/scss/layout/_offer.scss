@@ -12,7 +12,7 @@
     @include mq-max(lg) {
       display: block;
       text-align: center;
-      background-color: rgba($white, $alpha: .5);
+      background-color: rgba($white, $alpha: 0.5);
     }
 
     .offer-detail {
@@ -54,7 +54,7 @@
           li {
             position: relative;
 
-            +li {
+            + li {
               margin-left: 16px;
 
               body.rtl & {
@@ -81,9 +81,16 @@
               border-radius: 5px;
 
               div {
-                @include pseudowh($width: calc(46px + (61 - 46) * ((100vw - 320px) / (1920 - 320))), $height: calc(50px + (73 - 50) * ((100vw - 320px) / (1920 - 320))));
+                @include pseudowh(
+                  $width:
+                    calc(46px + (61 - 46) * ((100vw - 320px) / (1920 - 320))),
+                  $height:
+                    calc(50px + (73 - 50) * ((100vw - 320px) / (1920 - 320)))
+                );
                 @include flex_common;
-                font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+                font-size: calc(
+                  16px + (24 - 16) * ((100vw - 320px) / (1920 - 320))
+                );
                 font-weight: 600;
               }
             }
@@ -113,7 +120,6 @@
       font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1920 - 320)));
       margin-top: -4px;
       margin-bottom: -5px;
-
 
       @include mq-max(sm) {
         line-height: 1.3;

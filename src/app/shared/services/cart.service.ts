@@ -8,7 +8,6 @@ import { Cart, CartAddOrUpdate, CartModel } from "../interface/cart.interface";
   providedIn: "root",
 })
 export class CartService {
-  
   private subjectQty = new Subject<boolean>();
 
   constructor(private http: HttpClient) {}
@@ -25,7 +24,7 @@ export class CartService {
     this.subjectQty.next(true);
   }
 
-  getUpdateQtyClickEvent(): Observable<boolean>{ 
+  getUpdateQtyClickEvent(): Observable<boolean> {
     return this.subjectQty.asObservable();
   }
 
@@ -43,10 +42,9 @@ export class CartService {
 
   clearCart() {
     return this.http.delete<number>(`${environment.URL}/clear/cart`);
-  } 
+  }
 
   syncCart(payload: CartAddOrUpdate[]): Observable<CartModel> {
     return this.http.post<CartModel>(`${environment.URL}/sync/cart`, payload);
   }
-
 }

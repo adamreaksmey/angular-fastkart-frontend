@@ -2,15 +2,20 @@ import { Injectable } from "@angular/core";
 import { tap } from "rxjs";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { QuestionsAnswersService } from "../services/questions-answers.service";
-import { Feedback, GetQuestionAnswers, SendQuestion, UpdateQuestionAnswers } from "../action/questions-answers.action";
+import {
+  Feedback,
+  GetQuestionAnswers,
+  SendQuestion,
+  UpdateQuestionAnswers,
+} from "../action/questions-answers.action";
 import { NotificationService } from "../services/notification.service";
 import { QuestionAnswers } from "../interface/questions-answers.interface";
 
 export class QuestionStateModel {
   question = {
     data: [] as QuestionAnswers[],
-    total: 0
-  }
+    total: 0,
+  };
 }
 
 @State<QuestionStateModel>({
@@ -18,14 +23,13 @@ export class QuestionStateModel {
   defaults: {
     question: {
       data: [],
-      total: 0
+      total: 0,
     },
   },
 })
 @Injectable()
 export class QuestionAnswersState {
-
-  constructor(private questionsAnswersService: QuestionsAnswersService ) {}
+  constructor(private questionsAnswersService: QuestionsAnswersService) {}
 
   @Selector()
   static questionsAnswers(state: QuestionStateModel) {
@@ -33,25 +37,28 @@ export class QuestionAnswersState {
   }
 
   @Action(GetQuestionAnswers)
-  getQuestionAnswers(ctx: StateContext<QuestionStateModel>, action: GetQuestionAnswers) {
+  getQuestionAnswers(
+    ctx: StateContext<QuestionStateModel>,
+    action: GetQuestionAnswers,
+  ) {
     this.questionsAnswersService.skeletonLoader = true;
     return this.questionsAnswersService.getQuestionAnswers(action.slug).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             question: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
-        complete:() => {
+        complete: () => {
           this.questionsAnswersService.skeletonLoader = false;
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -59,47 +66,50 @@ export class QuestionAnswersState {
   sendQuestion(ctx: StateContext<QuestionStateModel>, action: SendQuestion) {
     return this.questionsAnswersService.sendQuestion(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
             question: {
               data: [...state.question.data, result],
-              total: state?.question.total + 1
-            }
+              total: state?.question.total + 1,
+            },
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(UpdateQuestionAnswers)
-  update(ctx: StateContext<QuestionStateModel>, { payload, id }: UpdateQuestionAnswers) {
+  update(
+    ctx: StateContext<QuestionStateModel>,
+    { payload, id }: UpdateQuestionAnswers,
+  ) {
     return this.questionsAnswersService.updateQuestionAnswers(id, payload).pipe(
       tap({
-        next: result => {
-          if(typeof result === 'object') {
+        next: (result) => {
+          if (typeof result === "object") {
             const state = ctx.getState();
             const questions = [...state.question.data];
-            const index = questions.findIndex(question => question.id === id);
+            const index = questions.findIndex((question) => question.id === id);
             questions[index] = result;
 
             ctx.patchState({
               ...state,
               question: {
                 data: questions,
-                total: state.question.total
-              }
+                total: state.question.total,
+              },
             });
           }
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -107,32 +117,35 @@ export class QuestionAnswersState {
   Feedback(ctx: StateContext<QuestionStateModel>, action: Feedback) {
     const state = ctx.getState();
     const question = [...state.question.data];
-    const index = question.findIndex(item => Number(item.id) === Number(action.payload['question_and_answer_id']));
+    const index = question.findIndex(
+      (item) =>
+        Number(item.id) === Number(action.payload["question_and_answer_id"]),
+    );
 
-    if(action.type === 'liked' || action.type === 'disliked') {
+    if (action.type === "liked" || action.type === "disliked") {
       const currentReaction = question[index].reaction;
-      const newReaction = action.payload['reaction'];
+      const newReaction = action.payload["reaction"];
       if (currentReaction === newReaction) {
-        if (action.type === 'liked') {
+        if (action.type === "liked") {
           question[index].total_likes -= 1;
         } else {
           question[index].total_dislikes -= 1;
         }
         question[index].reaction = null;
-        action.payload['reaction'] = null
+        action.payload["reaction"] = null;
       } else {
-        if (currentReaction === 'liked') {
+        if (currentReaction === "liked") {
           question[index].total_likes -= 1;
-        } else if (currentReaction === 'disliked') {
+        } else if (currentReaction === "disliked") {
           question[index].total_dislikes -= 1;
         }
-        if (action.type === 'liked') {
+        if (action.type === "liked") {
           question[index].total_likes += 1;
         } else {
           question[index].total_dislikes += 1;
         }
         question[index].reaction = newReaction;
-        action.payload['reaction'] = newReaction
+        action.payload["reaction"] = newReaction;
       }
     }
 
@@ -140,8 +153,8 @@ export class QuestionAnswersState {
       ...state,
       question: {
         data: question,
-        total: state.question.total
-      }
+        total: state.question.total,
+      },
     });
     return this.questionsAnswersService.feedback(action.payload);
   }

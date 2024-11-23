@@ -126,20 +126,57 @@
   margin-left: 15px;
 }
 
-.checkout-section-2 .left-sidebar-checkout .checkout-detail-box>ul>li .checkout-box .checkout-detail .delivery-option .delivery-category .form-check,
-.checkout-section-2 .left-sidebar-checkout .checkout-detail-box>ul>li .checkout-box .checkout-detail .delivery-option .payment-category .form-check,
-.checkout-section-2 .left-sidebar-checkout .checkout-detail-box>ul>li .checkout-box .checkout-detail .payment-option .delivery-category .form-check,
-.checkout-section-2 .left-sidebar-checkout .checkout-detail-box>ul>li .checkout-box .checkout-detail .payment-option .payment-category .form-check {}
+.checkout-section-2
+  .left-sidebar-checkout
+  .checkout-detail-box
+  > ul
+  > li
+  .checkout-box
+  .checkout-detail
+  .delivery-option
+  .delivery-category
+  .form-check,
+.checkout-section-2
+  .left-sidebar-checkout
+  .checkout-detail-box
+  > ul
+  > li
+  .checkout-box
+  .checkout-detail
+  .delivery-option
+  .payment-category
+  .form-check,
+.checkout-section-2
+  .left-sidebar-checkout
+  .checkout-detail-box
+  > ul
+  > li
+  .checkout-box
+  .checkout-detail
+  .payment-option
+  .delivery-category
+  .form-check,
+.checkout-section-2
+  .left-sidebar-checkout
+  .checkout-detail-box
+  > ul
+  > li
+  .checkout-box
+  .checkout-detail
+  .payment-option
+  .payment-category
+  .form-check {
+}
 
 .checkout-section-2 {
   .left-sidebar-checkout {
     .checkout-detail-box {
-      >ul {
+      > ul {
         display: flex;
         flex-wrap: wrap;
         gap: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
 
-        >li {
+        > li {
           position: relative;
           width: 100%;
 
@@ -268,25 +305,31 @@
             }
 
             .checkout-title {
-              margin-bottom: calc(9px + (17 - 9) * ((100vw - 320px) / (1920 - 320)));
+              margin-bottom: calc(
+                9px + (17 - 9) * ((100vw - 320px) / (1920 - 320))
+              );
               display: flex;
               align-items: center;
               justify-content: space-between;
 
               h4 {
                 font-weight: 600;
-                font-size: calc(18px + (19 - 18) * ((100vw - 320px) / (1920 - 320)));
+                font-size: calc(
+                  18px + (19 - 18) * ((100vw - 320px) / (1920 - 320))
+                );
               }
             }
 
             .checkout-detail {
               .delivery-address-box {
                 border-radius: 8px;
-                padding: calc(12px + (24 - 12) * ((100vw - 320px) / (1920 - 320)));
+                padding: calc(
+                  12px + (24 - 12) * ((100vw - 320px) / (1920 - 320))
+                );
                 background-color: $white;
                 height: 100%;
 
-                >div {
+                > div {
                   display: flex;
                   position: relative;
                   cursor: pointer;
@@ -319,8 +362,12 @@
                     margin: 0;
 
                     .form-check-input {
-                      width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
-                      height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
+                      width: calc(
+                        15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+                      );
+                      height: calc(
+                        15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+                      );
                       margin-top: 2px;
                       float: unset;
                       margin-left: 0;
@@ -380,7 +427,9 @@
                     flex-wrap: wrap;
                     gap: 10px;
                     margin-left: 10px;
-                    width: calc(85% + (75 - 85) * ((100vw - 320px) / (1920 - 320)));
+                    width: calc(
+                      85% + (75 - 85) * ((100vw - 320px) / (1920 - 320))
+                    );
 
                     body.rtl & {
                       margin-left: unset;
@@ -398,7 +447,9 @@
                       line-height: 1.4;
                       margin-bottom: 0;
                       font-weight: 400;
-                      font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+                      font-size: calc(
+                        14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+                      );
 
                       span {
                         margin-right: 4px;
@@ -424,7 +475,9 @@
 
               .delivery-option,
               .payment-option {
-                padding: calc(17px + (26 - 17) * ((100vw - 320px) / (1920 - 320)));
+                padding: calc(
+                  17px + (26 - 17) * ((100vw - 320px) / (1920 - 320))
+                );
                 background-color: $white;
                 border-radius: 5px;
 
@@ -463,8 +516,12 @@
                     margin: 0;
 
                     .form-check-input {
-                      width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
-                      height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
+                      width: calc(
+                        15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+                      );
+                      height: calc(
+                        15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+                      );
                       margin: 2px 0 0 0;
                       float: unset;
                       background-color: unset;
@@ -528,11 +585,17 @@
 
                   .form-check-label {
                     cursor: pointer;
-                    font-size: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
+                    font-size: calc(
+                      15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+                    );
                     padding-left: 12px;
                     font-weight: 500;
                     margin-bottom: 0;
-                    width: calc(100% - calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))));
+                    width: calc(
+                      100% - calc(
+                          15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))
+                        )
+                    );
 
                     body.rtl & {
                       padding-left: unset;
@@ -542,7 +605,9 @@
                 }
 
                 .delivery-date {
-                  font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+                  font-size: calc(
+                    14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+                  );
                   font-weight: 500;
                   border: 1px solid $border-color;
                   background-color: $white;
@@ -550,10 +615,15 @@
                   align-items: center;
                   color: $content-color;
                   width: 100%;
-                  padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
+                  padding: calc(
+                      8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))
+                    )
+                    calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
 
                   input {
-                    font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+                    font-size: calc(
+                      14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+                    );
                     font-weight: 500;
                     border: none;
                     background-color: $white;
@@ -570,7 +640,9 @@
                   height: 100%;
 
                   .dropdown-toggle {
-                    font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+                    font-size: calc(
+                      14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+                    );
                     font-weight: 500;
                     border: 1px solid $border-color;
                     background-color: $white;
@@ -612,7 +684,7 @@
                         }
                       }
 
-                      +li {
+                      + li {
                         margin-top: 5px;
                       }
                     }
@@ -628,7 +700,9 @@
                 }
 
                 .future-option {
-                  padding: calc(17px + (26 - 17) * ((100vw - 320px) / (1920 - 320)));
+                  padding: calc(
+                    17px + (26 - 17) * ((100vw - 320px) / (1920 - 320))
+                  );
                   background-color: rgba(26, 164, 136, 0.05);
                   border-radius: 10px;
 
@@ -691,8 +765,13 @@
               }
 
               .payment-button {
-                padding: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))) calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
-                font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+                padding: calc(
+                    14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))
+                  )
+                  calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
+                font-size: calc(
+                  14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+                );
                 font-weight: 500;
               }
 
@@ -713,13 +792,17 @@
 
               .credit-info {
                 label {
-                  font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+                  font-size: calc(
+                    14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+                  );
                   font-weight: 500;
                 }
               }
 
               .payment-option {
-                padding: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+                padding: calc(
+                  14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))
+                );
                 border-radius: 8px;
                 position: relative;
 
@@ -807,7 +890,9 @@
                           display: flex;
                           align-items: center;
                           width: 100%;
-                          font-size: calc(15px + (18 - 15) * ((100vw - 320px) / (1920 - 320)));
+                          font-size: calc(
+                            15px + (18 - 15) * ((100vw - 320px) / (1920 - 320))
+                          );
                           padding: 16px 20px;
                           margin-bottom: 0;
 
@@ -820,10 +905,15 @@
                           }
 
                           .form-check-input {
-                            margin-right: calc(6px + (10 - 6) * ((100vw - 320px) / (1920 - 320)));
+                            margin-right: calc(
+                              6px + (10 - 6) * ((100vw - 320px) / (1920 - 320))
+                            );
 
                             body.rtl & {
-                              margin-left: calc(6px + (10 - 6) * ((100vw - 320px) / (1920 - 320)));
+                              margin-left: calc(
+                                6px + (10 - 6) *
+                                  ((100vw - 320px) / (1920 - 320))
+                              );
                               margin-right: unset;
                             }
                           }
@@ -850,7 +940,9 @@
                       }
 
                       .custom-form-check {
-                        margin-bottom: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320)));
+                        margin-bottom: calc(
+                          5px + (8 - 5) * ((100vw - 320px) / (1920 - 320))
+                        );
                         display: flex;
                         align-items: center;
 
@@ -862,7 +954,9 @@
                         label {
                           display: flex;
                           align-items: center;
-                          font-size: calc(14px + (17 - 14) * ((100vw - 320px) / (1920 - 320)));
+                          font-size: calc(
+                            14px + (17 - 14) * ((100vw - 320px) / (1920 - 320))
+                          );
                         }
 
                         input {
@@ -976,7 +1070,7 @@
           display: flex;
           align-items: center;
 
-          >div {
+          > div {
             padding-top: 0;
           }
         }
@@ -1050,7 +1144,7 @@
       }
     }
 
-    >div {
+    > div {
       display: flex;
       align-items: flex-start;
       gap: 6px;
@@ -1137,10 +1231,11 @@
 .checkout-form-section {
   .checkbox-main-box {
     background-color: $light-gray;
-    padding: calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320))) calc(20px + (37 - 20) * ((100vw - 320px) / (1920 - 320)));
+    padding: calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320)))
+      calc(20px + (37 - 20) * ((100vw - 320px) / (1920 - 320)));
     border-radius: calc(7px + (13 - 7) * ((100vw - 320px) / (1920 - 320)));
 
-    +.checkbox-main-box {
+    + .checkbox-main-box {
       margin-top: calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320)));
     }
 
@@ -1178,13 +1273,15 @@
               background-color: $white !important;
               border: unset !important;
               border-right: 1px solid $light-semi-gray !important;
-              width: calc(102px + (120 - 102) * ((100vw - 320px) / (1920 - 320))) !important;
+              width: calc(
+                102px + (120 - 102) * ((100vw - 320px) / (1920 - 320))
+              ) !important;
               min-width: unset;
               body.rtl & {
                 border-right: unset !important;
                 border-left: 1px solid #efefef !important;
                 html.dark & {
-                  border-color: rgba(119, 119, 119, 0.44)!important;
+                  border-color: rgba(119, 119, 119, 0.44) !important;
                 }
               }
 
@@ -1200,13 +1297,20 @@
 
       input {
         border: 1px solid #efefef;
-        padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320))) calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)))
+          calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
         box-shadow: unset;
-        padding-left: calc(112px + (134 - 112) * ((100vw - 320px) / (1920 - 320))) !important;
+        padding-left: calc(
+          112px + (134 - 112) * ((100vw - 320px) / (1920 - 320))
+        ) !important;
 
         body.rtl & {
-          padding-left: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320))) !important;
-          padding-right: calc(112px + (134 - 112) * ((100vw - 320px) / (1920 - 320))) !important;
+          padding-left: calc(
+            12px + (16 - 12) * ((100vw - 320px) / (1920 - 320))
+          ) !important;
+          padding-right: calc(
+            112px + (134 - 112) * ((100vw - 320px) / (1920 - 320))
+          ) !important;
           html.dark & {
             border-color: rgba(119, 119, 119, 0.44);
           }
@@ -1220,7 +1324,7 @@
       background-color: $white;
       height: 100%;
 
-      >div {
+      > div {
         display: flex;
         position: relative;
         cursor: pointer;
@@ -1332,7 +1436,9 @@
             line-height: 1.4;
             margin-bottom: 0;
             font-weight: 400;
-            font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+            );
 
             span {
               margin-right: 4px;
@@ -1453,7 +1559,9 @@
           padding-left: 12px;
           font-weight: 500;
           margin-bottom: 0;
-          width: calc(100% - calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))));
+          width: calc(
+            100% - calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)))
+          );
 
           body.rtl & {
             padding-left: unset;
@@ -1471,7 +1579,8 @@
         align-items: center;
         color: $content-color;
         width: 100%;
-        padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320)))
+          calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
 
         input {
           font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
@@ -1533,7 +1642,7 @@
               }
             }
 
-            +li {
+            + li {
               margin-top: 5px;
             }
           }
@@ -1610,17 +1719,17 @@
 
   .checkout-form {
     .form-box {
-
       .form-control,
       .form-select {
         border: 1px solid #efefef;
-        padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320))) calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)))
+          calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
         box-shadow: unset;
         html.dark & {
           border-color: rgba(119, 119, 119, 0.44);
         }
 
-        +.form-control {
+        + .form-control {
           margin-top: 13px;
         }
       }
@@ -1653,7 +1762,7 @@
         }
 
         &::after {
-          @include center(both)
+          @include center(both);
         }
       }
 
@@ -1677,7 +1786,7 @@
     border-color: rgba(119, 119, 119, 0.44);
   }
 
-  +.checkout-title {
+  + .checkout-title {
     margin-top: 16px;
   }
 

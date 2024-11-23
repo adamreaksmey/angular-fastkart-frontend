@@ -8,8 +8,8 @@ import { AttributeService } from "../services/attribute.service";
 export class AttributeStateModel {
   attribute = {
     data: [] as Attribute[],
-    total: 0
-  }
+    total: 0,
+  };
   attribute_values: AttributeValue[];
 }
 
@@ -18,14 +18,13 @@ export class AttributeStateModel {
   defaults: {
     attribute: {
       data: [],
-      total: 0
+      total: 0,
     },
-    attribute_values: []
+    attribute_values: [],
   },
 })
 @Injectable()
 export class AttributeState {
-  
   constructor(private attributeService: AttributeService) {}
 
   @Selector()
@@ -36,10 +35,12 @@ export class AttributeState {
   @Selector()
   static attribute_value(state: AttributeStateModel) {
     return (id: number | null) => {
-      if(!id) return [];
-      return state?.attribute_values.filter(attr_val => +attr_val.attribute_id === id)?.map((value: AttributeValue) => {
-        return { label: value?.value, value: value?.id }
-      });
+      if (!id) return [];
+      return state?.attribute_values
+        .filter((attr_val) => +attr_val.attribute_id === id)
+        ?.map((value: AttributeValue) => {
+          return { label: value?.value, value: value?.id };
+        });
     };
   }
 
@@ -48,40 +49,42 @@ export class AttributeState {
     this.attributeService.skeletonLoader = true;
     return this.attributeService.getAttributes(action.payload).pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           ctx.patchState({
             attribute: {
               data: result.data,
-              total: result?.total ? result?.total : result.data.length
-            }
+              total: result?.total ? result?.total : result.data.length,
+            },
           });
         },
         complete: () => {
           this.attributeService.skeletonLoader = false;
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetAttributeValues)
-  getAttributeValues(ctx: StateContext<AttributeStateModel>, action: GetAttributeValues) {
+  getAttributeValues(
+    ctx: StateContext<AttributeStateModel>,
+    action: GetAttributeValues,
+  ) {
     return this.attributeService.getAttributeValues(action.payload).pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            attribute_values: result.data
+            attribute_values: result.data,
           });
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
 }

@@ -1,8 +1,10 @@
-import { inject } from '@angular/core';
-import { ResolveFn } from '@angular/router';
-import { Store } from '@ngxs/store';
-import { GetCategoryBySlug } from '../action/category.action';
+import { inject } from "@angular/core";
+import { ResolveFn } from "@angular/router";
+import { Store } from "@ngxs/store";
+import { GetCategoryBySlug } from "../action/category.action";
 
 export const CategoryResolver: ResolveFn<boolean> = (route, state) => {
-  return inject(Store).dispatch(new GetCategoryBySlug(route.paramMap.get('slug')!));
+  return inject(Store).dispatch(
+    new GetCategoryBySlug(route.paramMap.get("slug")!),
+  );
 };

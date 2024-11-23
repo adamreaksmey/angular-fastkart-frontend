@@ -1,20 +1,18 @@
-import { Component, Input } from '@angular/core';
-import { Menu } from '../../../../interface/menu.interface';
-import {  Router } from '@angular/router';
+import { Component, Input } from "@angular/core";
+import { Menu } from "../../../../interface/menu.interface";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-link-box',
-  templateUrl: './link-box.component.html',
-  styleUrl: './link-box.component.scss'
+  selector: "app-link-box",
+  templateUrl: "./link-box.component.html",
+  styleUrl: "./link-box.component.scss",
 })
 export class LinkBoxComponent {
+  @Input() menu: Menu;
 
-  @Input() menu: Menu
+  constructor(private router: Router) {}
 
-  constructor( private router: Router){
-  }
-
-  redirect(path:string){
-    this.router.navigateByUrl(path)
+  redirect(path: string) {
+    this.router.navigateByUrl(path);
   }
 }

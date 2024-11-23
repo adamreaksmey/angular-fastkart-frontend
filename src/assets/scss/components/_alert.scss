@@ -61,9 +61,8 @@
   background-color: #0c5460;
 }
 
-
 .add-cart-box {
-  @include flex_wrap ($dis: flex, $wrap: nowrap, $gap: 10px);
+  @include flex_wrap($dis: flex, $wrap: nowrap, $gap: 10px);
   position: fixed;
   top: -90px;
   right: calc(10px + (20 - 10) * ((100vw - 320px) / (1920 - 320)));

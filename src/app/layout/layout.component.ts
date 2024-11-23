@@ -34,10 +34,10 @@ export class LayoutComponent {
     private store: Store,
     private route: ActivatedRoute,
     private router: Router,
-    public themeOptionService: ThemeOptionService
+    public themeOptionService: ThemeOptionService,
   ) {
     this.route.queryParams.subscribe(
-      (params) => (this.theme = params["theme"])
+      (params) => (this.theme = params["theme"]),
     );
 
     this.router.events.subscribe((event) => {
@@ -71,22 +71,22 @@ export class LayoutComponent {
 
             document.documentElement.style.setProperty(
               "--theme-color",
-              this.themeOptionService?.theme_color
+              this.themeOptionService?.theme_color,
             );
             document.documentElement.style.setProperty(
               "--theme-color2",
-              this.themeOptionService?.secondary_color
+              this.themeOptionService?.secondary_color,
             );
           });
         }
 
         document.documentElement.style.setProperty(
           "--theme-color",
-          this.themeOptionService?.theme_color
+          this.themeOptionService?.theme_color,
         );
         document.documentElement.style.setProperty(
           "--theme-color2",
-          this.themeOptionService?.secondary_color
+          this.themeOptionService?.secondary_color,
         );
       }
     });
@@ -100,10 +100,10 @@ export class LayoutComponent {
     });
     this.themeOptionService.preloader = true;
     const getCategories$ = this.store.dispatch(
-      new GetCategories({ status: 1 })
+      new GetCategories({ status: 1 }),
     );
     const getBlog$ = this.store.dispatch(
-      new GetBlogs({ status: 1, paginate: 10 })
+      new GetBlogs({ status: 1, paginate: 10 }),
     );
     const getProductBySearch$ = this.store.dispatch(new GetProductBySearch());
     const getPages$ = this.store.dispatch(new GetPages({ status: 1 }));
@@ -205,7 +205,7 @@ export class LayoutComponent {
       });
     }
     this.store.dispatch(
-      new UpdateProductBox(this.themeOptionService.productBox)
+      new UpdateProductBox(this.themeOptionService.productBox),
     );
   }
 }

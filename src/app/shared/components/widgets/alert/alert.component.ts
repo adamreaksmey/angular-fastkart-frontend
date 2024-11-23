@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NotificationService } from '../../../services/notification.service';
+import { Component } from "@angular/core";
+import { NotificationService } from "../../../services/notification.service";
 
 export interface Alert {
   type: string | null;
@@ -7,28 +7,25 @@ export interface Alert {
 }
 
 @Component({
-  selector: 'app-alert',
-  templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss']
+  selector: "app-alert",
+  templateUrl: "./alert.component.html",
+  styleUrls: ["./alert.component.scss"],
 })
 export class AlertComponent {
-
   public alert: Alert = {
     type: null,
-    message: null
+    message: null,
   };
 
-  constructor(private notificationService: NotificationService) { 
-    this.notificationService.alertSubject.subscribe(alert => {
+  constructor(private notificationService: NotificationService) {
+    this.notificationService.alertSubject.subscribe((alert) => {
       this.alert = <Alert>alert;
-    })
+    });
   }
 
-  ngOnInit(){
-  }
+  ngOnInit() {}
 
   ngOnDestroy() {
     this.notificationService.notification = true;
   }
-
 }

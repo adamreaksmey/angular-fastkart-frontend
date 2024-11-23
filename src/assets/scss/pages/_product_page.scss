@@ -2659,7 +2659,8 @@
                 display: flex;
                 align-items: center;
                 gap: 12px;
-                box-shadow: -1px 0 10px rgba($title-color, 0.071),
+                box-shadow:
+                  -1px 0 10px rgba($title-color, 0.071),
                   5px 20px 40px rgba($title-color, 0.039);
                 background-color: $white;
                 padding: 10px 6px 10px 12px;
@@ -2675,7 +2676,8 @@
                   border-bottom: 21px solid transparent;
                   z-index: 1;
                   right: -15px;
-                  text-shadow: -1px 0 10px rgba($title-color, 0.071),
+                  text-shadow:
+                    -1px 0 10px rgba($title-color, 0.071),
                     5px 20px 40px rgba($title-color, 0.039);
                 }
 
@@ -3407,8 +3409,9 @@
               15px + (18 - 15) * ((100vw - 320px) / (1920 - 320))
             );
             width: calc(
-              100% - 7px -
-                calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)))
+              100% - 7px - calc(
+                  16px + (18 - 16) * ((100vw - 320px) / (1920 - 320))
+                )
             );
             font-weight: 500;
             color: $content-color;

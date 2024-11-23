@@ -9,11 +9,11 @@ import { TagModel } from "../interface/tag.interface";
   providedIn: "root",
 })
 export class TagService {
-
   constructor(private http: HttpClient) {}
 
   getTags(payload?: Params): Observable<TagModel> {
-    return this.http.get<TagModel>(`${environment.URL}/tag`, { params: payload });
+    return this.http.get<TagModel>(`${environment.URL}/tag`, {
+      params: payload,
+    });
   }
-  
 }

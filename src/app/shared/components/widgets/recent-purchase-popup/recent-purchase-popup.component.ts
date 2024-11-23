@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
-import { Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { Product, ProductModel } from '../../../interface/product.interface';
-import { ProductState } from '../../../state/product.state';
+import { Component } from "@angular/core";
+import { Select } from "@ngxs/store";
+import { Observable } from "rxjs";
+import { Product, ProductModel } from "../../../interface/product.interface";
+import { ProductState } from "../../../state/product.state";
 
 @Component({
-  selector: 'app-recent-purchase-popup',
-  templateUrl: './recent-purchase-popup.component.html',
-  styleUrls: ['./recent-purchase-popup.component.scss']
+  selector: "app-recent-purchase-popup",
+  templateUrl: "./recent-purchase-popup.component.html",
+  styleUrls: ["./recent-purchase-popup.component.scss"],
 })
 export class RecentPurchasePopupComponent {
-
   @Select(ProductState.relatedProducts) relatesProduct$: Observable<Product[]>;
   @Select(ProductState.product) product$: Observable<ProductModel>;
 
@@ -20,7 +19,7 @@ export class RecentPurchasePopupComponent {
   public popup_enable: boolean = true;
 
   constructor() {
-    if(this.popup_enable) {
+    if (this.popup_enable) {
       setInterval(() => {
         this.show = true;
         this.min = Math.floor(Math.random() * 60) + 1;
@@ -33,8 +32,8 @@ export class RecentPurchasePopupComponent {
   }
 
   randomlySelectProduct() {
-    this.product$.subscribe(product => {
-      if(!product.data.length) {
+    this.product$.subscribe((product) => {
+      if (!product.data.length) {
         this.relatesProducts();
       } else {
         const randomIndex = Math.floor(Math.random() * product.data.length);
@@ -44,7 +43,7 @@ export class RecentPurchasePopupComponent {
   }
 
   relatesProducts() {
-    this.relatesProduct$.subscribe(products => {
+    this.relatesProduct$.subscribe((products) => {
       const randomIndex = Math.floor(Math.random() * products.length);
       this.product = products[randomIndex];
     });

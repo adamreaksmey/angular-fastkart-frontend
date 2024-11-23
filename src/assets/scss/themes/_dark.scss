@@ -6,7 +6,11 @@ html {
     .outer-otp {
       .inner-otp {
         input {
-          background-image: linear-gradient(to left, #777777 70%, rgba(255, 255, 255, 0) 0%);
+          background-image: linear-gradient(
+            to left,
+            #777777 70%,
+            rgba(255, 255, 255, 0) 0%
+          );
         }
       }
     }
@@ -43,18 +47,36 @@ html {
                 .accordion-button {
                   span {
                     background: rgba(246, 247, 248, 0.05);
-                    background-image: linear-gradient(135deg, #3f4242 0%, rgba(237, 238, 241, 0.1) 20%, #3f4242 40%, #3f4242 100%);
+                    background-image: linear-gradient(
+                      135deg,
+                      #3f4242 0%,
+                      rgba(237, 238, 241, 0.1) 20%,
+                      #3f4242 40%,
+                      #3f4242 100%
+                    );
                   }
                 }
               }
 
               .placeholder {
                 background: rgba(246, 247, 248, 0.05);
-                background-image: linear-gradient(135deg, #3f4242 0%, rgba(237, 238, 241, 0.1) 20%, #3f4242 40%, #3f4242 100%);
+                background-image: linear-gradient(
+                  135deg,
+                  #3f4242 0%,
+                  rgba(237, 238, 241, 0.1) 20%,
+                  #3f4242 40%,
+                  #3f4242 100%
+                );
 
                 &::after {
                   background: rgba(246, 247, 248, 0.05);
-                  background-image: linear-gradient(135deg, #3f4242 0%, rgba(237, 238, 241, 0.1) 20%, #3f4242 40%, #3f4242 100%);
+                  background-image: linear-gradient(
+                    135deg,
+                    #3f4242 0%,
+                    rgba(237, 238, 241, 0.1) 20%,
+                    #3f4242 40%,
+                    #3f4242 100%
+                  );
                 }
               }
             }
@@ -71,7 +93,13 @@ html {
           .card-name {
             h5 {
               background: rgba(246, 247, 248, 0.05);
-              background-image: linear-gradient(135deg, #3f4242 0%, rgba(237, 238, 241, 0.1) 20%, #3f4242 40%, #3f4242 100%);
+              background-image: linear-gradient(
+                135deg,
+                #3f4242 0%,
+                rgba(237, 238, 241, 0.1) 20%,
+                #3f4242 40%,
+                #3f4242 100%
+              );
             }
           }
         }
@@ -79,7 +107,13 @@ html {
         .coupon-content {
           p {
             background: rgba(246, 247, 248, 0.05);
-            background-image: linear-gradient(135deg, #3f4242 0%, rgba(237, 238, 241, 0.1) 20%, #3f4242 40%, #3f4242 100%);
+            background-image: linear-gradient(
+              135deg,
+              #3f4242 0%,
+              rgba(237, 238, 241, 0.1) 20%,
+              #3f4242 40%,
+              #3f4242 100%
+            );
           }
         }
       }
@@ -92,28 +126,44 @@ html {
     .skeleton-compare {
       .placeholder {
         background: rgba(246, 247, 248, 0.05);
-        background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+        background-image: linear-gradient(
+          135deg,
+          rgba(246, 247, 248, 0.05) 0%,
+          rgba(237, 238, 241, 0.1) 20%,
+          rgba(246, 247, 248, 0.05) 40%,
+          rgba(246, 247, 248, 0.05) 100%
+        );
       }
 
       .compare-part {
         .img-section {
           .compare-img {
             background: rgba(246, 247, 248, 0.05);
-            background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+            background-image: linear-gradient(
+              135deg,
+              rgba(246, 247, 248, 0.05) 0%,
+              rgba(237, 238, 241, 0.1) 20%,
+              rgba(246, 247, 248, 0.05) 40%,
+              rgba(246, 247, 248, 0.05) 100%
+            );
           }
         }
       }
     }
 
     .common-skeleton {
-
       .img-box,
       ul {
-
         .placeholder,
         .img {
           background: rgba(246, 247, 248, 0.05);
-          background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+          background-image: linear-gradient(
+            135deg,
+            rgba(246, 247, 248, 0.05) 0%,
+            rgba(237, 238, 241, 0.1) 20%,
+            rgba(246, 247, 248, 0.05) 40%,
+            rgba(246, 247, 248, 0.05) 100%
+          );
         }
       }
     }
@@ -121,7 +171,13 @@ html {
     .skeleton-vertical {
       .offer-image {
         background: rgba(246, 247, 248, 0.05);
-        background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+        background-image: linear-gradient(
+          135deg,
+          rgba(246, 247, 248, 0.05) 0%,
+          rgba(237, 238, 241, 0.1) 20%,
+          rgba(246, 247, 248, 0.05) 40%,
+          rgba(246, 247, 248, 0.05) 100%
+        );
       }
 
       &.offer-product {
@@ -129,14 +185,26 @@ html {
           a {
             .name {
               background: rgba(246, 247, 248, 0.05);
-              background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+              background-image: linear-gradient(
+                135deg,
+                rgba(246, 247, 248, 0.05) 0%,
+                rgba(237, 238, 241, 0.1) 20%,
+                rgba(246, 247, 248, 0.05) 40%,
+                rgba(246, 247, 248, 0.05) 100%
+              );
             }
           }
 
           span,
           .vertical-price {
             background: rgba(246, 247, 248, 0.05);
-            background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+            background-image: linear-gradient(
+              135deg,
+              rgba(246, 247, 248, 0.05) 0%,
+              rgba(237, 238, 241, 0.1) 20%,
+              rgba(246, 247, 248, 0.05) 40%,
+              rgba(246, 247, 248, 0.05) 100%
+            );
           }
         }
       }
@@ -144,25 +212,42 @@ html {
 
     .skeleton-seller {
       .contain-name {
-
         h3,
         .product-label {
           background: rgba(246, 247, 248, 0.05);
-          background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+          background-image: linear-gradient(
+            135deg,
+            rgba(246, 247, 248, 0.05) 0%,
+            rgba(237, 238, 241, 0.1) 20%,
+            rgba(246, 247, 248, 0.05) 40%,
+            rgba(246, 247, 248, 0.05) 100%
+          );
         }
       }
 
       .vendor-text,
       .saller-contact {
         background: rgba(246, 247, 248, 0.05);
-        background-image: linear-gradient(135deg, rgba(246, 247, 248, 0.05) 0%, rgba(237, 238, 241, 0.1) 20%, rgba(246, 247, 248, 0.05) 40%, rgba(246, 247, 248, 0.05) 100%);
+        background-image: linear-gradient(
+          135deg,
+          rgba(246, 247, 248, 0.05) 0%,
+          rgba(237, 238, 241, 0.1) 20%,
+          rgba(246, 247, 248, 0.05) 40%,
+          rgba(246, 247, 248, 0.05) 100%
+        );
       }
     }
 
     .skeleton {
       *:empty {
         background-color: rgba(246, 247, 248, 0.05);
-        background-image: linear-gradient(135deg, #3f4242 0%, rgba(237, 238, 241, 0.1) 20%, #3f4242 40%, #3f4242 100%);
+        background-image: linear-gradient(
+          135deg,
+          #3f4242 0%,
+          rgba(237, 238, 241, 0.1) 20%,
+          #3f4242 40%,
+          #3f4242 100%
+        );
       }
     }
 
@@ -262,7 +347,12 @@ html {
     .skeleton-body {
       .skeleton-text-wrap {
         .placeholder {
-          background: linear-gradient(90deg, rgba(29, 29, 34, 0.41) 8%, #2a2d2d 18%, rgba(29, 29, 29, 0.41) 33%);
+          background: linear-gradient(
+            90deg,
+            rgba(29, 29, 34, 0.41) 8%,
+            #2a2d2d 18%,
+            rgba(29, 29, 29, 0.41) 33%
+          );
         }
       }
 
@@ -272,7 +362,6 @@ html {
           background-color: #3f4242 !important;
         }
       }
-
 
       .skeleton-banner-sm {
         .bg-size {
@@ -345,14 +434,13 @@ html {
     }
 
     .btn-animation {
-
       &:active,
       &:hover {
         color: #fff !important;
       }
     }
 
-    .product-box .product-image .product-option li+li:after {
+    .product-box .product-image .product-option li + li:after {
       background-color: #ddd;
     }
 
@@ -447,7 +535,10 @@ html {
           color: #ffffff;
         }
 
-        .custom-select.intl-tel-input .select2-container .select2-selection .select2-selection__rendered {
+        .custom-select.intl-tel-input
+          .select2-container
+          .select2-selection
+          .select2-selection__rendered {
           background: transparent !important;
         }
       }
@@ -512,7 +603,7 @@ html {
       .product-left-box {
         .product-main-1 {
           .owl-nav {
-            [class*=owl-] {
+            [class*="owl-"] {
               border: 1px solid rgba(119, 119, 119, 0.1);
               box-shadow: 0 0 8px rgba(119, 119, 119, 0.18);
               background-color: #2a2d2d;
@@ -621,7 +712,7 @@ html {
           &.navbar-expand-xl {
             .navbar-nav {
               .nav-item {
-                >a {
+                > a {
                   color: #ffffff !important;
                 }
               }
@@ -740,13 +831,13 @@ html {
 
     .product-list {
       li {
-        &:nth-child(n+3) {
+        &:nth-child(n + 3) {
           &:after {
             border-color: rgba(119, 119, 119, 0.44);
           }
         }
 
-        &:nth-child(n+4) {
+        &:nth-child(n + 4) {
           &::after {
             border-color: rgba(119, 119, 119, 0.44);
           }
@@ -759,7 +850,7 @@ html {
         .modal-content {
           .view-image-slider {
             .owl-nav {
-              [class*=owl-] {
+              [class*="owl-"] {
                 border: 1px solid rgba(119, 119, 119, 0.1);
                 box-shadow: 0 0 8px rgba(119, 119, 119, 0.18);
                 background-color: #2a2d2d;
@@ -868,7 +959,7 @@ html {
     }
 
     .form-floating {
-      >.form-control {
+      > .form-control {
         border-color: rgba(119, 119, 119, 0.44);
       }
     }
@@ -919,7 +1010,6 @@ html {
     }
 
     .summery-box {
-
       .summery-header,
       .summery-contain,
       .summery-total {
@@ -956,7 +1046,7 @@ html {
       }
 
       .delivery-address-box {
-        >div {
+        > div {
           .label {
             color: #ffffff;
           }
@@ -973,8 +1063,7 @@ html {
     }
 
     .theme-form-floating {
-      >.form-control {
-
+      > .form-control {
         &:focus,
         &:not(:placeholder-shown) {
           color: #ffffff;
@@ -989,7 +1078,7 @@ html {
     }
 
     .theme-form-floating {
-      >.form-select {
+      > .form-select {
         background-color: #2a2d2d;
         color: #ffffff;
         border-color: rgba(119, 119, 119, 0.44);
@@ -1287,7 +1376,6 @@ html {
 
     .home-contain {
       .home-detail {
-
         h1,
         h2 {
           color: #222222 !important;
@@ -1336,7 +1424,6 @@ html {
     }
 
     footer {
-
       &::after,
       &::before {
         filter: invert(1);
@@ -1411,7 +1498,7 @@ html {
 
     .service-contain {
       .service-box {
-        +.service-box {
+        + .service-box {
           &::before {
             border-color: rgba(193, 193, 193, 0.5);
           }
@@ -1485,7 +1572,6 @@ html {
           }
 
           a {
-
             .icli,
             span {
               color: #ffffff;
@@ -1521,7 +1607,7 @@ html {
       .header-top {
         .about-list {
           li {
-            +li {
+            + li {
               &::after {
                 background-color: rgba(221, 221, 221, 0.3);
               }
@@ -1536,7 +1622,7 @@ html {
             }
           }
 
-          >li {
+          > li {
             .theme-form-select {
               .dropdown-menu {
                 background-color: #1d1d22;
@@ -1598,7 +1684,7 @@ html {
             li {
               color: #dddddd;
 
-              +li {
+              + li {
                 &:after {
                   background-color: rgba(221, 221, 221, 0.3);
                 }
@@ -1681,7 +1767,9 @@ html {
 
         .header-nav-left {
           .dropdown-category {
-            box-shadow: -1px 0 10px 0 rgba(137, 137, 137, 0.05), 5px 20px 40px 0 rgba(137, 137, 137, 0.05);
+            box-shadow:
+              -1px 0 10px 0 rgba(137, 137, 137, 0.05),
+              5px 20px 40px 0 rgba(137, 137, 137, 0.05);
 
             span,
             .feather {
@@ -1706,7 +1794,8 @@ html {
       .navbar-expand-xl {
         .dropdown-menu {
           @media (min-width: 1200px) {
-            box-shadow: -1px 0 10px 0 rgba(137, 137, 137, 0.05),
+            box-shadow:
+              -1px 0 10px 0 rgba(137, 137, 137, 0.05),
               5px 20px 40px 0 rgba(137, 137, 137, 0.05);
             background-color: #2a2d2d;
             border-color: #2a2d2d;
@@ -1800,7 +1889,7 @@ html {
         .onhover-div-login {
           .user-box-name {
             li {
-              +li {
+              + li {
                 border-color: rgba(119, 119, 119, 0.65);
               }
             }
@@ -1848,8 +1937,8 @@ html {
           }
 
           .cart-list {
-            >li {
-              +li {
+            > li {
+              + li {
                 border-color: rgba(119, 119, 119, 0.44);
               }
 
@@ -1861,7 +1950,6 @@ html {
                   }
 
                   .header-button-group {
-
                     .delete-button,
                     .edit-button {
                       border: 1px solid rgba(119, 119, 119, 0.4);
@@ -1886,8 +1974,8 @@ html {
 
       .header-top {
         .about-list {
-          >li {
-            +li {
+          > li {
+            + li {
               &::after {
                 background-color: rgba(255, 255, 255, 0.3);
               }
@@ -1917,7 +2005,6 @@ html {
       background-color: #1d1d22;
 
       .summary-total {
-
         &::before,
         &::after {
           background-color: #1d1d22;
@@ -1944,7 +2031,8 @@ html {
     }
 
     .recently-purchase {
-      box-shadow: -1px 0 10px 0 rgba(137, 137, 137, 0.05),
+      box-shadow:
+        -1px 0 10px 0 rgba(137, 137, 137, 0.05),
         5px 20px 40px 0 rgba(137, 137, 137, 0.05);
     }
 
@@ -2009,7 +2097,11 @@ html {
           .fire {
             .fire-main {
               .main-fire {
-                background-image: radial-gradient(farthest-corner at 10px 0, #ddd 0%, #ffffff 95%);
+                background-image: radial-gradient(
+                  farthest-corner at 10px 0,
+                  #ddd 0%,
+                  #ffffff 95%
+                );
               }
 
               .particle-fire {
@@ -2083,7 +2175,8 @@ html {
 
     .cookie-bar-box {
       background: #1d1d22;
-      box-shadow: 0 0.25rem 0.5rem rgba(255, 255, 255, 0.02),
+      box-shadow:
+        0 0.25rem 0.5rem rgba(255, 255, 255, 0.02),
         0 24px 35px rgba(255, 255, 255, 0.05);
 
       .cookie-box {
@@ -2164,7 +2257,6 @@ html {
     .banner-contain-3 {
       .banner-detail {
         &.banner-details-dark {
-
           h3,
           h4,
           h6 {
@@ -2263,7 +2355,7 @@ html {
     .product-list {
       &.sidebar-product {
         li {
-          +li {
+          + li {
             &:after {
               border-color: rgba(119, 119, 119, 0.3);
             }
@@ -2293,7 +2385,7 @@ html {
     }
 
     .product-box-4 {
-      border-color: rgba(119, 119, 119, .4);
+      border-color: rgba(119, 119, 119, 0.4);
 
       h5 {
         color: #ffffff;
@@ -2384,7 +2476,6 @@ html {
         }
       }
     }
-
 
     .product-section {
       .right-box-contain {
@@ -2727,8 +2818,8 @@ html {
 
     .shop-section {
       .top-filter-category {
-        >.row {
-          >div {
+        > .row {
+          > div {
             border-right-color: rgba(119, 119, 119, 0.35);
           }
         }
@@ -2909,7 +3000,6 @@ html {
     }
 
     .irs {
-
       .irs-to,
       .irs-from {
         color: #ffffff;
@@ -2933,7 +3023,6 @@ html {
 
     .shop-banner-contain {
       .shop-banner-details {
-
         h2 {
           color: #222222;
         }
@@ -2978,7 +3067,7 @@ html {
 
     .notification-list {
       li {
-        +li {
+        + li {
           border-color: rgba(119, 119, 119, 0.4);
         }
 
@@ -3062,7 +3151,7 @@ html {
 
                 .title {
                   span {
-                    color: rgba(255, 255, 255, .7);
+                    color: rgba(255, 255, 255, 0.7);
                   }
                 }
               }
@@ -3085,7 +3174,7 @@ html {
             }
 
             .edit-card {
-              background-color: rgba(42, 45, 45, .8);
+              background-color: rgba(42, 45, 45, 0.8);
 
               a {
                 color: #ffffff;
@@ -3096,7 +3185,7 @@ html {
 
         .dashboard-address {
           .address-box {
-            >div {
+            > div {
               .label {
                 color: #ffffff;
               }
@@ -3298,7 +3387,6 @@ html {
       }
     }
 
-
     .theme-option {
       .setting-box {
         .setting-button {
@@ -3344,7 +3432,6 @@ html {
         }
 
         .coming-contain {
-
           .coming-form {
             .form-control {
               background-color: #ffffff;
@@ -3438,7 +3525,7 @@ html {
             .switch-radio {
               .form-check-input {
                 &:checked {
-                  +label {
+                  + label {
                     &:before {
                       background-color: #ffffff;
                     }
@@ -3465,14 +3552,13 @@ html {
       }
     }
 
-
     .offer-box {
       .offer-contain {
         .offer-timing {
           .time {
             ul {
               li {
-                +li {
+                + li {
                   &::before {
                     color: #222;
                   }
@@ -3603,7 +3689,6 @@ html {
 
     .banner-contain-3 {
       .banner-detail {
-
         h5,
         h4 {
           color: #222;
@@ -3668,7 +3753,6 @@ html {
 
           .location-box-2 {
             button {
-
               .icli,
               span,
               .down-arrow {
@@ -3682,7 +3766,6 @@ html {
       .navbar-top {
         .support-box {
           .support-number {
-
             h2,
             h4 {
               color: #ffffff;
@@ -3722,7 +3805,7 @@ html {
 
         .option-list-2 {
           li {
-            +li {
+            + li {
               &::after {
                 @include mq-max(xl) {
                   background-color: rgba(255, 255, 255, 0.2);
@@ -3734,7 +3817,6 @@ html {
               @include mq-max(xl) {
                 border-color: rgba(255, 255, 255, 0.2);
               }
-
 
               .icli {
                 @include mq-max(xl) {
@@ -3823,7 +3905,7 @@ html {
           border: 1px solid #222222;
           color: #222222;
 
-          +li {
+          + li {
             &::after {
               color: #222222;
             }
@@ -3879,8 +3961,7 @@ html {
     }
 
     .shop-banner {
-      >div {
-
+      > div {
         h2,
         h3 {
           color: #ffffff;
@@ -3964,7 +4045,6 @@ html {
 
     .vendor-detail-box-2 {
       .share-contact {
-
         .vendor-share,
         .vendor-contect {
           h5 {
@@ -4014,8 +4094,12 @@ html {
 
     .banner-contain-2 {
       .banner-detail-2 {
-        >div {
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 24.21%, rgba(255, 255, 255, 0.2) 75.22%);
+        > div {
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 24.21%,
+            rgba(255, 255, 255, 0.2) 75.22%
+          );
 
           h2 {
             color: #222222;
@@ -4120,7 +4204,6 @@ html {
               }
             }
           }
-
         }
       }
 
@@ -4204,7 +4287,6 @@ html {
         }
 
         .service-detail {
-
           h6,
           h3 {
             color: #ffffff;
@@ -4220,15 +4302,15 @@ html {
     .checkout-section-2 {
       .left-sidebar-checkout {
         .checkout-detail-box {
-          >ul {
-            >li {
+          > ul {
+            > li {
               .checkout-box {
                 background-color: #1d1d22;
                 box-shadow: 0 0 8px rgba(119, 119, 119, 0.122);
 
                 .checkout-detail {
                   .delivery-address-box {
-                    >div {
+                    > div {
                       .label {
                         color: #ffffff;
                       }
@@ -4382,7 +4464,7 @@ html {
     @media (max-width: 576px) {
       .product-list {
         li {
-          &:nth-child(n+2) {
+          &:nth-child(n + 2) {
             &:after {
               border-color: #777;
             }

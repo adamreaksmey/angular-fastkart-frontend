@@ -1,5 +1,8 @@
 import { UserAddress } from "../interface/user.interface";
-import { AccountUser, AccountUserUpdatePassword } from "./../interface/account.interface";
+import {
+  AccountUser,
+  AccountUserUpdatePassword,
+} from "./../interface/account.interface";
 
 export class GetUserDetails {
   static readonly type = "[Account] User Get";
@@ -23,7 +26,10 @@ export class CreateAddress {
 
 export class UpdateAddress {
   static readonly type = "[Account] Address Edit";
-  constructor(public payload: UserAddress, public id: number) {}
+  constructor(
+    public payload: UserAddress,
+    public id: number,
+  ) {}
 }
 
 export class DeleteAddress {

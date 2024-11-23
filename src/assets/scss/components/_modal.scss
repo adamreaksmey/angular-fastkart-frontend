@@ -9,7 +9,8 @@
 
       .modal-header {
         border-bottom: none;
-        padding: calc(13px + (16 - 13) * ((100vw - 320px) / (1920 - 320))) calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(13px + (16 - 13) * ((100vw - 320px) / (1920 - 320)))
+          calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
 
         .modal-title {
           font-weight: 600;
@@ -42,7 +43,9 @@
           }
 
           i {
-            font-size: calc(19px + (22 - 19) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              19px + (22 - 19) * ((100vw - 320px) / (1920 - 320))
+            );
           }
         }
       }
@@ -63,7 +66,7 @@
             color: $title-color;
           }
 
-          +p {
+          + p {
             margin-top: 12px;
           }
         }
@@ -88,7 +91,7 @@
 
       .review-form-box {
         .review-box {
-          +.review-box {
+          + .review-box {
             margin-top: 20px;
           }
 
@@ -96,7 +99,8 @@
             height: calc(41px + (52 - 41) * ((100vw - 320px) / (1920 - 320)));
             border-radius: 5px;
             font-size: 14px;
-            padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320))) calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
+            padding: calc(8px + (14 - 8) * ((100vw - 320px) / (1920 - 320)))
+              calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
             border: 1px solid #eee;
             background-color: #f8f8f8;
           }
@@ -312,31 +316,42 @@
             font-weight: 600;
             line-height: 1.3;
             text-transform: capitalize;
-            margin-bottom: calc(3px + (7 - 3) * ((100vw - 320px) / (1920 - 320)));
-            font-size: calc(17px + (25 - 17) * ((100vw - 320px) / (1920 - 320)));
+            margin-bottom: calc(
+              3px + (7 - 3) * ((100vw - 320px) / (1920 - 320))
+            );
+            font-size: calc(
+              17px + (25 - 17) * ((100vw - 320px) / (1920 - 320))
+            );
             width: 96%;
           }
 
           .price {
             color: var(--theme-color);
             font-weight: 600;
-            font-size: calc(19px + (22 - 19) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              19px + (22 - 19) * ((100vw - 320px) / (1920 - 320))
+            );
 
             del {
               color: $content-color;
               font-weight: 400;
-              font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
               margin: 0 calc(0px + (2 - 0) * ((100vw - 320px) / (1920 - 320)));
             }
 
             .modal-label {
               font-weight: 500;
               margin-left: 12px;
-              padding: 5px calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+              padding: 5px
+                calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
               background-color: rgba(255, 79, 79, 0.1);
               border-radius: 5px;
               color: #ff4f4f;
-              font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
 
               body.rtl & {
                 margin-left: unset;
@@ -346,11 +361,15 @@
           }
 
           .brand-list {
-            @include flex_wrap($dis: flex,
+            @include flex_wrap(
+              $dis: flex,
               $wrap: wrap,
-              $gap: calc(9px + (12 - 9) * ((100vw - 320px) / (1920 - 320))));
+              $gap: calc(9px + (12 - 9) * ((100vw - 320px) / (1920 - 320)))
+            );
             align-items: center;
-            margin-top: calc(13px + (19 - 13) * ((100vw - 320px) / (1920 - 320)));
+            margin-top: calc(
+              13px + (19 - 13) * ((100vw - 320px) / (1920 - 320))
+            );
             border-bottom: 1px dashed $border-color;
             padding-bottom: 14px;
 
@@ -378,10 +397,14 @@
             @include flex_wrap($dis: flex, $wrap: nowrap, $gap: 15px);
             margin-top: 10px;
             align-items: center;
-            margin-top: calc(16px + (21 - 16) * ((100vw - 320px) / (1920 - 320)));
+            margin-top: calc(
+              16px + (21 - 16) * ((100vw - 320px) / (1920 - 320))
+            );
 
             h4 {
-              font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
               white-space: nowrap;
             }
 
@@ -409,7 +432,9 @@
             }
 
             p {
-              font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
               line-height: 1.4;
               margin: 0;
               color: $content-color;
@@ -440,8 +465,12 @@
 
               button {
                 transition: all 0.3s ease-in-out !important;
-                @include pseudowh($width: calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320))),
-                  $height: calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320))));
+                @include pseudowh(
+                  $width:
+                    calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320))),
+                  $height:
+                    calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320)))
+                );
                 @include flex_common;
                 border: none;
                 padding: 0 !important;
@@ -471,9 +500,11 @@
             }
 
             .stoke-box {
-              @include flex_common($dis: flex,
+              @include flex_common(
+                $dis: flex,
                 $align: center,
-                $justify: flex-end);
+                $justify: flex-end
+              );
               height: 100%;
               flex-wrap: wrap;
               gap: 6px;
@@ -544,7 +575,7 @@
               }
             }
 
-            +.form-check {
+            + .form-check {
               margin-left: 15px;
 
               body.rtl & {
@@ -588,7 +619,7 @@
                   transform: scale(1);
                 }
 
-                ~.form-check-label {
+                ~ .form-check-label {
                   color: $title-color;
                 }
               }
@@ -629,7 +660,9 @@
               li {
                 padding-left: 13px;
                 width: 100%;
-                font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+                font-size: calc(
+                  14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+                );
                 position: relative;
                 color: #777;
 
@@ -714,7 +747,8 @@
       }
 
       .modal-body {
-        padding: calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320))) calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320)))
+          calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320)));
 
         .location-list {
           .search-input {
@@ -750,9 +784,12 @@
           .disabled-box {
             display: flex;
             align-items: center;
-            padding: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320))) calc(7px + (14 - 7) * ((100vw - 320px) / (1920 - 320)));
+            padding: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)))
+              calc(7px + (14 - 7) * ((100vw - 320px) / (1920 - 320)));
             border-bottom: 1px solid $border-color;
-            margin-top: calc(12px + (20 - 12) * ((100vw - 320px) / (1920 - 320)));
+            margin-top: calc(
+              12px + (20 - 12) * ((100vw - 320px) / (1920 - 320))
+            );
 
             h6 {
               color: $content-color;
@@ -783,7 +820,10 @@
               a {
                 display: flex;
                 align-items: center;
-                padding: calc(10px + (10 - 10) * ((100vw - 320px) / (1920 - 320))) calc(7px + (14 - 7) * ((100vw - 320px) / (1920 - 320)));
+                padding: calc(
+                    10px + (10 - 10) * ((100vw - 320px) / (1920 - 320))
+                  )
+                  calc(7px + (14 - 7) * ((100vw - 320px) / (1920 - 320)));
                 position: relative;
                 transition: all 0.3s ease-in-out;
                 z-index: 0;
@@ -859,7 +899,8 @@
       }
 
       .modal-body {
-        padding: calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320))) calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320)))
+          calc(13px + (30 - 13) * ((100vw - 320px) / (1920 - 320)));
         border: unset;
 
         .deal-offer-box {
@@ -887,9 +928,11 @@
           }
 
           .deal-offer-list {
-            @include flex_wrap($dis: flex,
+            @include flex_wrap(
+              $dis: flex,
               $wrap: wrap,
-              $gap: calc(6px + (16 - 6) * ((100vw - 320px) / (1920 - 320))));
+              $gap: calc(6px + (16 - 6) * ((100vw - 320px) / (1920 - 320)))
+            );
 
             body.rtl & {
               padding-right: 0;
@@ -942,8 +985,16 @@
 
                 .deal-image {
                   img {
-                    @include pseudowh($width: calc(69px + (80 - 69) * ((100vw - 320px) / (1920 - 320))),
-                      $height: calc(69px + (80 - 69) * ((100vw - 320px) / (1920 - 320))));
+                    @include pseudowh(
+                      $width:
+                        calc(
+                          69px + (80 - 69) * ((100vw - 320px) / (1920 - 320))
+                        ),
+                      $height:
+                        calc(
+                          69px + (80 - 69) * ((100vw - 320px) / (1920 - 320))
+                        )
+                    );
                     object-fit: contain;
                   }
                 }
@@ -966,7 +1017,9 @@
                       overflow: hidden;
                       margin-bottom: 5px;
                       font-weight: 500;
-                      font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+                      font-size: calc(
+                        14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+                      );
                     }
                   }
 
@@ -1277,7 +1330,7 @@
   }
 
   .review-box {
-    +.review-box {
+    + .review-box {
       margin-top: 21px;
     }
 
@@ -1344,7 +1397,7 @@
   }
 
   .modal-footer {
-    >* {
+    > * {
       margin: 0;
     }
   }
@@ -1466,8 +1519,10 @@
         background-color: #f9f9f6;
 
         .form-check-input {
-          @include pseudowh($width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))),
-            $height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))));
+          @include pseudowh(
+            $width: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))),
+            $height: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)))
+          );
           margin: 2px 0 0 0;
           float: unset;
           background-color: unset;
@@ -1518,7 +1573,10 @@
           font-size: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
           font-weight: 500;
           margin-bottom: 0;
-          width: calc(100% - calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))) - 12px);
+          width: calc(
+            100% - calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320))) -
+              12px
+          );
         }
       }
     }
@@ -1561,13 +1619,17 @@
         .name {
           font-size: 22px;
           font-weight: 700;
-          margin-bottom: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)));
+          margin-bottom: calc(
+            10px + (15 - 10) * ((100vw - 320px) / (1920 - 320))
+          );
         }
 
         .price-rating {
-          @include flex_common($dis: flex,
+          @include flex_common(
+            $dis: flex,
             $align: center,
-            $justify: space-between);
+            $justify: space-between
+          );
 
           &-2 {
             @include mq-max(3xl) {
@@ -1587,9 +1649,11 @@
 
           &-box {
             @include mq-max(3xl) {
-              @include flex_common($dis: flex,
+              @include flex_common(
+                $dis: flex,
                 $align: center,
-                $justify: space-between);
+                $justify: space-between
+              );
             }
 
             @include mq-max(xs) {
@@ -1616,16 +1680,22 @@
 
           .price {
             font-weight: 600;
-            font-size: calc(19px + (22 - 19) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              19px + (22 - 19) * ((100vw - 320px) / (1920 - 320))
+            );
 
             del {
               font-weight: 400;
-              font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
               margin: 0 calc(0px + (2 - 0) * ((100vw - 320px) / (1920 - 320)));
             }
 
             span {
-              font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
               font-weight: 500;
             }
           }
@@ -1659,8 +1729,11 @@
           p {
             color: $content-color;
             line-height: 1.7;
-            margin: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))) 0 0;
-            font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+            margin: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))) 0
+              0;
+            font-size: calc(
+              14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+            );
             width: 100%;
 
             @include mq-max(md) {
@@ -1671,9 +1744,11 @@
 
         .product-package {
           .select-package {
-            @include flex_wrap($dis: flex,
+            @include flex_wrap(
+              $dis: flex,
               $wrap: wrap,
-              $gap: calc(5px + (13 - 5) * ((100vw - 320px) / (1920 - 320))));
+              $gap: calc(5px + (13 - 5) * ((100vw - 320px) / (1920 - 320)))
+            );
 
             @include mq-max(md) {
               justify-content: center;
@@ -1759,8 +1834,10 @@
               }
 
               button {
-                @include pseudowh($width: 36px !important,
-                  $height: 36px !important);
+                @include pseudowh(
+                  $width: 36px !important,
+                  $height: 36px !important
+                );
               }
             }
           }
@@ -1818,7 +1895,7 @@
               }
             }
 
-            +.form-check {
+            + .form-check {
               margin-left: 15px;
             }
 
@@ -1859,7 +1936,7 @@
                   transform: scale(1);
                 }
 
-                ~.form-check-label {
+                ~ .form-check-label {
                   color: $title-color;
                 }
               }
@@ -1935,9 +2012,11 @@
         }
 
         .note-box {
-          @include flex_wrap($dis: flex,
+          @include flex_wrap(
+            $dis: flex,
             $wrap: nowrap,
-            $gap: calc(7px + (15 - 7) * ((100vw - 320px) / (1920 - 320))));
+            $gap: calc(7px + (15 - 7) * ((100vw - 320px) / (1920 - 320)))
+          );
           align-items: center;
           margin-top: 20px;
 
@@ -1976,9 +2055,11 @@
             }
 
             .input-group {
-              background: linear-gradient(187.77deg,
-                  #fafafa 5.52%,
-                  $light-gray 94%);
+              background: linear-gradient(
+                187.77deg,
+                #fafafa 5.52%,
+                $light-gray 94%
+              );
             }
 
             button {
@@ -2051,9 +2132,11 @@
           }
 
           a {
-            @include flex_wrap($dis: flex,
+            @include flex_wrap(
+              $dis: flex,
               $wrap: wrap,
-              $gap: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320))));
+              $gap: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320)))
+            );
             font-size: 16px;
             align-items: center;
             color: #777;
@@ -2076,9 +2159,11 @@
             margin-top: 20px;
 
             .product-info-list {
-              @include flex_wrap($dis: flex,
+              @include flex_wrap(
+                $dis: flex,
                 $wrap: wrap,
-                $gap: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320))));
+                $gap: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)))
+              );
               align-items: flex-start;
               text-align: left;
               display: inline-block;
@@ -2153,7 +2238,9 @@
               li {
                 padding-left: 13px;
                 width: 100%;
-                font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+                font-size: calc(
+                  14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+                );
                 position: relative;
                 color: #777;
 
@@ -2186,7 +2273,7 @@
                   color: $title-color;
                   font-weight: 500;
 
-                  +a {
+                  + a {
                     margin-left: 0;
                   }
                 }
@@ -2206,7 +2293,9 @@
               width: 90%;
               font-weight: 400;
               margin-bottom: 5px;
-              font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                14px + (16 - 14) * ((100vw - 320px) / (1920 - 320))
+              );
               line-height: 1.6;
 
               @include mq-max(md) {
@@ -2233,9 +2322,11 @@
 
           ul {
             align-items: center;
-            @include flex_wrap($dis: flex,
+            @include flex_wrap(
+              $dis: flex,
               $wrap: wrap,
-              $gap: calc(3px + (8 - 3) * ((100vw - 320px) / (1920 - 320))));
+              $gap: calc(3px + (8 - 3) * ((100vw - 320px) / (1920 - 320)))
+            );
 
             @include mq-max(md) {
               justify-content: center;
@@ -2282,9 +2373,11 @@
 
         .product-package {
           .select-package {
-            @include flex_wrap($dis: flex,
+            @include flex_wrap(
+              $dis: flex,
               $wrap: wrap,
-              $gap: calc(5px + (13 - 5) * ((100vw - 320px) / (1920 - 320))));
+              $gap: calc(5px + (13 - 5) * ((100vw - 320px) / (1920 - 320)))
+            );
 
             @include mq-max(md) {
               justify-content: center;
@@ -2435,7 +2528,7 @@
               }
             }
 
-            +.form-check {
+            + .form-check {
               margin-left: 15px;
             }
 
@@ -2476,7 +2569,7 @@
                   transform: scale(1);
                 }
 
-                ~.form-check-label {
+                ~ .form-check-label {
                   color: $title-color;
                 }
               }
@@ -2577,7 +2670,6 @@
 
 .modal-table {
   &.table {
-
     th,
     td {
       padding: 10px;
@@ -2688,22 +2780,28 @@
   .address-form {
     .phone-field {
       .form-control {
-        padding-left: calc(109px + (134 - 109) * ((100vw - 320px) / (1920 - 320))) !important;
+        padding-left: calc(
+          109px + (134 - 109) * ((100vw - 320px) / (1920 - 320))
+        ) !important;
 
         body-rtl & {
-          padding-right: calc(109px + (134 - 109) * ((100vw - 320px) / (1920 - 320))) !important;
+          padding-right: calc(
+            109px + (134 - 109) * ((100vw - 320px) / (1920 - 320))
+          ) !important;
           padding-left: unset !important;
         }
       }
 
       .custom-select {
-        left: calc(var(--bs-gutter-x)* 0.5);
+        left: calc(var(--bs-gutter-x) * 0.5);
 
         .select2-container {
           min-width: unset;
 
           .select2-selection {
-            min-width: calc(100px + (120 - 100) * ((100vw - 320px) / (1920 - 320)));
+            min-width: calc(
+              100px + (120 - 100) * ((100vw - 320px) / (1920 - 320))
+            );
           }
         }
       }

@@ -7,21 +7,20 @@ import { CountryService } from "../services/country.service";
 
 export class CountryStateModel {
   country = {
-    data: [] as Country[]
-  }
+    data: [] as Country[],
+  };
 }
 
 @State<CountryStateModel>({
   name: "country",
   defaults: {
     country: {
-      data: []
-    }
+      data: [],
+    },
   },
 })
 @Injectable()
 export class CountryState {
-  
   constructor(private countryService: CountryService) {}
 
   @Selector()
@@ -31,8 +30,8 @@ export class CountryState {
 
   @Selector()
   static countries(state: CountryStateModel) {
-    return state?.country?.data?.map(cn => {
-      return { label: cn?.name, value: cn?.id }
+    return state?.country?.data?.map((cn) => {
+      return { label: cn?.name, value: cn?.id };
     });
   }
 
@@ -46,18 +45,17 @@ export class CountryState {
     }
     return this.countryService.getCountries().pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           ctx.patchState({
             country: {
-              data: result
-            }
+              data: result,
+            },
           });
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
 }

@@ -2,7 +2,7 @@
      Common scss
 ==========================**/
 /* ======= Display Flex Css Start ======= */
-@mixin flex_common ($dis: flex, $align: center, $justify: center) {
+@mixin flex_common($dis: flex, $align: center, $justify: center) {
   display: $dis;
   align-items: $align;
   justify-content: $justify;
@@ -11,7 +11,7 @@
 /* ======= Display Flex Css End ======= */
 
 /* ======= Gap Flex Css Start ======= */
-@mixin flex_wrap ($dis: flex, $wrap: wrap, $gap: 15px) {
+@mixin flex_wrap($dis: flex, $wrap: wrap, $gap: 15px) {
   display: $dis;
   flex-wrap: $wrap;
   gap: $gap;
@@ -31,17 +31,13 @@
 }
 
 @mixin center($position) {
-  @if $position=="vertical" {
+  @if $position== "vertical" {
     top: 50%;
     transform: translateY(-50%);
-  }
-
-  @else if $position=="horizontal" {
+  } @else if $position== "horizontal" {
     left: 50%;
     transform: translateX(-50%);
-  }
-
-  @else if $position=="both" {
+  } @else if $position== "both" {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

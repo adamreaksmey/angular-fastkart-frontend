@@ -9,8 +9,8 @@ import { StoreService } from "../services/store.service";
 export class StoreStateModel {
   store = {
     data: [] as Stores[],
-    total: 0
-  }
+    total: 0,
+  };
   selectedStore: Stores | null;
 }
 
@@ -19,16 +19,17 @@ export class StoreStateModel {
   defaults: {
     store: {
       data: [],
-      total: 0
+      total: 0,
     },
-    selectedStore: null
+    selectedStore: null,
   },
 })
 @Injectable()
 export class StoreState {
-  
-  constructor(private storeService: StoreService,
-    private router: Router) {}
+  constructor(
+    private storeService: StoreService,
+    private router: Router,
+  ) {}
 
   @Selector()
   static store(state: StoreStateModel) {
@@ -45,21 +46,21 @@ export class StoreState {
     this.storeService.skeletonLoader = true;
     return this.storeService.getStores(action.payload).pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           ctx.patchState({
             store: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
         complete: () => {
           this.storeService.skeletonLoader = false;
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -67,19 +68,18 @@ export class StoreState {
   getStoreBySlug(ctx: StateContext<StoreStateModel>, { slug }: GetStoreBySlug) {
     return this.storeService.getStoreBySlug(slug).pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            selectedStore: result
+            selectedStore: result,
           });
         },
-        error: err => { 
-          this.router.navigate(['/404']);
+        error: (err) => {
+          this.router.navigate(["/404"]);
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
 }

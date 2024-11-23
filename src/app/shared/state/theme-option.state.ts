@@ -2,7 +2,11 @@ import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { tap } from "rxjs";
 import { ThemeOptionService } from "../services/theme-option.service";
-import { GetThemeOption, UpdateProductBox, UpdateSession } from "../action/theme-option.action";
+import {
+  GetThemeOption,
+  UpdateProductBox,
+  UpdateSession,
+} from "../action/theme-option.action";
 import { Option, ThemeOption } from "../interface/theme-option.interface";
 
 export class ThemeOptionStateModel {
@@ -11,7 +15,6 @@ export class ThemeOptionStateModel {
   cookies: boolean;
   newsletter: boolean;
   productBox: string;
-
 }
 
 @State<ThemeOptionStateModel>({
@@ -21,12 +24,11 @@ export class ThemeOptionStateModel {
     exit: true,
     cookies: true,
     newsletter: true,
-    productBox: ''
+    productBox: "",
   },
 })
 @Injectable()
 export class ThemeOptionState {
-
   constructor(private themeOptionService: ThemeOptionService) {}
 
   @Selector()
@@ -68,27 +70,33 @@ export class ThemeOptionState {
         error: (err) => {
           throw new Error(err?.error?.message);
         },
-      })
+      }),
     );
   }
 
   @Action(UpdateSession)
-  UpdateSession(ctx: StateContext<ThemeOptionStateModel>, action: UpdateSession) {
+  UpdateSession(
+    ctx: StateContext<ThemeOptionStateModel>,
+    action: UpdateSession,
+  ) {
     const state = ctx.getState();
     ctx.patchState({
-     ...state,
-     cookies: action.slug == 'cookies' ? action.value : state.cookies,
-     exit: action.slug == 'exit' ? action.value : state.exit,
-     newsletter: action.slug == 'newsletter' ? action.value : state.newsletter
+      ...state,
+      cookies: action.slug == "cookies" ? action.value : state.cookies,
+      exit: action.slug == "exit" ? action.value : state.exit,
+      newsletter: action.slug == "newsletter" ? action.value : state.newsletter,
     });
   }
 
   @Action(UpdateProductBox)
-  UpdateProductBox(ctx: StateContext<ThemeOptionStateModel>, action: UpdateProductBox) {
+  UpdateProductBox(
+    ctx: StateContext<ThemeOptionStateModel>,
+    action: UpdateProductBox,
+  ) {
     const state = ctx.getState();
     ctx.patchState({
-     ...state,
-     productBox: action.value
+      ...state,
+      productBox: action.value,
     });
   }
 }

@@ -21,10 +21,10 @@ body[class="rtl"] {
     }
   }
 
-  .form-floating>.form-control:focus~label,
-  .form-floating>.form-control:not(:placeholder-shown)~label,
-  .form-floating>.form-control-plaintext~label,
-  .form-floating>.form-select~label {
+  .form-floating > .form-control:focus ~ label,
+  .form-floating > .form-control:not(:placeholder-shown) ~ label,
+  .form-floating > .form-control-plaintext ~ label,
+  .form-floating > .form-select ~ label {
     transform-origin: right;
   }
 
@@ -72,7 +72,10 @@ body[class="rtl"] {
   }
 
   .input-group {
-    &> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    &
+      > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+        .valid-feedback
+      ):not(.invalid-tooltip):not(.invalid-feedback) {
       border-top-left-radius: 6px;
       border-top-right-radius: 0;
       border-bottom-left-radius: 6px;
@@ -81,11 +84,17 @@ body[class="rtl"] {
     }
   }
 
-
-  .input-group:not(.has-validation)> :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
-  .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
-  .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control,
-  .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select {
+  .input-group:not(.has-validation)
+    > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(
+      .form-floating
+    ),
+  .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3),
+  .input-group:not(.has-validation)
+    > .form-floating:not(:last-child)
+    > .form-control,
+  .input-group:not(.has-validation)
+    > .form-floating:not(:last-child)
+    > .form-select {
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     border-top-left-radius: 0;
@@ -98,7 +107,7 @@ body[class="rtl"] {
     .owl-stage-outer {
       .owl-stage {
         .owl-item {
-          >* {
+          > * {
             direction: rtl;
           }
         }

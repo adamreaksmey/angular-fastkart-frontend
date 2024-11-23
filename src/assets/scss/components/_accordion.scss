@@ -18,7 +18,11 @@
       }
 
       .accordion-button {
-        @include flex_common ($dis: flex, $align: center, $justify: space-between);
+        @include flex_common(
+          $dis: flex,
+          $align: center,
+          $justify: space-between
+        );
         color: $title-color;
         background-color: #f8f8f8;
         box-shadow: unset;

@@ -42,7 +42,7 @@ export interface FooterPage {
 }
 
 export interface ContactUsModel {
-  name : string;
+  name: string;
   email: string;
   phone: number;
   subject: string;

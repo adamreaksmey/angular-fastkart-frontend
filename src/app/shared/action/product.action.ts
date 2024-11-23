@@ -38,11 +38,9 @@ export class GetMenuProducts {
 export class GetProductBySearch {
   static readonly type = "[ProductBySearch] Get";
   constructor(public payload?: Params) {}
-
 }
 
 export class GetProductByIds {
   static readonly type = "[ProductByIds] Get";
   constructor(public payload?: Params) {}
-
 }

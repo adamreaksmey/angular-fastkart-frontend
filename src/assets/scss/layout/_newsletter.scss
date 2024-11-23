@@ -41,14 +41,14 @@
 
       .row {
         body.rtl & {
-          >.offset-xxl-2 {
-            @media(min-width: 1400px) {
+          > .offset-xxl-2 {
+            @media (min-width: 1400px) {
               margin-right: 8.33333333%;
               margin-left: unset;
             }
           }
 
-          >.offset-md-1 {
+          > .offset-md-1 {
             @media (min-width: 768px) {
               margin-right: 8.33333333%;
               margin-left: unset;
@@ -68,7 +68,9 @@
         h5 {
           font-weight: 600;
           color: #ffbc5d;
-          margin-bottom: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+          margin-bottom: calc(
+            14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))
+          );
           font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
         }
 
@@ -109,7 +111,9 @@
             @include center(vertical);
             position: absolute;
             @include flex_common;
-            font-size: calc(19px + (22 - 19) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              19px + (22 - 19) * ((100vw - 320px) / (1920 - 320))
+            );
             left: 8px;
             color: var(--theme-color);
             z-index: 0;
@@ -144,8 +148,11 @@
             right: 3px;
             border-radius: 3px;
             border: none;
-            padding: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320))) calc(8px + (21 - 8) * ((100vw - 320px) / (1920 - 320)));
-            font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+            padding: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)))
+              calc(8px + (21 - 8) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+            );
             color: $white;
             font-weight: 500;
             display: flex;
@@ -187,7 +194,7 @@
     position: relative;
     body.rtl & {
       transform: scaleX(-1);
-      >.row{
+      > .row {
         transform: scaleX(-1);
       }
     }
@@ -328,15 +335,15 @@
       border-radius: 6px;
       overflow: hidden;
 
-      @media (max-width:1180px) {
+      @media (max-width: 1180px) {
         width: 60%;
       }
 
-      @media (max-width:730px) {
+      @media (max-width: 730px) {
         width: 80%;
       }
 
-      @media (max-width:480px) {
+      @media (max-width: 480px) {
         width: 100%;
       }
 
@@ -357,7 +364,8 @@
         height: 100%;
         border: none;
         gap: 6px;
-        padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320))) calc(8px + (21 - 8) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)))
+          calc(8px + (21 - 8) * ((100vw - 320px) / (1920 - 320)));
         font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
         color: #ffffff;
         font-weight: 500;

@@ -1,4 +1,4 @@
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { OwlOptions } from "ngx-owl-carousel-o";
 
 // Product Slider (5 Items)
 export const productSlider: OwlOptions = {
@@ -301,9 +301,9 @@ export const productMainThumbSlider: OwlOptions = {
   items: 1,
   nav: true,
   autoplay: false,
-  autoHeight:true,
-  autoplayTimeout:5000,
-  autoplayHoverPause:true,
+  autoHeight: true,
+  autoplayTimeout: 5000,
+  autoplayHoverPause: true,
   navSpeed: 300,
   responsive: {
     0: {

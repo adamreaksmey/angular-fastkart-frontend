@@ -19,7 +19,7 @@ export interface Stores {
   hide_vendor_phone: boolean;
   pincode: string;
   product_images: string[];
-  slug:string;
+  slug: string;
   state: States;
   state_id: number;
   status: boolean;
@@ -27,14 +27,14 @@ export interface Stores {
   is_approved: boolean;
   store_logo: Attachment;
   store_logo_id: number;
-  store_name:string;
+  store_name: string;
   vendor: User;
   vendor_id: number;
-  facebook: string,
-  instagram: string,
-  pinterest: string,
-  youtube: string,
-  twitter: string,
+  facebook: string;
+  instagram: string;
+  pinterest: string;
+  youtube: string;
+  twitter: string;
   vendor_name: string;
   order_amount: number;
   orders_count: number;

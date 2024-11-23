@@ -150,8 +150,7 @@ div#loading-bar {
     width: 100%;
     z-index: 1;
     display: flex;
-  } 
-  
+  }
 
   .placeholder-text {
     height: 20px;
@@ -169,7 +168,6 @@ div#loading-bar {
     margin: 0 auto;
   }
 
-
   .gradient-home {
     .home-detail {
       display: none;
@@ -185,15 +183,15 @@ div#loading-bar {
       @include mq-max(2xl) {
         height: 70vh;
       }
-  
+
       @include mq-max(xl) {
         height: 60vh;
       }
-  
+
       @include mq-max(sm) {
         height: 50vh;
       }
-  
+
       @media (max-width: 375px) {
         height: 60vh;
       }

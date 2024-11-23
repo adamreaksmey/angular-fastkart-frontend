@@ -3,17 +3,17 @@ import { PaginateModel } from "./core.interface";
 import { Product } from "./product.interface";
 
 export interface ThemesModel extends PaginateModel {
-   data: Themes[];
- }
+  data: Themes[];
+}
 
 export interface Themes {
-  id: number
-  name: string
-  slug: string
-  image: string
-  status:  number | boolean
-  created_at?: string
-  updated_at?: string
+  id: number;
+  name: string;
+  slug: string;
+  image: string;
+  status: number | boolean;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface Paris {
@@ -23,7 +23,7 @@ export interface Paris {
 }
 
 export interface Content {
-  home_banner : HomeBanner;
+  home_banner: HomeBanner;
   featured_banners: FeaturedBanners;
   main_content: MainContent;
   news_letter: NewsLetter;
@@ -54,7 +54,7 @@ export interface RedirectLink {
 }
 
 export interface FeaturedBanners {
-  title?: string
+  title?: string;
   status: boolean;
   banners: Banners[];
 }
@@ -67,7 +67,7 @@ export interface Banners {
 
 export interface MainContent {
   status: boolean;
-  sidebar : Sidebar;
+  sidebar: Sidebar;
   section1_products: ProductSection;
   section2_categories_list: CategoriesSection;
   section3_two_column_banners: TwoBanners;
@@ -236,14 +236,14 @@ export interface Bundles {
   sub_title: string;
   button_text: string;
   image_url: string;
-  status: boolean
+  status: boolean;
 }
 
 //  Rome Interface
 export interface Rome {
   id: number;
   content: ContentRome;
-  slug: string
+  slug: string;
 }
 
 export interface ContentRome {
@@ -255,7 +255,7 @@ export interface ContentRome {
   slider_products: SliderProductsTokyo;
   full_width_banner: FullWidthBanner;
   products_list_1: ProductSection;
-  featured_blogs: BlogSection
+  featured_blogs: BlogSection;
   news_letter: NewsLetter;
   seller: Seller;
   brands: Brands;
@@ -291,7 +291,7 @@ export interface MadridContent {
   two_column_banners: TwoBanners;
   products_list_4: ProductSection;
   products_list_5: ProductSection;
-  delivery_banners: TwoBanners
+  delivery_banners: TwoBanners;
   products_list_6: ProductSection;
   products_list_7: ProductSection;
   featured_blogs: BlogSection;
@@ -308,7 +308,7 @@ export interface HomeBannerMadrid {
 export interface BankWalletOffers {
   title: string;
   status: boolean;
-  offers : Offer[];
+  offers: Offer[];
 }
 
 export interface Offer {
@@ -333,12 +333,12 @@ export interface DealOfDays {
 }
 
 export interface Deal {
-  offer_title: string
-  product_id: number
+  offer_title: string;
+  product_id: number;
   status: boolean;
   end_date: string;
   remainingTime?: RemainingTime;
-  product: Product
+  product: Product;
 }
 
 export interface RemainingTime {
@@ -350,7 +350,7 @@ export interface RemainingTime {
 
 export interface ServicesBanner {
   status: boolean;
-  services : Services[];
+  services: Services[];
 }
 
 export interface Services {
@@ -379,7 +379,7 @@ export interface BerlinContent {
 }
 
 export interface MainContentBerlin {
-  status: boolean
+  status: boolean;
   sidebar: SidebarBerlin;
   section1_products: ProductSection;
   section2_categories_icon_list: CategoriesIconList;
@@ -391,7 +391,7 @@ export interface MainContentBerlin {
 export interface SidebarBerlin {
   status: boolean;
   categories_icon_list: CategoriesIconList;
-  right_side_banners : RightSideBanners;
+  right_side_banners: RightSideBanners;
   sidebar_products: ProductSection;
 }
 
@@ -434,7 +434,7 @@ export interface HeaderFooter {
 
 export interface Footer {
   footer_logo?: string;
- }
+}
 
 //  Moscow Interface
 export interface Moscow {

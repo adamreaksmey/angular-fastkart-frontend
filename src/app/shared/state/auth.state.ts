@@ -1,11 +1,21 @@
 import { Injectable } from "@angular/core";
 import { Store, State, Selector, Action, StateContext } from "@ngxs/store";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { Router } from "@angular/router";
 import { tap } from "rxjs/operators";
 import { AccountClear } from "../action/account.action";
 import { AuthService } from "../services/auth.service";
-import { ForgotPassWord, Login, VerifyEmailOtp, UpdatePassword, Logout, AuthClear, Register, VerifyNumberOTP, LoginWithNumber } from "../action/auth.action";
+import {
+  ForgotPassWord,
+  Login,
+  VerifyEmailOtp,
+  UpdatePassword,
+  Logout,
+  AuthClear,
+  Register,
+  VerifyNumberOTP,
+  LoginWithNumber,
+} from "../action/auth.action";
 import { NotificationService } from "../services/notification.service";
 import { ClearCart } from "../action/cart.action";
 import { AddToWishlist } from "../action/wishlist.action";
@@ -22,20 +32,22 @@ export interface AuthStateModel {
 @State<AuthStateModel>({
   name: "auth",
   defaults: {
-    email: '',
-    token: '',
+    email: "",
+    token: "",
     number: null,
-    access_token: '',
+    access_token: "",
     permissions: [],
   },
 })
 @Injectable()
 export class AuthState {
-
-  constructor(private store: Store, public router: Router,
+  constructor(
+    private store: Store,
+    public router: Router,
     private notificationService: NotificationService,
     private modalService: NgbModal,
-    private authService: AuthService) {}
+    private authService: AuthService,
+  ) {}
 
   @Selector()
   static accessToken(state: AuthStateModel): String | null {
@@ -66,17 +78,17 @@ export class AuthState {
   register(ctx: StateContext<AuthStateModel>, action: Register) {
     return this.authService.register(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
             access_token: result.access_token,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -85,21 +97,25 @@ export class AuthState {
     this.notificationService.notification = false;
     return this.authService.login(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             access_token: result.access_token,
             permissions: [],
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
         },
         complete: () => {
-          if(localStorage.getItem('wishlist')){
-            this.store.dispatch(new AddToWishlist({product_id: localStorage.getItem('wishlist')}))
+          if (localStorage.getItem("wishlist")) {
+            this.store.dispatch(
+              new AddToWishlist({
+                product_id: localStorage.getItem("wishlist"),
+              }),
+            );
           }
         },
-      })
+      }),
     );
   }
 
@@ -108,23 +124,27 @@ export class AuthState {
     this.notificationService.notification = false;
     return this.authService.loginWithNumber(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            number: action.payload
+            number: action.payload,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
         },
         complete: () => {
-          this.notificationService.showSuccess('Login Successfully.');
-          if(localStorage.getItem('wishlist')){
-            this.store.dispatch(new AddToWishlist({product_id: localStorage.getItem('wishlist')}))
+          this.notificationService.showSuccess("Login Successfully.");
+          if (localStorage.getItem("wishlist")) {
+            this.store.dispatch(
+              new AddToWishlist({
+                product_id: localStorage.getItem("wishlist"),
+              }),
+            );
           }
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -137,13 +157,13 @@ export class AuthState {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            email: action.payload.email
+            email: action.payload.email,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -156,13 +176,13 @@ export class AuthState {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            token: action.payload.token
+            token: action.payload.token,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -177,10 +197,10 @@ export class AuthState {
             permissions: [],
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -189,10 +209,10 @@ export class AuthState {
     this.notificationService.notification = false;
     return this.authService.updatePassword(action.payload).pipe(
       tap({
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -201,24 +221,24 @@ export class AuthState {
     this.notificationService.notification = false;
     return this.authService.logout().pipe(
       tap({
-        next: result => {
+        next: (result) => {
           this.store.dispatch(new AuthClear());
         },
         complete: () => {
           this.modalService.dismissAll();
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(AuthClear)
-  authClear(ctx: StateContext<AuthStateModel>){
+  authClear(ctx: StateContext<AuthStateModel>) {
     ctx.patchState({
-      email: '',
-      token: '',
+      email: "",
+      token: "",
       access_token: null,
       permissions: [],
     });
@@ -226,5 +246,4 @@ export class AuthState {
     this.store.dispatch(new AccountClear());
     this.store.dispatch(new ClearCart());
   }
-
 }

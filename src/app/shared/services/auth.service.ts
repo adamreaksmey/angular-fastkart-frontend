@@ -2,19 +2,27 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../../environments/environment";
-import { AuthNumberLoginState, AuthStateModal, AuthUserForgotModel, AuthUserStateModel, AuthVerifyNumberOTPState, RegisterModal, UpdatePasswordModel, VerifyEmailOtpModel } from "../interface/auth.interface";
+import {
+  AuthNumberLoginState,
+  AuthStateModal,
+  AuthUserForgotModel,
+  AuthUserStateModel,
+  AuthVerifyNumberOTPState,
+  RegisterModal,
+  UpdatePasswordModel,
+  VerifyEmailOtpModel,
+} from "../interface/auth.interface";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
-
   public redirectUrl: string | undefined;
   public otpType: string;
 
   constructor(private http: HttpClient) {}
 
-  register(payload: RegisterModal): Observable<any>{
+  register(payload: RegisterModal): Observable<any> {
     return this.http.post(`${environment.URL}/register`, payload);
   }
 
@@ -22,8 +30,11 @@ export class AuthService {
     return this.http.post(`${environment.URL}/login`, payload);
   }
 
-  loginWithNumber(payload: AuthNumberLoginState): Observable<AuthStateModal>{
-    return this.http.post<AuthStateModal>(`${environment.URL}/login/number`,payload)
+  loginWithNumber(payload: AuthNumberLoginState): Observable<AuthStateModal> {
+    return this.http.post<AuthStateModal>(
+      `${environment.URL}/login/number`,
+      payload,
+    );
   }
 
   forgotPassword(payload: AuthUserForgotModel): Observable<any> {
@@ -34,8 +45,13 @@ export class AuthService {
     return this.http.post(`${environment.URL}/verify-token`, payload);
   }
 
-  verifyNumberOtp(payload: AuthVerifyNumberOTPState): Observable<AuthStateModal> {
-    return this.http.post<AuthStateModal>(`${environment.URL}/verify-otp`, payload);
+  verifyNumberOtp(
+    payload: AuthVerifyNumberOTPState,
+  ): Observable<AuthStateModal> {
+    return this.http.post<AuthStateModal>(
+      `${environment.URL}/verify-otp`,
+      payload,
+    );
   }
 
   updatePassword(payload: UpdatePasswordModel): Observable<any> {
@@ -45,5 +61,4 @@ export class AuthService {
   logout(): Observable<any> {
     return this.http.post(`${environment.URL}/logout`, {});
   }
-
 }

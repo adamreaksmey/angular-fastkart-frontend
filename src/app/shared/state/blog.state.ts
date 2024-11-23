@@ -2,15 +2,20 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { tap } from "rxjs";
-import { GetBlogs, GetBlogBySlug, GetRecentBlog, GetSelectedBlogs } from "../action/blog.action";
+import {
+  GetBlogs,
+  GetBlogBySlug,
+  GetRecentBlog,
+  GetSelectedBlogs,
+} from "../action/blog.action";
 import { Blog } from "../interface/blog.interface";
 import { BlogService } from "../services/blog.service";
 
 export class BlogStateModel {
   blog = {
     data: [] as Blog[],
-    total: 0
-  }
+    total: 0,
+  };
   selectedBlog: Blog | null;
   recentBlog: Blog[] | [];
   selectedBlogs: Blog[] | [];
@@ -21,7 +26,7 @@ export class BlogStateModel {
   defaults: {
     blog: {
       data: [],
-      total: 0
+      total: 0,
     },
     selectedBlog: null,
     recentBlog: [],
@@ -30,9 +35,10 @@ export class BlogStateModel {
 })
 @Injectable()
 export class BlogState {
-
-  constructor(private router: Router,
-    private blogService: BlogService) {}
+  constructor(
+    private router: Router,
+    private blogService: BlogService,
+  ) {}
 
   @Selector()
   static blog(state: BlogStateModel) {
@@ -43,7 +49,6 @@ export class BlogState {
   static selectedBlog(state: BlogStateModel) {
     return state.selectedBlog;
   }
-
 
   @Selector()
   static resentBlog(state: BlogStateModel) {
@@ -60,21 +65,21 @@ export class BlogState {
     this.blogService.skeletonLoader = true;
     return this.blogService.getBlogs(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             blog: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
         complete: () => {
           this.blogService.skeletonLoader = false;
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -82,18 +87,18 @@ export class BlogState {
   getBlogBySlug(ctx: StateContext<BlogStateModel>, { slug }: GetBlogBySlug) {
     return this.blogService.getBlogBySlug(slug).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            selectedBlog: result
+            selectedBlog: result,
           });
         },
-        error: err => {
-          this.router.navigate(['/404']);
+        error: (err) => {
+          this.router.navigate(["/404"]);
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -101,32 +106,34 @@ export class BlogState {
   getRecentBlogs(ctx: StateContext<BlogStateModel>, action: GetRecentBlog) {
     return this.blogService.getBlogs(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             recentBlog: result.data,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetSelectedBlogs)
-  getSelectedBlogs(ctx: StateContext<BlogStateModel>, action: GetSelectedBlogs) {
+  getSelectedBlogs(
+    ctx: StateContext<BlogStateModel>,
+    action: GetSelectedBlogs,
+  ) {
     return this.blogService.getBlogs(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             selectedBlogs: result.data,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-  
 }

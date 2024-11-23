@@ -8,11 +8,9 @@ import { Country } from "../interface/country.interface";
   providedIn: "root",
 })
 export class CountryService {
-
   constructor(private http: HttpClient) {}
 
   getCountries(): Observable<Country[]> {
     return this.http.get<Country[]>(`${environment.URL}/country`);
   }
-
 }

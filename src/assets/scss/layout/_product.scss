@@ -117,8 +117,10 @@
     .add-icon {
       @include center(vertical);
       @include flex_common;
-      @include pseudowh($width: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320))),
-        $height: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320))));
+      @include pseudowh(
+        $width: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320))),
+        $height: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320)))
+      );
       background-color: $white;
       border-radius: 100%;
       color: var(--theme-color);
@@ -175,7 +177,7 @@
         z-index: 0;
         border-radius: 2px !important;
 
-        >div {
+        > div {
           display: flex;
           line-height: 1;
           align-items: center;
@@ -216,8 +218,10 @@
 .add-to-cart-btn-2 {
   .btn {
     @include flex_common;
-    @include pseudowh($width: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320))),
-      $height: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(30px + (37 - 30) * ((100vw - 320px) / (1920 - 320)))
+    );
     position: absolute;
     right: 0;
     bottom: 0;
@@ -263,8 +267,10 @@
       z-index: 0;
 
       button {
-        @include pseudowh($width: calc(29px + (35 - 29) * ((100vw - 320px) / (1920 - 320))),
-          $height: calc(29px + (35 - 29) * ((100vw - 320px) / (1920 - 320))));
+        @include pseudowh(
+          $width: calc(29px + (35 - 29) * ((100vw - 320px) / (1920 - 320))),
+          $height: calc(29px + (35 - 29) * ((100vw - 320px) / (1920 - 320)))
+        );
         @include flex_common;
         border: none;
         padding: 0;
@@ -313,8 +319,10 @@
     }
 
     button {
-      @include pseudowh($width: calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320))),
-        $height: calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320))));
+      @include pseudowh(
+        $width: calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320))),
+        $height: calc(26px + (35 - 26) * ((100vw - 320px) / (1920 - 320)))
+      );
       @include flex_common;
       border: none;
       padding: 0;
@@ -359,7 +367,7 @@
       border: none;
 
       li {
-        +li {
+        + li {
           &::before {
             left: -25px;
 
@@ -373,8 +381,10 @@
         .counter {
           text-align: center;
 
-          >div {
-            font-size: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
+          > div {
+            font-size: calc(
+              18px + (20 - 18) * ((100vw - 320px) / (1920 - 320))
+            );
           }
         }
       }
@@ -396,7 +406,7 @@
     li {
       position: relative;
 
-      +li {
+      + li {
         &::before {
           @include pos($pos: absolute, $content: ":");
           @include center(vertical);
@@ -410,7 +420,7 @@
       }
 
       .counter {
-        >div {
+        > div {
           display: flex;
           align-items: center;
 
@@ -475,9 +485,11 @@
       }
 
       .category-list {
-        @include flex_wrap($dis: flex,
+        @include flex_wrap(
+          $dis: flex,
           $wrap: nowrap,
-          $gap: calc(10px + (16 - 10) * ((100vw - 320px) / (1920 - 320))));
+          $gap: calc(10px + (16 - 10) * ((100vw - 320px) / (1920 - 320)))
+        );
         align-items: center;
         color: $title-color;
 
@@ -573,10 +585,10 @@
   border-radius: 0px;
   padding: 0;
 
-  >.product-box-slider {
-    >div {
-      >.row {
-        >div {
+  > .product-box-slider {
+    > div {
+      > .row {
+        > div {
           &:nth-child(n + 6) {
             border-top: 1px solid rgba($content-color, 0.3);
           }
@@ -648,7 +660,7 @@
       }
     }
 
-    +.product-box-bg {
+    + .product-box-bg {
       margin-top: 20px !important;
 
       @include mq-max(sm) {
@@ -687,7 +699,7 @@
           height: 28px;
           border-radius: 100% !important;
 
-          >div {
+          > div {
             line-height: 1;
           }
         }
@@ -759,7 +771,7 @@
           }
         }
 
-        +li {
+        + li {
           &:after {
             @include pos;
             @include pseudowh($width: 1px, $height: 100%);
@@ -778,10 +790,14 @@
     }
 
     img {
-      @include pseudowh($width: 100%,
-        $height: calc(100px + (140 - 100) * ((100vw - 320px) / (1920 - 320))));
+      @include pseudowh(
+        $width: 100%,
+        $height: calc(100px + (140 - 100) * ((100vw - 320px) / (1920 - 320)))
+      );
       object-fit: contain;
-      transition: opacity 0.5s, transform 1.25s cubic-bezier(0, 0, 0.44, 1.18);
+      transition:
+        opacity 0.5s,
+        transform 1.25s cubic-bezier(0, 0, 0.44, 1.18);
     }
   }
 
@@ -893,7 +909,6 @@
     }
 
     .addtocart_btn {
-
       .add-button,
       .add_cart {
         @include flex_common;
@@ -1046,7 +1061,7 @@
           }
         }
 
-        +li {
+        + li {
           &:after {
             @include pos;
             @include pseudowh($width: 1px, $height: 100%);
@@ -1184,7 +1199,7 @@
           }
         }
 
-        +li {
+        + li {
           &:after {
             @include pos;
             @include pseudowh($width: 1px, $height: 100%);
@@ -1365,7 +1380,7 @@
     li {
       padding: 0;
 
-      +li {
+      + li {
         &:after {
           @include pos;
           top: -28px;
@@ -1439,7 +1454,11 @@
           top: calc(-22px + (-28 - -22) * ((100vw - 992px) / (1920 - 992)));
           right: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
           border-bottom: 1px dashed rgba(74, 85, 104, 0.3);
-          width: calc(100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))) - calc(12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))));
+          width: calc(
+            100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))) - calc(
+                12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))
+              )
+          );
 
           body.rtl & {
             left: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
@@ -1456,7 +1475,11 @@
           top: calc(-22px + (-28 - -22) * ((100vw - 992px) / (1920 - 992)));
           right: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
           border-bottom: 1px dashed rgba(74, 85, 104, 0.3);
-          width: calc(100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))) - calc(12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))));
+          width: calc(
+            100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))) - calc(
+                12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))
+              )
+          );
 
           body.rtl & {
             left: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
@@ -1473,7 +1496,11 @@
           top: calc(-22px + (-28 - -22) * ((100vw - 992px) / (1920 - 992)));
           right: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
           border-bottom: 1px dashed rgba(74, 85, 104, 0.3);
-          width: calc(100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))) - calc(12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))));
+          width: calc(
+            100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))) - calc(
+                12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))
+              )
+          );
 
           body.rtl & {
             left: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
@@ -1490,7 +1517,9 @@
           top: -28px;
           right: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
           border-bottom: 1px dashed rgba(74, 85, 104, 0.3);
-          width: calc(100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))));
+          width: calc(
+            100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320)))
+          );
 
           body.rtl & {
             left: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
@@ -1507,7 +1536,9 @@
           top: -18px;
           right: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
           border-bottom: 1px dashed rgba(74, 85, 104, 0.3);
-          width: calc(100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320))));
+          width: calc(
+            100% - calc(120px + (143 - 120) * ((100vw - 320px) / (1920 - 320)))
+          );
 
           body.rtl & {
             left: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
@@ -1552,14 +1583,25 @@
       }
 
       .offer-detail {
-        @include pseudowh($width: calc(100% - calc(75px + (80 - 75) * ((100vw - 320px) / (1920 - 320))) - calc(12px + (23 - 12) * ((100vw - 320px) / (1920 - 320)))),
-          $height: 80px);
+        @include pseudowh(
+          $width:
+            calc(
+              100% - calc(75px + (80 - 75) * ((100vw - 320px) / (1920 - 320))) - calc(
+                  12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))
+                )
+            ),
+          $height: 80px
+        );
         position: relative;
         display: flex;
         align-items: center;
 
         @include mq-max(4xl) {
-          width: calc(100% - calc(80px + (90 - 80) * ((100vw - 320px) / (1920 - 320))) - calc(12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))));
+          width: calc(
+            100% - calc(80px + (90 - 80) * ((100vw - 320px) / (1920 - 320))) - calc(
+                12px + (23 - 12) * ((100vw - 320px) / (1920 - 320))
+              )
+          );
         }
 
         .vertical-price {
@@ -1591,7 +1633,9 @@
             font-weight: 500;
             margin-top: -1px;
             transition: all 0.3s ease-in-out;
-            font-size: calc(15px + (16 - 15) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              15px + (16 - 15) * ((100vw - 320px) / (1920 - 320))
+            );
           }
         }
 
@@ -1607,7 +1651,8 @@
 }
 
 .product-category {
-  padding: calc(19px + (36 - 19) * ((100vw - 320px) / (1920 - 320))) calc(16px + (25 - 16) * ((100vw - 320px) / (1920 - 320)));
+  padding: calc(19px + (36 - 19) * ((100vw - 320px) / (1920 - 320)))
+    calc(16px + (25 - 16) * ((100vw - 320px) / (1920 - 320)));
   background-color: $light-gray;
 
   .product-category-list {
@@ -1648,7 +1693,7 @@
         }
       }
 
-      +li {
+      + li {
         margin-top: calc(14px + (26 - 14) * ((100vw - 320px) / (1920 - 320)));
       }
 
@@ -1691,7 +1736,7 @@
           height: 100%;
           display: block;
 
-          >div {
+          > div {
             height: 100%;
           }
 
@@ -1701,7 +1746,7 @@
             .owl-item {
               height: 100%;
 
-              >div {
+              > div {
                 height: 100%;
               }
             }
@@ -1748,12 +1793,13 @@
     backdrop-filter: blur(4px);
     width: calc(100% - 32px);
     margin: -50px auto 0;
-    padding: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320))) calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
+    padding: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320)))
+      calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(47, 88, 80, 0.05);
     background-color: rgba($white, 0.8);
 
-    >div {
+    > div {
       position: relative;
     }
 
@@ -1831,7 +1877,7 @@
     position: relative;
     overflow: hidden;
 
-    +.top-selling-contain {
+    + .top-selling-contain {
       margin-top: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320)));
 
       &:before {
@@ -1869,8 +1915,10 @@
 
     .top-selling-image {
       overflow: hidden;
-      @include pseudowh($width: calc(80px + (100 - 80) * ((100vw - 320px) / (1920 - 320))),
-        $height: calc(80px + (100 - 80) * ((100vw - 320px) / (1920 - 320))));
+      @include pseudowh(
+        $width: calc(80px + (100 - 80) * ((100vw - 320px) / (1920 - 320))),
+        $height: calc(80px + (100 - 80) * ((100vw - 320px) / (1920 - 320)))
+      );
       border-radius: 5px;
 
       img {
@@ -1881,14 +1929,18 @@
 
     .top-selling-detail {
       padding-left: calc(15px + (18 - 15) * ((100vw - 320px) / (1920 - 320)));
-      width: calc(100% - calc(80px + (100 - 80) * ((100vw - 320px) / (1920 - 320))));
+      width: calc(
+        100% - calc(80px + (100 - 80) * ((100vw - 320px) / (1920 - 320)))
+      );
       position: relative;
 
       .product-option {
         @include pseudowh;
-        @include flex_common($dis: flex,
+        @include flex_common(
+          $dis: flex,
           $align: center,
-          $justify: space-evenly);
+          $justify: space-evenly
+        );
         position: absolute;
         top: 0;
         left: 0;
@@ -1984,8 +2036,10 @@
     }
   }
 
-  +.product-box-2 {
-    margin-top: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))) !important;
+  + .product-box-2 {
+    margin-top: calc(
+      14px + (20 - 14) * ((100vw - 320px) / (1920 - 320))
+    ) !important;
   }
 
   .product-image {
@@ -1993,8 +2047,10 @@
     overflow: hidden;
 
     img {
-      @include pseudowh($width: calc(86px + (130 - 86) * ((100vw - 320px) / (1920 - 320))),
-        $height: auto);
+      @include pseudowh(
+        $width: calc(86px + (130 - 86) * ((100vw - 320px) / (1920 - 320))),
+        $height: auto
+      );
       object-fit: contain;
       transition: all 0.3s ease-in-out;
     }
@@ -2196,7 +2252,7 @@
       }
 
       li {
-        +li {
+        + li {
           margin-left: 8px;
 
           body.rtl & {
@@ -2206,8 +2262,10 @@
         }
 
         a {
-          @include pseudowh($width: calc(36px + (48 - 36) * ((100vw - 320px) / (1920 - 320))),
-            $height: calc(36px + (48 - 36) * ((100vw - 320px) / (1920 - 320))));
+          @include pseudowh(
+            $width: calc(36px + (48 - 36) * ((100vw - 320px) / (1920 - 320))),
+            $height: calc(36px + (48 - 36) * ((100vw - 320px) / (1920 - 320)))
+          );
           @include flex_common;
           background-color: $white;
           box-shadow: 0px 5.57831px 13.9458px rgba($black, 0.05);
@@ -2215,8 +2273,10 @@
           color: $title-color;
 
           svg {
-            @include pseudowh($width: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))),
-              $height: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))));
+            @include pseudowh(
+              $width: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320))),
+              $height: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)))
+            );
           }
         }
       }
@@ -2229,7 +2289,7 @@
   z-index: 0;
 
   &.list-style {
-    >div {
+    > div {
       width: 100%;
     }
 
@@ -2247,7 +2307,7 @@
 
       .product-image {
         padding: 0;
-        width: calc(180px + (250 - 180)*((100vw - 576px) /(1920 - 576)));
+        width: calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576)));
 
         @include mq-max(md) {
           width: 100%;
@@ -2257,13 +2317,16 @@
           height: auto;
 
           @include mq-max(sm) {
-            height: calc(160px + 40*(100vw - 320px) / 1600);
+            height: calc(160px + 40 * (100vw - 320px) / 1600);
           }
         }
       }
 
       .product-detail {
-        width: calc(100% - calc(180px + (250 - 180)*((100vw - 576px) /(1920 - 576))) - 20px);
+        width: calc(
+          100% - calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576))) -
+            20px
+        );
         margin-left: 20px;
         text-align: unset;
 
@@ -2461,7 +2524,7 @@
 
       .img-box {
         padding: 0;
-        width: calc(180px + (250 - 180)*((100vw - 576px) /(1920 - 576)));
+        width: calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576)));
 
         @include mq-max(sm) {
           width: 100%;
@@ -2471,13 +2534,16 @@
           height: auto;
 
           @include mq-max(sm) {
-            height: calc(160px + 40*(100vw - 320px) / 1600);
+            height: calc(160px + 40 * (100vw - 320px) / 1600);
           }
         }
       }
 
       .content-box {
-        width: calc(100% - calc(180px + (250 - 180)*((100vw - 576px) /(1920 - 576))) - 20px);
+        width: calc(
+          100% - calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576))) -
+            20px
+        );
         margin-left: 20px;
         text-align: unset;
         margin-top: 0;
@@ -2599,17 +2665,21 @@
       }
 
       img {
-        @include pseudowh($width: 100%,
-          $height: calc(100px + (140 - 100) * ((100vw - 320px) / (1920 - 320))));
+        @include pseudowh(
+          $width: 100%,
+          $height: calc(100px + (140 - 100) * ((100vw - 320px) / (1920 - 320)))
+        );
         object-fit: contain;
         transition: all 0.3s ease-in-out;
       }
 
       .product-option {
         @include center(horizontal);
-        @include flex_common($dis: flex,
+        @include flex_common(
+          $dis: flex,
           $align: center,
-          $justify: space-between);
+          $justify: space-between
+        );
         position: absolute;
         bottom: -5px;
         background-color: $white;
@@ -2638,7 +2708,7 @@
             }
           }
 
-          +li {
+          + li {
             &:after {
               @include pos;
               @include pseudowh($width: 1px, $height: 100%);
@@ -2838,7 +2908,7 @@
   position: relative;
   text-align: center;
 
-  +.product-box-4 {
+  + .product-box-4 {
     margin-top: 20px !important;
   }
 
@@ -2960,8 +3030,10 @@
     }
 
     img {
-      @include pseudowh($width: 70%,
-        $height: calc(80px + (140 - 80) * ((100vw - 320px) / (1920 - 320))));
+      @include pseudowh(
+        $width: 70%,
+        $height: calc(80px + (140 - 80) * ((100vw - 320px) / (1920 - 320)))
+      );
       margin: 30px auto 20px;
       object-fit: contain;
       transition: all 0.3s ease-in-out;
@@ -3059,7 +3131,6 @@
     position: relative;
 
     .addtocart_btn {
-
       .add-button,
       .add_cart {
         transition: all 0.3s ease;
@@ -3234,9 +3305,11 @@
     }
 
     .price-qty {
-      @include flex_common($dis: flex,
+      @include flex_common(
+        $dis: flex,
         $align: flex-end,
-        $justify: space-between);
+        $justify: space-between
+      );
       margin-top: calc(8px + (16 - 8) * ((100vw - 320px) / (1920 - 320)));
 
       @include mq-max(xs) {
@@ -3359,7 +3432,7 @@
             border-color: hsla(0, 0%, 47%, 0.44);
             color: #ddd;
 
-            +li {
+            + li {
               &::after {
                 color: #ffffff;
               }
@@ -3424,7 +3497,7 @@
           }
         }
 
-        +li {
+        + li {
           &:after {
             @include pos;
             @include pseudowh($width: 1px, $height: 100%);
@@ -3500,7 +3573,7 @@
     }
   }
 
-  +.product-box-5 {
+  + .product-box-5 {
     margin-top: 30px !important;
   }
 }
@@ -3542,8 +3615,10 @@
     }
 
     .product-image {
-      @include pseudowh($width: calc(84px + (116 - 84) * ((100vw - 320px) / (1920 - 320))),
-        $height: calc(84px + (116 - 84) * ((100vw - 320px) / (1920 - 320))));
+      @include pseudowh(
+        $width: calc(84px + (116 - 84) * ((100vw - 320px) / (1920 - 320))),
+        $height: calc(84px + (116 - 84) * ((100vw - 320px) / (1920 - 320)))
+      );
       border: 1px solid $border-color;
       border-radius: 12px;
       padding: 15px;
@@ -3567,7 +3642,9 @@
 
       body.rtl & {
         padding-left: unset;
-        padding-right: calc(15px + (25 - 15) * ((100vw - 320px) / (1920 - 320)));
+        padding-right: calc(
+          15px + (25 - 15) * ((100vw - 320px) / (1920 - 320))
+        );
       }
 
       a {
@@ -3756,7 +3833,7 @@
     .owl-stage-outer {
       .owl-stage {
         .owl-item {
-          >* {
+          > * {
             body.rtl & {
               direction: rtl;
             }
@@ -3772,7 +3849,7 @@
     gap: 30px 30px;
 
     li {
-      +li {
+      + li {
         &:after {
           display: none;
         }
@@ -3799,7 +3876,6 @@
   }
 
   .product-list {
-
     &:after,
     &:before {
       display: none;
@@ -3811,9 +3887,9 @@
   .owl-carousel {
     .owl-item {
       &.active {
-        +.active {
+        + .active {
           .row {
-            >div {
+            > div {
               .product-box {
                 border-left: 1px solid $border-color;
               }
@@ -3912,7 +3988,9 @@
     label {
       background-color: $danger-color;
       color: #ffffff;
-      padding: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320))) calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320))) calc(6px + (9 - 6) * ((100vw - 320px) / (1920 - 320)));
+      padding: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320)))
+        calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)))
+        calc(6px + (9 - 6) * ((100vw - 320px) / (1920 - 320)));
       text-transform: capitalize;
       font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320)));
       font-weight: 600;
@@ -3944,7 +4022,9 @@
     span {
       background-color: #ff4f4f;
       color: #ffffff;
-      padding: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320))) calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320))) calc(6px + (9 - 6) * ((100vw - 320px) / (1920 - 320)));
+      padding: calc(5px + (8 - 5) * ((100vw - 320px) / (1920 - 320)))
+        calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)))
+        calc(6px + (9 - 6) * ((100vw - 320px) / (1920 - 320)));
       text-transform: capitalize;
       font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320)));
       font-weight: 600;
@@ -3990,7 +4070,7 @@
           }
         }
 
-        +li {
+        + li {
           &:after {
             @include pos;
             @include pseudowh($width: 1px, $height: 100%);
@@ -4104,7 +4184,6 @@
     }
 
     .addtocart_btn {
-
       .add-button,
       .add_cart {
         @include flex_common;
@@ -4211,10 +4290,11 @@
 
   .label-tag {
     position: absolute;
-    top: calc(13px + 11*(100vw - 320px) / 1600);
+    top: calc(13px + 11 * (100vw - 320px) / 1600);
     left: -5px;
-    padding: calc(4px + 1*(100vw - 320px) / 1600) calc(5px + 3*(100vw - 320px) / 1600);
-    font-size: calc(13px + 1*(100vw - 320px) / 1600);
+    padding: calc(4px + 1 * (100vw - 320px) / 1600)
+      calc(5px + 3 * (100vw - 320px) / 1600);
+    font-size: calc(13px + 1 * (100vw - 320px) / 1600);
     color: #ffffff;
     font-weight: 500;
     display: flex;
@@ -4287,7 +4367,7 @@
       width: calc(28px + (35 - 28) * ((100vw - 320px) / (1920 - 320)));
       height: calc(28px + (35 - 28) * ((100vw - 320px) / (1920 - 320)));
       @include flex_common;
-      background-color: rgba($black, 0.40);
+      background-color: rgba($black, 0.4);
       border-radius: 100%;
 
       html.dark & {
@@ -4475,7 +4555,6 @@
   }
 
   .product_border {
-
     .product-box,
     .product-style-1,
     .product-style-2 {
@@ -4497,47 +4576,47 @@
       --bs-gutter-x: 0;
     }
 
-    >div {
+    > div {
       border-left: 1px solid $border-color;
 
       &:nth-child(n + 7) {
         border-top: 1px solid $border-color;
       }
 
-      @media (max-width:1399px) {
-        &:nth-child(n+5) {
+      @media (max-width: 1399px) {
+        &:nth-child(n + 5) {
           border-top: 1px solid $border-color;
         }
       }
 
-      @media (max-width:1199px) {
-        &:nth-child(n+4) {
+      @media (max-width: 1199px) {
+        &:nth-child(n + 4) {
           border-top: 1px solid $border-color;
         }
       }
 
-      @media (max-width:991px) {
-        &:nth-child(n+3) {
+      @media (max-width: 991px) {
+        &:nth-child(n + 3) {
           border-top: 1px solid $border-color;
         }
       }
 
-      &:nth-child(6n+1) {
+      &:nth-child(6n + 1) {
         border-left: unset;
       }
     }
 
     &.row-cols-xl-4 {
-      >div {
+      > div {
         border-right: 1px solid $border-color;
         border-left: unset;
 
-        &:nth-child(n+5),
-        &:nth-child(n+7) {
+        &:nth-child(n + 5),
+        &:nth-child(n + 7) {
           border-top: 1px solid $border-color;
         }
 
-        &:nth-child(4n+4) {
+        &:nth-child(4n + 4) {
           border-right: unset;
           border-left: unset;
         }
@@ -4545,59 +4624,59 @@
     }
 
     &.row-cols-xl-5 {
-      >div {
+      > div {
         border-right: 1px solid $border-color;
         border-left: unset;
 
-        &:nth-child(n+6) {
+        &:nth-child(n + 6) {
           border-top: 1px solid $border-color;
         }
 
-        @media (max-width:1199px) {
-          &:nth-child(n+4) {
+        @media (max-width: 1199px) {
+          &:nth-child(n + 4) {
             border-top: unset;
           }
 
-          &:nth-child(n+5) {
+          &:nth-child(n + 5) {
             border-top: 1px solid $border-color;
           }
         }
 
-        @media (max-width:991px) {
-          &:nth-child(n+3) {
+        @media (max-width: 991px) {
+          &:nth-child(n + 3) {
             border-top: unset;
           }
 
-          &:nth-child(n+4) {
+          &:nth-child(n + 4) {
             border-top: 1px solid $border-color;
           }
         }
 
-        @media (max-width:767px) {
-          &:nth-child(n+3) {
+        @media (max-width: 767px) {
+          &:nth-child(n + 3) {
             border-top: 1px solid $border-color;
           }
         }
 
-        &:nth-child(5n+5) {
+        &:nth-child(5n + 5) {
           border-right: unset;
           border-left: unset;
         }
 
-        @media (max-width:1199px) {
-          &:nth-child(4n+4) {
+        @media (max-width: 1199px) {
+          &:nth-child(4n + 4) {
             border-right: unset;
             border-left: unset;
           }
 
-          &:nth-child(5n+5) {
+          &:nth-child(5n + 5) {
             border-right: 1px solid $border-color;
             border-left: unset;
           }
         }
 
-        @media (max-width:991px) {
-          &:nth-child(4n+4) {
+        @media (max-width: 991px) {
+          &:nth-child(4n + 4) {
             border-right: 1px solid $border-color;
 
             body.rtl & {
@@ -4606,7 +4685,7 @@
             }
           }
 
-          &:nth-child(3n+3) {
+          &:nth-child(3n + 3) {
             border-right: unset;
             border-left: unset;
 
@@ -4617,8 +4696,8 @@
           }
         }
 
-        @media (max-width:768px) {
-          &:nth-child(3n+3) {
+        @media (max-width: 768px) {
+          &:nth-child(3n + 3) {
             border-right: 1px solid $border-color;
           }
 
@@ -4634,7 +4713,7 @@
   .product-list-section {
     @media (max-width: 769px) {
       &.row-cols-2 {
-        >* {
+        > * {
           border-right: 1px solid $border-color;
 
           body.rtl & {
@@ -4646,15 +4725,15 @@
             }
           }
 
-          &:nth-child(n+4) {
+          &:nth-child(n + 4) {
             border-top: unset;
           }
 
-          &:nth-child(n+3) {
+          &:nth-child(n + 3) {
             border-top: 1px solid $border-color;
           }
 
-          &:nth-child(2n+2) {
+          &:nth-child(2n + 2) {
             border-right: unset;
 
             body.rtl & {
@@ -4668,7 +4747,7 @@
 
     @media (min-width: 768px) {
       &.row-cols-md-3 {
-        >* {
+        > * {
           border-right: 1px solid $border-color;
           border-bottom: 1px solid $border-color;
 
@@ -4681,7 +4760,7 @@
             }
           }
 
-          &:nth-child(3n+3) {
+          &:nth-child(3n + 3) {
             border-right: unset;
 
             body.rtl & {
@@ -4699,7 +4778,7 @@
 
     @media (min-width: 1199px) {
       &.row-cols-xl-4 {
-        >* {
+        > * {
           border-right: 1px solid $border-color;
           border-bottom: unset;
 
@@ -4712,7 +4791,7 @@
             }
           }
 
-          &:nth-child(5n+5) {
+          &:nth-child(5n + 5) {
             border-right: 1px solid $border-color;
 
             body.rtl & {
@@ -4725,15 +4804,15 @@
             }
           }
 
-          &:nth-child(n+6) {
+          &:nth-child(n + 6) {
             border-top: unset;
           }
 
-          &:nth-child(n+5) {
+          &:nth-child(n + 5) {
             border-top: 1px solid $border-color;
           }
 
-          &:nth-child(3n+3) {
+          &:nth-child(3n + 3) {
             border-right: 1px solid $border-color;
 
             body.rtl & {
@@ -4746,7 +4825,7 @@
             }
           }
 
-          &:nth-child(4n+4) {
+          &:nth-child(4n + 4) {
             border-right: unset;
 
             body.rtl & {
@@ -4764,7 +4843,7 @@
 
     @media (min-width: 1399px) {
       &.row-cols-xxl-5 {
-        >* {
+        > * {
           border-right: 1px solid $border-color;
           border-bottom: unset;
 
@@ -4777,15 +4856,15 @@
             }
           }
 
-          &:nth-child(n+5) {
+          &:nth-child(n + 5) {
             border-top: unset;
           }
 
-          &:nth-child(n+6) {
+          &:nth-child(n + 6) {
             border-top: 1px solid $border-color;
           }
 
-          &:nth-child(4n+4) {
+          &:nth-child(4n + 4) {
             border-right: 1px solid $border-color;
 
             body.rtl & {
@@ -4794,7 +4873,7 @@
             }
           }
 
-          &:nth-child(5n+5) {
+          &:nth-child(5n + 5) {
             border-right: unset;
 
             body.rtl & {
@@ -4807,21 +4886,21 @@
     }
 
     &.list-style {
-      >* {
-        +* {
+      > * {
+        + * {
           border-top: 1px solid $border-color;
         }
       }
     }
   }
 
-  >.row {
+  > .row {
     &.g-sm-4.g-3 {
       --bs-gutter-y: 0;
       --bs-gutter-x: 0;
     }
 
-    >div {
+    > div {
       border-right: 1px solid $border-color;
       border-left: unset;
 
@@ -4830,38 +4909,38 @@
         border-right: unset;
       }
 
-      &:nth-child(n+5) {
+      &:nth-child(n + 5) {
         border-top: 1px solid $border-color;
       }
 
-      @media (min-width:1199px) {
+      @media (min-width: 1199px) {
         .row-cols-xl-4 {
-          &:nth-child(n+4) {
+          &:nth-child(n + 4) {
             border-top: 1px solid $border-color;
           }
 
-          &:nth-child(3n+1) {
+          &:nth-child(3n + 1) {
             border-right: 1px solid $border-color;
             border-left: unset;
           }
         }
       }
 
-      @media (max-width:991px) and (min-width: 320px) {
+      @media (max-width: 991px) and (min-width: 320px) {
         .row-cols-lg-3 {
-          &:nth-child(n+3) {
+          &:nth-child(n + 3) {
             border-top: 1px solid $border-color;
           }
         }
       }
 
-      &:nth-child(4n+4) {
+      &:nth-child(4n + 4) {
         border-right: unset;
         border-left: unset;
       }
 
-      @media (max-width:1199px) {
-        &:nth-child(4n+4) {
+      @media (max-width: 1199px) {
+        &:nth-child(4n + 4) {
           border-right: 1px solid $border-color;
           border-left: unset;
 
@@ -4875,7 +4954,7 @@
           }
         }
 
-        &:nth-child(3n+3) {
+        &:nth-child(3n + 3) {
           border-right: unset;
           border-left: unset;
 
@@ -4886,8 +4965,8 @@
         }
       }
 
-      @media (max-width:767px) {
-        &:nth-child(3n+3) {
+      @media (max-width: 767px) {
+        &:nth-child(3n + 3) {
           border-right: 1px solid $border-color;
           border-left: unset;
 
@@ -4911,7 +4990,7 @@
           }
         }
 
-        &:nth-child(n+3) {
+        &:nth-child(n + 3) {
           border-top: 1px solid $border-color;
         }
       }
@@ -4924,7 +5003,7 @@
 
   @media (max-width: 576px) {
     .row-cols-2 {
-      &.row>div:nth-child(n+3) {
+      &.row > div:nth-child(n + 3) {
         border-top: 1px solid $border-color;
       }
     }
@@ -4932,7 +5011,7 @@
 
   @media (max-width: 993px) and (min-width: 768px) {
     .row-cols-md-3 {
-      &.row>div:nth-child(n+4) {
+      &.row > div:nth-child(n + 4) {
         border-top: 1px solid $border-color;
       }
     }
@@ -4940,7 +5019,7 @@
 
   @media (max-width: 1401px) and (min-width: 992px) {
     .row-cols-lg-4 {
-      &.row>div:nth-child(3n+3) {
+      &.row > div:nth-child(3n + 3) {
         border-right: 1px solid $border-color;
 
         body.rtl & {
@@ -4953,7 +5032,7 @@
         }
       }
 
-      &.row>div:nth-child(4n+4) {
+      &.row > div:nth-child(4n + 4) {
         border-right: unset;
 
         body.rtl & {
@@ -4970,15 +5049,15 @@
 
   @media screen and (min-width: 1400px) {
     .row-cols-xxl-6 {
-      &.row>div:nth-child(n+5) {
+      &.row > div:nth-child(n + 5) {
         border-top: unset;
       }
 
-      &.row>div:nth-child(n+7) {
+      &.row > div:nth-child(n + 7) {
         border-top: 1px solid $border-color;
       }
 
-      &.row>div:nth-child(4n+4) {
+      &.row > div:nth-child(4n + 4) {
         border-right: 1px solid $border-color;
 
         body.rtl & {
@@ -4991,7 +5070,7 @@
         }
       }
 
-      &.row>div:nth-child(6n+6) {
+      &.row > div:nth-child(6n + 6) {
         border-right: unset;
 
         body.rtl & {
@@ -5064,7 +5143,7 @@
   }
 
   &.row {
-    >.col-6 {
+    > .col-6 {
       padding: 0;
 
       .product-box {
@@ -5136,7 +5215,7 @@
   }
 
   &.row {
-    >.col-6 {
+    > .col-6 {
       .product-box {
         .add-to-cart-box {
           .btn-add-cart {
@@ -5148,7 +5227,6 @@
   }
 
   .list-style {
-
     .product-box.product-white-bg,
     .product-theme-box {
       padding: 0;
@@ -5166,7 +5244,10 @@
 
       .product-detail,
       .content-box {
-        width: calc(100% - calc(200px + (260 - 200) * ((100vw - 575px) / (1920 - 575))) - 40px);
+        width: calc(
+          100% - calc(200px + (260 - 200) * ((100vw - 575px) / (1920 - 575))) -
+            40px
+        );
         padding: 0;
         margin: 0;
         margin-inline: 20px;
@@ -5179,7 +5260,7 @@
     }
 
     .product-theme-box {
-      padding: calc(14px + 10*(100vw - 320px) / 1600);
+      padding: calc(14px + 10 * (100vw - 320px) / 1600);
 
       .content-box {
         margin: 0;
@@ -5189,7 +5270,6 @@
 }
 
 .product_border {
-
   .product-box,
   .product-style-1,
   .product-style-2 {
@@ -5222,7 +5302,6 @@
   }
 
   &.full_bg {
-
     .product-box,
     .product-style-1,
     .product-style-2 {
@@ -5246,8 +5325,8 @@
 
   .owl-carousel {
     .owl-stage-outer {
-      >* {
-        >div {
+      > * {
+        > div {
           padding-bottom: 1px;
         }
       }
@@ -5298,7 +5377,9 @@
         height: calc(180px + (220 - 180) * ((100vw - 320px) / (1920 - 320)));
         object-fit: contain;
         width: 100%;
-        transition: opacity .5s, transform 1.25s cubic-bezier(0, 0, .44, 1.18);
+        transition:
+          opacity 0.5s,
+          transform 1.25s cubic-bezier(0, 0, 0.44, 1.18);
       }
 
       .label-flex {
@@ -5333,7 +5414,9 @@
         height: calc(160px + (200 - 160) * ((100vw - 320px) / (1920 - 320)));
         object-fit: contain;
         width: 100%;
-        transition: opacity .5s, transform 1.25s cubic-bezier(0, 0, .44, 1.18);
+        transition:
+          opacity 0.5s,
+          transform 1.25s cubic-bezier(0, 0, 0.44, 1.18);
       }
 
       .label-flex {
@@ -5361,7 +5444,9 @@
         width: 100%;
         height: calc(160px + (200 - 160) * ((100vw - 320px) / (1920 - 320)));
         object-fit: cover;
-        transition: opacity .5s, transform 1.25s cubic-bezier(0, 0, .44, 1.18);
+        transition:
+          opacity 0.5s,
+          transform 1.25s cubic-bezier(0, 0, 0.44, 1.18);
       }
 
       .heart-icon {
@@ -5374,7 +5459,6 @@
   }
 
   &.product_border {
-
     .product-box,
     .product-style-1,
     .product-style-2 {
@@ -5405,7 +5489,7 @@
     }
 
     &.row {
-      >.col-6 {
+      > .col-6 {
         .product-box {
           border: 1px solid $border-color;
 
@@ -5431,7 +5515,10 @@
 
         .product-detail {
           padding: 0;
-          width: calc(100% - calc(180px + (250 - 180) * ((100vw - 575px) / (1920 - 575))) - 20px);
+          width: calc(
+            100% - calc(180px + (250 - 180) * ((100vw - 575px) / (1920 - 575))) -
+              20px
+          );
         }
       }
 
@@ -5488,7 +5575,7 @@
   }
 
   &.row {
-    >.col-6 {
+    > .col-6 {
       .product-box {
         border: unset;
       }
@@ -5496,7 +5583,6 @@
   }
 
   .list-style {
-
     .product-box.product-white-bg,
     .product-theme-box {
       padding: 0;
@@ -5514,7 +5600,10 @@
 
       .product-detail,
       .content-box {
-        width: calc(100% - calc(200px + (230 - 200) * ((100vw - 575px) / (1920 - 575))) - 40px);
+        width: calc(
+          100% - calc(200px + (230 - 200) * ((100vw - 575px) / (1920 - 575))) -
+            40px
+        );
         padding: 0;
         margin: 0;
         margin-inline: 20px;
@@ -5542,19 +5631,23 @@
           height: auto;
 
           @include mq-max(sm) {
-            height: calc(160px + 40*(100vw - 320px) / 1600);
+            height: calc(160px + 40 * (100vw - 320px) / 1600);
           }
-
         }
       }
 
       .product-detail {
         padding-bottom: 0;
         padding-left: 0;
-        width: calc(100% - calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576))) - 20px);
+        width: calc(
+          100% - calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576))) -
+            20px
+        );
 
         body.rtl & {
-          padding-left: calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320)));
+          padding-left: calc(
+            10px + (14 - 10) * ((100vw - 320px) / (1920 - 320))
+          );
           padding-right: unset;
         }
 
@@ -5568,7 +5661,7 @@
       padding: 0;
 
       .product-image {
-        width: calc(180px + (250 - 180)*((100vw - 576px) /(1920 - 576)));
+        width: calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576)));
         margin-bottom: 0;
 
         @include mq-max(sm) {
@@ -5579,13 +5672,16 @@
           height: auto;
 
           @include mq-max(sm) {
-            height: calc(160px + 40*(100vw - 320px) / 1600);
+            height: calc(160px + 40 * (100vw - 320px) / 1600);
           }
         }
       }
 
       .product-detail {
-        width: calc(100% - calc(180px + (250 - 180)*((100vw - 576px) /(1920 - 576))) - 20px);
+        width: calc(
+          100% - calc(180px + (250 - 180) * ((100vw - 576px) / (1920 - 576))) -
+            20px
+        );
 
         @include mq-max(sm) {
           width: 100%;
@@ -5606,10 +5702,10 @@
 
 .releted-product {
   .full_border {
-    >.row {
+    > .row {
       margin: 0;
 
-      >div {
+      > div {
         padding: 0;
         margin: 0;
         border-top: unset;
@@ -5628,7 +5724,7 @@
             }
           }
 
-          &:nth-child(6n+6) {
+          &:nth-child(6n + 6) {
             border-right: unset;
 
             body.rtl & {
@@ -5652,7 +5748,7 @@
             }
           }
 
-          &:nth-child(4n+4) {
+          &:nth-child(4n + 4) {
             border-right: unset;
 
             body.rtl & {
@@ -5676,7 +5772,7 @@
             }
           }
 
-          &:nth-child(3n+3) {
+          &:nth-child(3n + 3) {
             border-right: unset;
 
             body.rtl & {

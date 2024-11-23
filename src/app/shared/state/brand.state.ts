@@ -8,8 +8,8 @@ import { BrandService } from "../services/brand.service";
 export class BrandStateModel {
   brand = {
     data: [] as Brand[],
-    total: 0
-  }
+    total: 0,
+  };
   selectedBrand: Brand | null;
 }
 
@@ -18,14 +18,13 @@ export class BrandStateModel {
   defaults: {
     brand: {
       data: [],
-      total: 0
+      total: 0,
     },
-    selectedBrand: null
+    selectedBrand: null,
   },
 })
 @Injectable()
 export class BrandState {
-  
   constructor(private brandService: BrandService) {}
 
   @Selector()
@@ -42,18 +41,18 @@ export class BrandState {
   getBrands(ctx: StateContext<BrandStateModel>, action: GetBrands) {
     return this.brandService.getBrands(action.payload).pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           ctx.patchState({
             brand: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -61,17 +60,17 @@ export class BrandState {
   getBrandBySlug(ctx: StateContext<BrandStateModel>, action: GetBrandBySlug) {
     return this.brandService.getBrandBySlug(action.slug).pipe(
       tap({
-        next: result => { 
+        next: (result) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            selectedBrand: result
+            selectedBrand: result,
           });
         },
-        error: err => { 
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 }

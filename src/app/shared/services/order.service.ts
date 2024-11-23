@@ -1,21 +1,29 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { CheckoutPayload, Order, OrderModel, OrderCheckout, PlaceOrder, RePaymentPayload } from '../interface/order.interface';
-import { Params } from '../interface/core.interface';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "../../../environments/environment";
+import {
+  CheckoutPayload,
+  Order,
+  OrderModel,
+  OrderCheckout,
+  PlaceOrder,
+  RePaymentPayload,
+} from "../interface/order.interface";
+import { Params } from "../interface/core.interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class OrderService {
-
   public skeletonLoader: boolean = false;
 
   constructor(private http: HttpClient) {}
 
   getOrders(payload?: Params): Observable<OrderModel> {
-    return this.http.get<OrderModel>(`${environment.URL}/order`, { params: payload });
+    return this.http.get<OrderModel>(`${environment.URL}/order`, {
+      params: payload,
+    });
   }
 
   viewOrder(id: number): Observable<Order> {
@@ -23,7 +31,10 @@ export class OrderService {
   }
 
   checkout(payload: CheckoutPayload): Observable<OrderCheckout> {
-    return this.http.post<OrderCheckout>(`${environment.URL}/checkout`, payload);
+    return this.http.post<OrderCheckout>(
+      `${environment.URL}/checkout`,
+      payload,
+    );
   }
 
   placeOrder(payload: CheckoutPayload): Observable<PlaceOrder> {
@@ -34,15 +45,19 @@ export class OrderService {
     return this.http.post<PlaceOrder>(`${environment.URL}/rePayment`, payload);
   }
 
-  orderTracking(payload: { order_number: string, email_or_phone: string }): Observable<Order> {
-    return this.http.get<Order>(`${environment.URL}/trackOrder`, { params: payload });
+  orderTracking(payload: {
+    order_number: string;
+    email_or_phone: string;
+  }): Observable<Order> {
+    return this.http.get<Order>(`${environment.URL}/trackOrder`, {
+      params: payload,
+    });
   }
 
   downloadInvoice(payload?: Params): Observable<Blob> {
     const requestBody = {}; // You can provide any necessary request body here
-    return this.http.post<Blob>(`${environment.URL}/order/invoice`, payload , {
-      responseType: 'blob' as 'json'
+    return this.http.post<Blob>(`${environment.URL}/order/invoice`, payload, {
+      responseType: "blob" as "json",
     });
   }
-
 }

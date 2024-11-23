@@ -2,7 +2,7 @@
      Service scss
 ==========================**/
 .service-contain {
-  @include flex_common ($dis: flex, $align: center, $justify: space-between);
+  @include flex_common($dis: flex, $align: center, $justify: space-between);
   flex-wrap: wrap;
   padding-bottom: calc(30px + (50 - 30) * ((100vw - 320px) / (1920 - 320)));
 
@@ -19,7 +19,7 @@
       width: 50%;
     }
 
-    &:nth-child(-n+2) {
+    &:nth-child(-n + 2) {
       @include mq-max(2xl) {
         margin-bottom: 15px;
       }
@@ -39,7 +39,7 @@
       }
     }
 
-    +.service-box {
+    + .service-box {
       &::before {
         @include pos;
         @include center(vertical);
@@ -83,7 +83,10 @@
 
     .service-image {
       img {
-        @include pseudowh($width: calc(35px + (40 - 35) * ((100vw - 320px) / (1920 - 320))), $height: calc(35px + (40 - 35) * ((100vw - 320px) / (1920 - 320))));
+        @include pseudowh(
+          $width: calc(35px + (40 - 35) * ((100vw - 320px) / (1920 - 320))),
+          $height: calc(35px + (40 - 35) * ((100vw - 320px) / (1920 - 320)))
+        );
         object-fit: contain;
       }
     }
@@ -109,12 +112,15 @@
   align-items: center;
   padding: calc(14px + (25 - 14) * ((100vw - 320px) / (1920 - 320)));
   border-radius: 5px;
-  background-color: rgba(#bfbfbf, $alpha: .2);
+  background-color: rgba(#bfbfbf, $alpha: 0.2);
   height: 100%;
   transition: all 0.3s ease-in-out;
 
   .icon-width {
-    @include pseudowh($width: calc(39px + (45 - 39) * ((100vw - 320px) / (1920 - 320))), $height: calc(39px + (45 - 39) * ((100vw - 320px) / (1920 - 320))));
+    @include pseudowh(
+      $width: calc(39px + (45 - 39) * ((100vw - 320px) / (1920 - 320))),
+      $height: calc(39px + (45 - 39) * ((100vw - 320px) / (1920 - 320)))
+    );
     object-fit: contain;
   }
 
@@ -130,7 +136,6 @@
     }
 
     .service-detail {
-
       h3,
       h6 {
         color: white;

@@ -1,24 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxsModule } from '@ngxs/store';
-import { SharedModule } from '../../shared/shared.module';
-import {
-  RecaptchaModule,
-  RecaptchaFormsModule
-} from 'ng-recaptcha';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgxsModule } from "@ngxs/store";
+import { SharedModule } from "../../shared/shared.module";
+import { RecaptchaModule, RecaptchaFormsModule } from "ng-recaptcha";
 
-import { AuthRoutingModule } from './auth-routing.module';
+import { AuthRoutingModule } from "./auth-routing.module";
 
-import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { OtpComponent } from './otp/otp.component';
-import { UpdatePasswordComponent } from './update-password/update-password.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginWithNumberComponent } from './login-with-number/login-with-number.component';
+import { LoginComponent } from "./login/login.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
+import { OtpComponent } from "./otp/otp.component";
+import { UpdatePasswordComponent } from "./update-password/update-password.component";
+import { RegisterComponent } from "./register/register.component";
+import { LoginWithNumberComponent } from "./login-with-number/login-with-number.component";
 
-import { AuthState } from '../../shared/state/auth.state';
-import { TranslateModule } from '@ngx-translate/core';
+import { AuthState } from "../../shared/state/auth.state";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -27,7 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
     OtpComponent,
     UpdatePasswordComponent,
     RegisterComponent,
-    LoginWithNumberComponent
+    LoginWithNumberComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +35,7 @@ import { TranslateModule } from '@ngx-translate/core';
     NgxsModule.forFeature([AuthState]),
     TranslateModule,
     RecaptchaModule,
-    RecaptchaFormsModule
-  ]
+    RecaptchaFormsModule,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

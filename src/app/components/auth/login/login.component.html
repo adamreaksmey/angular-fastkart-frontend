@@ -35,13 +35,19 @@
                   />
                   <label for="email">{{ "email_address" | translate }}</label>
                   <div
-                    *ngIf="form.controls['email'].touched && form.controls['email'].errors?.['required']"
+                    *ngIf="
+                      form.controls['email'].touched &&
+                      form.controls['email'].errors?.['required']
+                    "
                     class="invalid-feedback"
                   >
                     {{ "email_is_required" | translate }}
                   </div>
                   <div
-                    *ngIf="form.controls['email'].touched && form.controls['email'].errors?.['email']"
+                    *ngIf="
+                      form.controls['email'].touched &&
+                      form.controls['email'].errors?.['email']
+                    "
                     class="invalid-feedback"
                   >
                     {{ "invalid_email" | translate }}
@@ -59,7 +65,10 @@
                   />
                   <label for="password">{{ "password" | translate }}</label>
                   <div
-                    *ngIf="form.controls['password'].touched && form.controls['password'].errors?.['required']"
+                    *ngIf="
+                      form.controls['password'].touched &&
+                      form.controls['password'].errors?.['required']
+                    "
                     class="invalid-feedback"
                   >
                     {{ "password_is_required" | translate }}
@@ -69,7 +78,10 @@
               <div class="col-12" *ngIf="reCaptcha">
                 <re-captcha formControlName="recaptcha"> </re-captcha>
                 <div
-                  *ngIf="form.controls['recaptcha']?.touched && form.controls['recaptcha']?.errors?.['required']"
+                  *ngIf="
+                    form.controls['recaptcha']?.touched &&
+                    form.controls['recaptcha']?.errors?.['required']
+                  "
                   class="invalid-feedback"
                 >
                   {{ "reCaptcha is required" | translate }}
@@ -109,11 +121,11 @@
             <a [routerLink]="['/auth/register']">{{ "sign_up" | translate }}</a>
           </div>
 
-          @if((setting$ | async)?.activation?.login_number){
-          <a [routerLink]="['/auth/login-with-number']" class="number-btn"
-            ><i class="ri-smartphone-line"></i>
-            {{ "Login With Mobile Number" | translate }}</a
-          >
+          @if ((setting$ | async)?.activation?.login_number) {
+            <a [routerLink]="['/auth/login-with-number']" class="number-btn"
+              ><i class="ri-smartphone-line"></i>
+              {{ "Login With Mobile Number" | translate }}</a
+            >
           }
         </div>
       </div>

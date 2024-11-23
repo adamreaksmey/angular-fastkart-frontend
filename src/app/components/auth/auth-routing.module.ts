@@ -32,7 +32,7 @@ const routes: Routes = [
   {
     path: "login-with-number",
     component: LoginWithNumberComponent,
-  }
+  },
 ];
 
 @NgModule({

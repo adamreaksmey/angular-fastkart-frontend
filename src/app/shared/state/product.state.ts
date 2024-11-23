@@ -2,7 +2,17 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store, Action, Selector, State, StateContext } from "@ngxs/store";
 import { tap } from "rxjs";
-import { GetProducts, GetStoreProducts, GetCategoryProducts, GetRelatedProducts, GetProductBySlug, GetDealProducts, GetProductBySearch, GetMenuProducts, GetProductByIds } from "../action/product.action";
+import {
+  GetProducts,
+  GetStoreProducts,
+  GetCategoryProducts,
+  GetRelatedProducts,
+  GetProductBySlug,
+  GetDealProducts,
+  GetProductBySearch,
+  GetMenuProducts,
+  GetProductByIds,
+} from "../action/product.action";
 import { Product, ProductModel } from "../interface/product.interface";
 import { ProductService } from "../services/product.service";
 import { ThemeOptionService } from "../services/theme-option.service";
@@ -10,8 +20,8 @@ import { ThemeOptionService } from "../services/theme-option.service";
 export class ProductStateModel {
   product = {
     data: [] as Product[],
-    total: 0
-  }
+    total: 0,
+  };
   selectedProduct: Product | null;
   categoryProducts: Product[] | [];
   relatedProducts: Product[] | [];
@@ -27,7 +37,7 @@ export class ProductStateModel {
   defaults: {
     product: {
       data: [],
-      total: 0
+      total: 0,
     },
     selectedProduct: null,
     categoryProducts: [],
@@ -36,14 +46,17 @@ export class ProductStateModel {
     dealProducts: [],
     menuProducts: [],
     productBySearch: [],
-    productByIds: []
+    productByIds: [],
   },
 })
 @Injectable()
 export class ProductState {
-
-  constructor(private store: Store, private router: Router,
-    private productService: ProductService, private themeOptionService: ThemeOptionService) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    private productService: ProductService,
+    private themeOptionService: ThemeOptionService,
+  ) {}
 
   @Selector()
   static product(state: ProductStateModel) {
@@ -99,22 +112,25 @@ export class ProductState {
           ctx.patchState({
             product: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
         complete: () => {
           this.productService.skeletonLoader = false;
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetRelatedProducts)
-  getRelatedProducts(ctx: StateContext<ProductStateModel>, action: GetProducts) {
+  getRelatedProducts(
+    ctx: StateContext<ProductStateModel>,
+    action: GetProducts,
+  ) {
     this.themeOptionService.preloader = true;
     return this.productService.getProducts(action.payload).pipe(
       tap({
@@ -122,21 +138,24 @@ export class ProductState {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            relatedProducts: result.data
+            relatedProducts: result.data,
           });
         },
         complete: () => {
           this.themeOptionService.preloader = false;
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetCategoryProducts)
-  getCategoryProducts(ctx: StateContext<ProductStateModel>, action: GetProducts) {
+  getCategoryProducts(
+    ctx: StateContext<ProductStateModel>,
+    action: GetProducts,
+  ) {
     return this.productService.getProducts(action.payload).pipe(
       tap({
         next: (result: ProductModel) => {
@@ -145,18 +164,18 @@ export class ProductState {
             ...state,
             product: {
               data: [...state.product.data, ...result.data],
-              total: state.product.data.length + result.data.length
+              total: state.product.data.length + result.data.length,
             },
-            categoryProducts: result.data
+            categoryProducts: result.data,
           });
         },
         complete: () => {
           this.themeOptionService.preloader = false;
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
@@ -168,84 +187,113 @@ export class ProductState {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            storeProducts: result.data
+            storeProducts: result.data,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetProductBySlug)
-  getProductBySlug(ctx: StateContext<ProductStateModel>, { slug }: GetProductBySlug) {
+  getProductBySlug(
+    ctx: StateContext<ProductStateModel>,
+    { slug }: GetProductBySlug,
+  ) {
     this.themeOptionService.preloader = true;
     return this.productService.getProductBySlug(slug).pipe(
       tap({
-        next: result => {
-          result.related_products = result.related_products && result.related_products.length ? result.related_products : [];
-          result.cross_sell_products = result.cross_sell_products && result.cross_sell_products.length ? result.cross_sell_products : [];
+        next: (result) => {
+          result.related_products =
+            result.related_products && result.related_products.length
+              ? result.related_products
+              : [];
+          result.cross_sell_products =
+            result.cross_sell_products && result.cross_sell_products.length
+              ? result.cross_sell_products
+              : [];
 
-          const ids = [...result.related_products, ...result.cross_sell_products];
-          const categoryIds = [...result?.categories?.map(category => category.id)];
-          this.store.dispatch(new GetRelatedProducts({ids: ids?.join(','), category_ids: categoryIds?.join(','), status: 1}));
+          const ids = [
+            ...result.related_products,
+            ...result.cross_sell_products,
+          ];
+          const categoryIds = [
+            ...result?.categories?.map((category) => category.id),
+          ];
+          this.store.dispatch(
+            new GetRelatedProducts({
+              ids: ids?.join(","),
+              category_ids: categoryIds?.join(","),
+              status: 1,
+            }),
+          );
 
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            selectedProduct: result
+            selectedProduct: result,
           });
         },
         complete: () => {
           this.themeOptionService.preloader = false;
         },
-        error: err => {
-          this.router.navigate(['/404']);
+        error: (err) => {
+          this.router.navigate(["/404"]);
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetDealProducts)
-  getDealProducts(ctx: StateContext<ProductStateModel>, action: GetDealProducts) {
+  getDealProducts(
+    ctx: StateContext<ProductStateModel>,
+    action: GetDealProducts,
+  ) {
     return this.productService.getProducts(action.payload).pipe(
       tap({
         next: (result: ProductModel) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            dealProducts: result.data
+            dealProducts: result.data,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetMenuProducts)
-  getMenuProducts(ctx: StateContext<ProductStateModel>, action: GetMenuProducts) {
+  getMenuProducts(
+    ctx: StateContext<ProductStateModel>,
+    action: GetMenuProducts,
+  ) {
     return this.productService.getProducts(action.payload).pipe(
       tap({
         next: (result: ProductModel) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            menuProducts: result.data
+            menuProducts: result.data,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetProductBySearch)
-  getProductBySearch(ctx: StateContext<ProductStateModel>, action: GetProductBySearch) {
+  getProductBySearch(
+    ctx: StateContext<ProductStateModel>,
+    action: GetProductBySearch,
+  ) {
     this.productService.searchSkeleton = true;
     return this.productService.getProductBySearch(action.payload).pipe(
       tap({
@@ -257,30 +305,31 @@ export class ProductState {
         complete: () => {
           this.productService.searchSkeleton = false;
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
 
   @Action(GetProductByIds)
-  getProductByIds(ctx: StateContext<ProductStateModel>, action: GetProductByIds) {
+  getProductByIds(
+    ctx: StateContext<ProductStateModel>,
+    action: GetProductByIds,
+  ) {
     return this.productService.getProducts(action.payload).pipe(
       tap({
         next: (result: ProductModel) => {
           const state = ctx.getState();
           ctx.patchState({
             ...state,
-            productByIds: result.data
+            productByIds: result.data,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-
-
 }

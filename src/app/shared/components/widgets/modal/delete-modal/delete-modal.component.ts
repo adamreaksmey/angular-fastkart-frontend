@@ -1,13 +1,18 @@
-import { Component, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {
+  Component,
+  ViewChild,
+  TemplateRef,
+  Output,
+  EventEmitter,
+} from "@angular/core";
+import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-delete-modal',
-  templateUrl: './delete-modal.component.html',
-  styleUrls: ['./delete-modal.component.scss']
+  selector: "app-delete-modal",
+  templateUrl: "./delete-modal.component.html",
+  styleUrls: ["./delete-modal.component.scss"],
 })
 export class DeleteModalComponent {
-
   public closeResult: string;
   public modalOpen: boolean = false;
   public userAction = {};
@@ -16,30 +21,35 @@ export class DeleteModalComponent {
 
   @Output() deleteItem: EventEmitter<any> = new EventEmitter();
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal) {}
 
   async openModal(action: string, data: any) {
     this.modalOpen = true;
     this.userAction = {
       actionToPerform: action,
-      data: data
+      data: data,
     };
-    this.modalService.open(this.DeleteModal, {
-      ariaLabelledBy: 'Delete-Modal',
-      centered: true,
-      windowClass: 'theme-modal text-center'
-    }).result.then((result) => {
-      `Result ${result}`
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.modalService
+      .open(this.DeleteModal, {
+        ariaLabelledBy: "Delete-Modal",
+        centered: true,
+        windowClass: "theme-modal text-center",
+      })
+      .result.then(
+        (result) => {
+          `Result ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        },
+      );
   }
 
   private getDismissReason(reason: ModalDismissReasons): string {
     if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
+      return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
+      return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
     }
@@ -54,5 +64,4 @@ export class DeleteModalComponent {
       this.modalService.dismissAll();
     }
   }
-
 }

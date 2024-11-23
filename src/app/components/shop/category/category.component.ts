@@ -52,7 +52,7 @@ export class CategoryComponent {
     private route: ActivatedRoute,
     private router: Router,
     private store: Store,
-    private seoService: SeoService
+    private seoService: SeoService,
   ) {
     this.category$.subscribe((category) => {
       this.category = category;

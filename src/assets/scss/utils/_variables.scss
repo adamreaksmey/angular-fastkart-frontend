@@ -42,17 +42,18 @@ $card-footer-bg-color: $white;
 $card-hover-box-shadow: 0 0 40px rgba(8, 21, 66, 0.05);
 
 // font family
-$public-sans: "Public Sans",
-sans-serif;
+$public-sans: "Public Sans", sans-serif;
 $fontawesome: "Font Awesome 6 Free";
 
 // Breakpoints
-$min-breakpoints: (lg: 992px,
+$min-breakpoints: (
+  lg: 992px,
   xl: 1200px,
   2xl: 1366px,
 );
 
-$max-breakpoints: (2xs: 360px,
+$max-breakpoints: (
+  2xs: 360px,
   xs: 480px,
   sm: 575px,
   md: 767px,

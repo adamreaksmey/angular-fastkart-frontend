@@ -1,66 +1,66 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxsModule } from '@ngxs/store';
-import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
-import { ToastrModule } from 'ngx-toastr';
-import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { APP_INITIALIZER, NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgxsModule } from "@ngxs/store";
+import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
+import { ToastrModule } from "ngx-toastr";
+import { LoadingBarRouterModule } from "@ngx-loading-bar/router";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
+import { SharedModule } from "./shared/shared.module";
+import { CoreModule } from "./core/core.module";
 import {
   RecaptchaModule,
   RECAPTCHA_SETTINGS,
   RecaptchaSettings,
-  RecaptchaFormsModule
-} from 'ng-recaptcha';
+  RecaptchaFormsModule,
+} from "ng-recaptcha";
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from "./app-routing.module";
 
 // Component
-import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
-import { MaintenanceComponent } from './maintenance/maintenance.component';
+import { AppComponent } from "./app.component";
+import { LayoutComponent } from "./layout/layout.component";
+import { MaintenanceComponent } from "./maintenance/maintenance.component";
 
 // State
-import { LoaderState } from './shared/state/loader.state';
-import { AccountState } from './shared/state/account.state';
-import { CountryState } from './shared/state/country.state';
-import { StateState } from './shared/state/state.state';
-import { ThemeState } from './shared/state/theme.state';
-import { ThemeOptionState } from './shared/state/theme-option.state';
-import { SettingState } from './shared/state/setting.state';
-import { CategoryState } from './shared/state/category.state';
-import { PageState } from './shared/state/page.state';
-import { CurrencyState } from './shared/state/currency.state';
-import { AttributeState } from './shared/state/attribute.state';
-import { ProductState } from './shared/state/product.state';
-import { StoreState } from './shared/state/store.state';
-import { CartState } from './shared/state/cart.state';
-import { BlogState } from './shared/state/blog.state';
-import { TagState } from './shared/state/tag.state';
-import { WishlistState } from './shared/state/wishlist.state';
-import { CompareState } from './shared/state/compare.state';
-import { OrderState } from './shared/state/order.state';
-import { OrderStatusState } from './shared/state/order-status.state';
-import { WalletState } from './shared/state/wallet.state';
-import { PointState } from './shared/state/point.state';
-import { RefundState } from './shared/state/refund.state';
-import { PaymentDetailsState } from './shared/state/payment-details.state';
-import { NotificationState } from './shared/state/notification.state';
-import { QuestionAnswersState } from './shared/state/questions-answers.state';
-import { ReviewState } from './shared/state/review.state';
-import { CouponState } from './shared/state/coupon.state';
-import { BrandState } from './shared/state/brand.state';
-import { DownloadState } from './shared/state/download.state';
-import { MenuState } from './shared/state/menu.state';
-import { SubscriptionState } from './shared/state/subscription.state';
+import { LoaderState } from "./shared/state/loader.state";
+import { AccountState } from "./shared/state/account.state";
+import { CountryState } from "./shared/state/country.state";
+import { StateState } from "./shared/state/state.state";
+import { ThemeState } from "./shared/state/theme.state";
+import { ThemeOptionState } from "./shared/state/theme-option.state";
+import { SettingState } from "./shared/state/setting.state";
+import { CategoryState } from "./shared/state/category.state";
+import { PageState } from "./shared/state/page.state";
+import { CurrencyState } from "./shared/state/currency.state";
+import { AttributeState } from "./shared/state/attribute.state";
+import { ProductState } from "./shared/state/product.state";
+import { StoreState } from "./shared/state/store.state";
+import { CartState } from "./shared/state/cart.state";
+import { BlogState } from "./shared/state/blog.state";
+import { TagState } from "./shared/state/tag.state";
+import { WishlistState } from "./shared/state/wishlist.state";
+import { CompareState } from "./shared/state/compare.state";
+import { OrderState } from "./shared/state/order.state";
+import { OrderStatusState } from "./shared/state/order-status.state";
+import { WalletState } from "./shared/state/wallet.state";
+import { PointState } from "./shared/state/point.state";
+import { RefundState } from "./shared/state/refund.state";
+import { PaymentDetailsState } from "./shared/state/payment-details.state";
+import { NotificationState } from "./shared/state/notification.state";
+import { QuestionAnswersState } from "./shared/state/questions-answers.state";
+import { ReviewState } from "./shared/state/review.state";
+import { CouponState } from "./shared/state/coupon.state";
+import { BrandState } from "./shared/state/brand.state";
+import { DownloadState } from "./shared/state/download.state";
+import { MenuState } from "./shared/state/menu.state";
+import { SubscriptionState } from "./shared/state/subscription.state";
 
-import { SettingService } from './shared/services/setting.service';
-import { SeoService } from './shared/services/seo.service';
+import { SettingService } from "./shared/services/setting.service";
+import { SeoService } from "./shared/services/seo.service";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -72,11 +72,7 @@ function appLoadFactory(config: SettingService) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent,
-    MaintenanceComponent
-  ],
+  declarations: [AppComponent, LayoutComponent, MaintenanceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -112,26 +108,26 @@ function appLoadFactory(config: SettingService) {
       MenuState,
       SubscriptionState,
       BrandState,
-      DownloadState
+      DownloadState,
     ]),
     NgxsStoragePluginModule.forRoot({
       key: [
-        'auth',
-        'account',
-        'country',
-        'state',
-        'cart',
-        'theme',
-        'theme_option',
-        'setting',
-        'notification'
-      ]
+        "auth",
+        "account",
+        "country",
+        "state",
+        "cart",
+        "theme",
+        "theme_option",
+        "setting",
+        "notification",
+      ],
     }),
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-top-center',
-      preventDuplicates: true
+      positionClass: "toast-top-center",
+      preventDuplicates: true,
     }),
     SharedModule,
     CoreModule,
@@ -144,7 +140,7 @@ function appLoadFactory(config: SettingService) {
       },
     }),
     RecaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
   ],
   providers: [
     {
@@ -160,9 +156,8 @@ function appLoadFactory(config: SettingService) {
       deps: [SettingService],
       multi: true,
     },
-    SeoService
+    SeoService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

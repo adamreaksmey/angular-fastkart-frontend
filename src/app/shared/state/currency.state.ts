@@ -8,8 +8,8 @@ import { CurrencyService } from "../services/currency.service";
 export class CurrencyStateModel {
   currency = {
     data: [] as Currency[],
-    total: 0
-  }
+    total: 0,
+  };
 }
 
 @State<CurrencyStateModel>({
@@ -17,13 +17,12 @@ export class CurrencyStateModel {
   defaults: {
     currency: {
       data: [],
-      total: 0
+      total: 0,
     },
   },
 })
 @Injectable()
 export class CurrencyState {
-
   constructor(private currencyService: CurrencyService) {}
 
   @Selector()
@@ -35,19 +34,18 @@ export class CurrencyState {
   getCurrencies(ctx: StateContext<CurrencyStateModel>, action: GetCurrencies) {
     return this.currencyService.getCurrencies(action.payload).pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             currency: {
               data: result.data,
-              total: result?.total ? result?.total : result.data?.length
-            }
+              total: result?.total ? result?.total : result.data?.length,
+            },
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
-        }
-      })
+        },
+      }),
     );
   }
-  
 }

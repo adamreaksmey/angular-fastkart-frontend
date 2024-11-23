@@ -31,7 +31,7 @@ export class ThemesComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store,
     private route: ActivatedRoute,
-    private themeOptionService: ThemeOptionService
+    private themeOptionService: ThemeOptionService,
   ) {}
 
   ngOnInit(): void {
@@ -57,7 +57,7 @@ export class ThemesComponent implements OnInit, OnDestroy {
           this.theme = themeSetting;
           return this.store.dispatch(new GetHomePage(themeSetting));
         }),
-        takeUntil(this.destroy$)
+        takeUntil(this.destroy$),
       )
       .subscribe((data) => {
         this.homePage = data.theme?.homePage;
